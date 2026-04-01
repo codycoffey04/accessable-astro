@@ -45,12 +45,12 @@ export default function MobileNav() {
         <>
           {/* Backdrop */}
           <div
-            className="fixed inset-0 z-50 bg-black/50"
+            className="fixed inset-0 z-[99] bg-black/50"
             onClick={() => setIsOpen(false)}
           />
 
           {/* Drawer */}
-          <div className="fixed inset-y-0 left-0 z-50 w-80 bg-background shadow-lg animate-in slide-in-from-left duration-300">
+          <div className="fixed inset-y-0 left-0 z-[100] w-80 bg-white shadow-lg animate-in slide-in-from-left duration-300">
             <div className="flex items-center justify-between p-4 border-b">
               <h2 className="text-lg font-semibold">Menu</h2>
               <button
