@@ -1,0 +1,304 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/astro/Header.astro';
+import Footer from '@/components/astro/Footer.astro';
+import Breadcrumb from '@/components/astro/Breadcrumb.astro';
+---
+
+<BaseLayout title="Compression Sock Size Guide — Find Your Perfect Fit" description="How to measure for compression socks. Size charts, calf and ankle measurement guide, wide-calf options, 30-day fit guarantee.">
+  <Header slot="header" />
+  <Breadcrumb items={[{ label: 'Size Guide' }]} />
+
+  <div class="container mx-auto px-4 py-12">
+    <div class="max-w-5xl mx-auto">
+      <!-- Header -->
+      <div class="text-center mb-12">
+        <!-- Ruler icon -->
+        <svg class="h-16 w-16 mx-auto mb-4 text-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z"/><path d="m14.5 12.5 2-2"/><path d="m11.5 9.5 2-2"/><path d="m8.5 6.5 2-2"/><path d="m17.5 15.5 2-2"/></svg>
+        <h1 class="text-4xl font-bold mb-4">Compression Sock Sizing Guide</h1>
+        <p class="text-xl text-[#374151]">
+          Find your perfect fit with our comprehensive measurement guide.
+        </p>
+      </div>
+
+      <!-- Video Tutorial -->
+      <div class="rounded-lg border bg-card text-card-foreground shadow-sm mb-12">
+        <div class="p-8">
+          <div class="flex items-start gap-4 mb-4">
+            <!-- Video icon -->
+            <svg class="h-6 w-6 text-primary flex-shrink-0 mt-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg>
+            <div>
+              <h2 class="text-xl font-semibold mb-2">Video Tutorial</h2>
+              <p class="font-medium mb-1">Video coming soon</p>
+              <p class="text-sm text-[#374151] mb-4">
+                Our measurement guide video will include captions, transcript, and audio description.
+              </p>
+              <span class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors">3 min tutorial</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Measurement Instructions -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold mb-6">How to Measure</h2>
+        <p class="text-[#374151] mb-6">Use a flexible measuring tape. Record all measurements in inches.</p>
+        <div class="grid sm:grid-cols-3 gap-6">
+          <div class="rounded-lg border bg-card text-card-foreground shadow-sm">
+            <div class="p-6 text-center">
+              <svg class="h-10 w-10 mx-auto mb-3 text-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z"/><path d="m14.5 12.5 2-2"/><path d="m11.5 9.5 2-2"/><path d="m8.5 6.5 2-2"/><path d="m17.5 15.5 2-2"/></svg>
+              <h3 class="font-semibold mb-2">1. Ankle (B)</h3>
+              <p class="text-sm text-[#374151]">Measure the narrowest point just above the ankle bone.</p>
+            </div>
+          </div>
+          <div class="rounded-lg border bg-card text-card-foreground shadow-sm">
+            <div class="p-6 text-center">
+              <svg class="h-10 w-10 mx-auto mb-3 text-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z"/><path d="m14.5 12.5 2-2"/><path d="m11.5 9.5 2-2"/><path d="m8.5 6.5 2-2"/><path d="m17.5 15.5 2-2"/></svg>
+              <h3 class="font-semibold mb-2">2. Calf (C)</h3>
+              <p class="text-sm text-[#374151]">Measure the widest part of your calf while standing.</p>
+            </div>
+          </div>
+          <div class="rounded-lg border bg-card text-card-foreground shadow-sm">
+            <div class="p-6 text-center">
+              <svg class="h-10 w-10 mx-auto mb-3 text-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z"/><path d="m14.5 12.5 2-2"/><path d="m11.5 9.5 2-2"/><path d="m8.5 6.5 2-2"/><path d="m17.5 15.5 2-2"/></svg>
+              <h3 class="font-semibold mb-2">3. Leg Length</h3>
+              <p class="text-sm text-[#374151]">Measure from the floor to the crease behind the knee.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Measurement Tips -->
+      <section class="mb-12">
+        <div class="bg-primary/10 rounded-lg p-6 flex items-start gap-3">
+          <!-- AlertCircle icon -->
+          <svg class="h-5 w-5 text-primary flex-shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
+          <div class="space-y-2 text-sm">
+            <p><strong>Measure in the morning</strong> when swelling is at its lowest for the most accurate results.</p>
+            <p><strong>Between sizes?</strong> We recommend sizing up for the most comfortable fit.</p>
+            <p>Each size is available in <strong>Short and Tall leg lengths</strong> to accommodate different leg proportions.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Standard Sizing Chart -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold mb-6">Standard Sizing Chart</h2>
+        <div class="overflow-x-auto" role="region" aria-label="Standard sizing chart" tabindex="0">
+          <table class="w-full min-w-[640px] border-collapse bg-card text-sm">
+            <caption class="sr-only">Standard compression sock sizes with shoe size, ankle, calf, and leg length measurements</caption>
+            <thead>
+              <tr class="border-b bg-muted/50">
+                <th scope="col" class="text-left p-3 font-semibold whitespace-nowrap">Size</th>
+                <th scope="col" class="text-left p-3 font-semibold whitespace-nowrap">Women's Shoe</th>
+                <th scope="col" class="text-left p-3 font-semibold whitespace-nowrap">Men's Shoe</th>
+                <th scope="col" class="text-left p-3 font-semibold whitespace-nowrap">Ankle Circ. (B)</th>
+                <th scope="col" class="text-left p-3 font-semibold whitespace-nowrap">Calf Circ. (C)</th>
+                <th scope="col" class="text-left p-3 font-semibold whitespace-nowrap">Leg Length (Short / Tall)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b">
+                <td class="p-3 font-medium whitespace-nowrap">S</td>
+                <td class="p-3">5&ndash;6</td>
+                <td class="p-3">4&ndash;6</td>
+                <td class="p-3">7.0&ndash;8.25&Prime;</td>
+                <td class="p-3">11&ndash;15&Prime;</td>
+                <td class="p-3 whitespace-nowrap">13&ndash;15&Prime; / 15&ndash;16&Prime;</td>
+              </tr>
+              <tr class="border-b bg-muted/30">
+                <td class="p-3 font-medium whitespace-nowrap">M</td>
+                <td class="p-3">6.5&ndash;9</td>
+                <td class="p-3">6.5&ndash;8.5</td>
+                <td class="p-3">8.5&ndash;9.5&Prime;</td>
+                <td class="p-3">13&ndash;17&Prime;</td>
+                <td class="p-3 whitespace-nowrap">14&ndash;16&Prime; / 16&ndash;17&Prime;</td>
+              </tr>
+              <tr class="border-b">
+                <td class="p-3 font-medium whitespace-nowrap">L</td>
+                <td class="p-3">9.5&ndash;11</td>
+                <td class="p-3">9&ndash;11</td>
+                <td class="p-3">10&ndash;11.0&Prime;</td>
+                <td class="p-3">14.5&ndash;19&Prime;</td>
+                <td class="p-3 whitespace-nowrap">15&ndash;17&Prime; / 17&ndash;18&Prime;</td>
+              </tr>
+              <tr class="border-b bg-muted/30">
+                <td class="p-3 font-medium whitespace-nowrap">XL</td>
+                <td class="p-3">11.5&ndash;13</td>
+                <td class="p-3">11.5&ndash;12.5</td>
+                <td class="p-3">11.5&ndash;12.25&Prime;</td>
+                <td class="p-3">16&ndash;21&Prime;</td>
+                <td class="p-3 whitespace-nowrap">16&ndash;18&Prime; / 18&ndash;19&Prime;</td>
+              </tr>
+              <tr class="border-b">
+                <td class="p-3 font-medium whitespace-nowrap">2XL</td>
+                <td class="p-3">13.5&ndash;16.5</td>
+                <td class="p-3">13.5&ndash;15</td>
+                <td class="p-3">12.5&ndash;13.5&Prime;</td>
+                <td class="p-3">18&ndash;23&Prime;</td>
+                <td class="p-3 whitespace-nowrap">17&ndash;19&Prime; / 19&ndash;20&Prime;</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Wide Calf Sizing Chart -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold mb-6">Wide Calf Sizing Chart</h2>
+        <div class="overflow-x-auto" role="region" aria-label="Wide calf sizing chart" tabindex="0">
+          <table class="w-full min-w-[640px] border-collapse bg-card text-sm">
+            <caption class="sr-only">Wide calf compression sock sizes with shoe size, ankle, calf, and leg length measurements</caption>
+            <thead>
+              <tr class="border-b bg-muted/50">
+                <th scope="col" class="text-left p-3 font-semibold whitespace-nowrap">Size</th>
+                <th scope="col" class="text-left p-3 font-semibold whitespace-nowrap">Women's Shoe</th>
+                <th scope="col" class="text-left p-3 font-semibold whitespace-nowrap">Men's Shoe</th>
+                <th scope="col" class="text-left p-3 font-semibold whitespace-nowrap">Ankle Circ. (B)</th>
+                <th scope="col" class="text-left p-3 font-semibold whitespace-nowrap">Calf Circ. (C)</th>
+                <th scope="col" class="text-left p-3 font-semibold whitespace-nowrap">Leg Length (Short / Tall)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b">
+                <td class="p-3 font-medium whitespace-nowrap">WC-S</td>
+                <td class="p-3">5&ndash;6</td>
+                <td class="p-3">4&ndash;6</td>
+                <td class="p-3">8.5&ndash;10.0&Prime;</td>
+                <td class="p-3">15.5&ndash;19&Prime;</td>
+                <td class="p-3 whitespace-nowrap">13&ndash;15&Prime; / 15&ndash;16&Prime;</td>
+              </tr>
+              <tr class="border-b bg-muted/30">
+                <td class="p-3 font-medium whitespace-nowrap">WC-M</td>
+                <td class="p-3">6.5&ndash;9</td>
+                <td class="p-3">6.5&ndash;8.5</td>
+                <td class="p-3">10.5&ndash;12.0&Prime;</td>
+                <td class="p-3">17.5&ndash;23&Prime;</td>
+                <td class="p-3 whitespace-nowrap">14&ndash;16&Prime; / 16&ndash;17&Prime;</td>
+              </tr>
+              <tr class="border-b">
+                <td class="p-3 font-medium whitespace-nowrap">WC-L</td>
+                <td class="p-3">9.5&ndash;11</td>
+                <td class="p-3">9&ndash;11</td>
+                <td class="p-3">12.5&ndash;13.5&Prime;</td>
+                <td class="p-3">19.5&ndash;26&Prime;</td>
+                <td class="p-3 whitespace-nowrap">15&ndash;17&Prime; / 17&ndash;18&Prime;</td>
+              </tr>
+              <tr class="border-b bg-muted/30">
+                <td class="p-3 font-medium whitespace-nowrap">WC-XL</td>
+                <td class="p-3">11.5&ndash;13</td>
+                <td class="p-3">11.5&ndash;13</td>
+                <td class="p-3">14&ndash;15.0&Prime;</td>
+                <td class="p-3">21.5&ndash;30&Prime;</td>
+                <td class="p-3 whitespace-nowrap">16&ndash;18&Prime; / 18&ndash;19&Prime;</td>
+              </tr>
+              <tr class="border-b">
+                <td class="p-3 font-medium whitespace-nowrap">WC-2XL</td>
+                <td class="p-3">13.5&ndash;16.5</td>
+                <td class="p-3">13.5&ndash;15</td>
+                <td class="p-3">14&ndash;16.0&Prime;</td>
+                <td class="p-3">24&ndash;32&Prime;</td>
+                <td class="p-3 whitespace-nowrap">17&ndash;19&Prime; / 19&ndash;20&Prime;</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Compression Levels -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold mb-6">Compression Levels</h2>
+        <div class="overflow-x-auto" role="region" aria-label="Compression levels guide" tabindex="0">
+          <table class="w-full min-w-[400px] border-collapse bg-card text-sm">
+            <caption class="sr-only">Compression level guide showing mmHg ranges and descriptions</caption>
+            <thead>
+              <tr class="border-b bg-muted/50">
+                <th scope="col" class="text-left p-3 font-semibold">Level</th>
+                <th scope="col" class="text-left p-3 font-semibold">mmHg</th>
+                <th scope="col" class="text-left p-3 font-semibold">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b">
+                <td class="p-3 font-medium">0</td>
+                <td class="p-3">8&ndash;15 mmHg</td>
+                <td class="p-3">Gentle Wellness</td>
+              </tr>
+              <tr class="border-b bg-muted/30">
+                <td class="p-3 font-medium">1</td>
+                <td class="p-3">15&ndash;20 mmHg</td>
+                <td class="p-3">Everyday Relief</td>
+              </tr>
+              <tr class="border-b">
+                <td class="p-3 font-medium">2</td>
+                <td class="p-3">20&ndash;30 mmHg</td>
+                <td class="p-3">Medical Support</td>
+              </tr>
+              <tr class="border-b bg-muted/30">
+                <td class="p-3 font-medium">3</td>
+                <td class="p-3">30&ndash;40 mmHg</td>
+                <td class="p-3">Firm Medical</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Fit Tips -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold mb-6">Fit Tips & Troubleshooting</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="rounded-lg border bg-card text-card-foreground shadow-sm">
+            <div class="p-6">
+              <h3 class="font-semibold mb-3">When They Fit Correctly</h3>
+              <ul class="space-y-2 text-[#374151]">
+                <li>&#10003; Snug but comfortable compression</li>
+                <li>&#10003; No bunching or wrinkling</li>
+                <li>&#10003; Heel sits in heel pocket</li>
+                <li>&#10003; Top band stays in place without rolling</li>
+                <li>&#10003; No numbness or tingling</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="rounded-lg border bg-card text-card-foreground shadow-sm">
+            <div class="p-6">
+              <h3 class="font-semibold mb-3">Common Fit Issues</h3>
+              <ul class="space-y-2 text-[#374151]">
+                <li><strong>Too tight:</strong> Size up or try lower compression</li>
+                <li><strong>Sliding down:</strong> Size down or adjust application</li>
+                <li><strong>Bunching:</strong> Ensure smooth application from toe up</li>
+                <li><strong>Difficult to put on:</strong> Use a donning aid</li>
+                <li><strong>Between sizes:</strong> Choose the larger size</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Fit Guarantee -->
+      <div class="p-8 bg-gold/10 rounded-lg text-center">
+        <h3 class="text-2xl font-bold mb-4">30-Day Fit Guarantee</h3>
+        <p class="text-lg mb-6">
+          Not the right fit? Free exchanges within 30 days. We'll help you find the perfect size.
+        </p>
+        <a href="/policies/shipping-returns" class="text-primary hover:underline font-medium">
+          View Full Exchange Policy →
+        </a>
+      </div>
+
+      <!-- Help CTA -->
+      <div class="rounded-lg border bg-card text-card-foreground shadow-sm mt-12">
+        <div class="p-8 text-center">
+          <h3 class="text-2xl font-bold mb-3">Not Sure? Contact Us</h3>
+          <p class="text-[#374151] mb-6">
+            Send us your measurements and we'll recommend the right size and compression level for you.
+          </p>
+          <a href="/contact" class="inline-flex items-center justify-center rounded-md bg-primary text-primary-foreground px-6 py-3 text-sm font-medium hover:bg-primary/90 transition-colors">Get Sizing Help</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <Footer slot="footer" />
+</BaseLayout>

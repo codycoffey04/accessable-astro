@@ -1,0 +1,221 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/astro/Header.astro';
+import Footer from '@/components/astro/Footer.astro';
+import Breadcrumb from '@/components/astro/Breadcrumb.astro';
+---
+
+<BaseLayout
+  title="Shipping & Returns — Free Shipping, 30-Day Returns"
+  description="Free shipping on all orders. 30-day hassle-free returns and free size exchanges."
+>
+  <Header slot="header" />
+
+  <Breadcrumb items={[{ label: 'Shipping & Returns' }]} />
+
+  <div class="container mx-auto px-4 py-12">
+    <div class="max-w-5xl mx-auto">
+      <h1 class="text-4xl font-bold mb-8 text-center">Shipping & Returns Policy</h1>
+
+      <!-- Pre-launch Banner -->
+      <div class="bg-primary/10 border border-primary/20 rounded-lg p-6 mb-8 text-center">
+        <p class="font-medium mb-2">We're currently in pre-launch.</p>
+        <p class="text-muted-foreground text-sm mb-3">
+          These policies take effect when we officially launch in mid-2026. Details may be updated before launch.
+        </p>
+        <a
+          href="https://signup.accessablecompression.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-primary hover:underline text-sm font-medium"
+        >
+          Join our waitlist to be notified at launch &rarr;
+        </a>
+      </div>
+
+      <!-- Quick Overview -->
+      <div class="grid md:grid-cols-4 gap-6 mb-12">
+        <div class="rounded-lg border bg-card text-card-foreground shadow-sm">
+          <div class="p-6 text-center">
+            <!-- Truck icon -->
+            <svg class="h-8 w-8 mx-auto mb-3 text-primary" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="11" x="1" y="3" rx="2" ry="2"/><path d="M17 14V3"/><path d="m17 8 4 2v6h-2"/><circle cx="7.5" cy="17.5" r="2.5"/><circle cx="19.5" cy="17.5" r="2.5"/><path d="M1 14h16"/></svg>
+            <h3 class="font-semibold mb-2">Free Shipping</h3>
+            <p class="text-sm text-muted-foreground">On orders $50+</p>
+          </div>
+        </div>
+        <div class="rounded-lg border bg-card text-card-foreground shadow-sm">
+          <div class="p-6 text-center">
+            <!-- Package icon -->
+            <svg class="h-8 w-8 mx-auto mb-3 text-primary" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
+            <h3 class="font-semibold mb-2">Fast Delivery</h3>
+            <p class="text-sm text-muted-foreground">5-7 business days</p>
+          </div>
+        </div>
+        <div class="rounded-lg border bg-card text-card-foreground shadow-sm">
+          <div class="p-6 text-center">
+            <!-- RefreshCcw icon -->
+            <svg class="h-8 w-8 mx-auto mb-3 text-primary" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 16h5v5"/></svg>
+            <h3 class="font-semibold mb-2">30-Day Returns</h3>
+            <p class="text-sm text-muted-foreground">Easy returns & exchanges</p>
+          </div>
+        </div>
+        <div class="rounded-lg border bg-card text-card-foreground shadow-sm">
+          <div class="p-6 text-center">
+            <!-- CheckCircle icon -->
+            <svg class="h-8 w-8 mx-auto mb-3 text-primary" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+            <h3 class="font-semibold mb-2">Fit Guarantee</h3>
+            <p class="text-sm text-muted-foreground">Free size exchanges</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Shipping Information -->
+      <section class="mb-12">
+        <h2 class="text-3xl font-bold mb-6">Shipping Information</h2>
+
+        <div class="space-y-6">
+          <div>
+            <h3 class="text-xl font-semibold mb-3">Shipping Options</h3>
+            <div class="overflow-x-auto">
+              <table class="w-full border-collapse">
+                <thead>
+                  <tr class="border-b">
+                    <th scope="col" class="text-left p-4 font-semibold">Method</th>
+                    <th scope="col" class="text-left p-4 font-semibold">Delivery Time</th>
+                    <th scope="col" class="text-left p-4 font-semibold">Cost</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="border-b">
+                    <td class="p-4">Standard Shipping</td>
+                    <td class="p-4">5-7 business days</td>
+                    <td class="p-4">$5.99 (FREE on orders $50+)</td>
+                  </tr>
+                  <tr class="border-b">
+                    <td class="p-4">Expedited Shipping</td>
+                    <td class="p-4">2-3 business days</td>
+                    <td class="p-4">$12.99</td>
+                  </tr>
+                  <tr class="border-b">
+                    <td class="p-4">Overnight Shipping</td>
+                    <td class="p-4">1 business day</td>
+                    <td class="p-4">$24.99</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-semibold mb-3">Processing Time</h3>
+            <p class="text-muted-foreground mb-2">
+              Orders are typically processed within 1-2 business days (Monday-Friday, excluding holidays). You will receive a shipping confirmation email with tracking information once your order ships.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-semibold mb-3">Shipping Locations</h3>
+            <p class="text-muted-foreground mb-2">
+              We currently ship to all 50 U.S. states and U.S. territories. International shipping is coming soon.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-semibold mb-3">Order Tracking</h3>
+            <p class="text-muted-foreground mb-2">
+              Once your order ships, you'll receive a tracking number via email. You can also track your order by logging into your account and viewing your order history.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Returns & Exchanges -->
+      <section class="mb-12">
+        <h2 class="text-3xl font-bold mb-6">Returns & Exchanges</h2>
+
+        <div class="space-y-6">
+          <div>
+            <h3 class="text-xl font-semibold mb-3">30-Day Return Policy</h3>
+            <p class="text-muted-foreground mb-4">
+              We want you to be completely satisfied with your purchase. If you're not happy with your order, you may return unopened products in their original packaging within 30 days of delivery for a full refund.
+            </p>
+            <p class="text-muted-foreground">
+              <strong>Opened products</strong> can be exchanged for a different size or style within 30 days. We cannot accept returns of opened products for sanitary reasons unless the product is defective.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-semibold mb-3">Free Size Exchanges</h3>
+            <p class="text-muted-foreground mb-4">
+              Not the right fit? We offer free exchanges for different sizes. Simply contact us and we'll send you a prepaid return label and ship your replacement at no charge.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-semibold mb-3">How to Initiate a Return</h3>
+            <ol class="list-decimal list-inside space-y-2 text-muted-foreground">
+              <li>Contact our customer service team at support@accessablecompression.com</li>
+              <li>Provide your order number and reason for return</li>
+              <li>We'll email you a prepaid return shipping label</li>
+              <li>Pack the item(s) securely in the original packaging</li>
+              <li>Attach the return label and drop off at any USPS location</li>
+              <li>Refunds are processed within 5-7 business days of receiving your return</li>
+            </ol>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-semibold mb-3">Items That Cannot Be Returned</h3>
+            <ul class="list-disc list-inside space-y-2 text-muted-foreground">
+              <li>Opened products (except for defects or wrong item sent)</li>
+              <li>Items purchased more than 30 days ago</li>
+              <li>Products without original packaging</li>
+              <li>Gift cards</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-semibold mb-3">Defective or Damaged Items</h3>
+            <p class="text-muted-foreground mb-4">
+              If you receive a defective or damaged product, please contact us immediately. We'll arrange for a replacement or full refund at no cost to you. Please provide photos of the defect or damage to expedite the process.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-semibold mb-3">Wrong Item Received</h3>
+            <p class="text-muted-foreground mb-4">
+              If you receive the wrong item, please contact us right away. We'll send you the correct item and provide a prepaid return label for the incorrect item at no charge to you.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Refund Information -->
+      <section class="mb-12">
+        <h2 class="text-3xl font-bold mb-6">Refund Information</h2>
+        <div class="space-y-4">
+          <p class="text-muted-foreground">
+            Refunds are processed to the original payment method within 5-7 business days of receiving your return. Please allow an additional 3-5 business days for the refund to appear on your statement, depending on your financial institution.
+          </p>
+          <p class="text-muted-foreground">
+            <strong>Shipping costs:</strong> Original shipping charges are non-refundable unless the return is due to our error (defective product, wrong item sent, etc.).
+          </p>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <div class="bg-muted/40 rounded-lg p-8 text-center">
+        <h3 class="text-2xl font-bold mb-4">Questions About Your Order?</h3>
+        <p class="text-muted-foreground mb-6">
+          Our customer service team is here to help.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="mailto:support@accessablecompression.com" class="text-primary hover:underline">
+            support@accessablecompression.com
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <Footer slot="footer" />
+</BaseLayout>

@@ -1,0 +1,36 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/astro/Header.astro';
+import Footer from '@/components/astro/Footer.astro';
+import Breadcrumb from '@/components/astro/Breadcrumb.astro';
+---
+
+<BaseLayout title="Pro Login — AccessAble Healthcare Portal" description="Sign in to your AccessAble Pro account for bulk ordering, starter kits, and professional resources." noindex={true}>
+  <Header slot="header" />
+  <Breadcrumb items={[{ label: 'AccessAble Pro', href: '/pro' }, { label: 'Login' }]} />
+
+  <div class="container max-w-md mx-auto px-4 py-16">
+    <div class="text-center mb-8">
+      <div class="inline-block px-4 py-2 bg-primary/10 rounded-full mb-4">
+        <span class="text-primary font-semibold">AccessAble Pro</span>
+      </div>
+      <h1 class="text-3xl font-bold mb-2">AccessAble Pro Account</h1>
+      <p class="text-muted-foreground">
+        Access your professional account
+      </p>
+    </div>
+
+    <div class="rounded-lg border bg-card p-8 text-center">
+      <p class="text-lg font-semibold mb-2">Pro Portal Coming Soon</p>
+      <p class="text-muted-foreground mb-6">
+        The AccessAble Pro login portal is currently being built. In the meantime, contact us directly for bulk orders, samples, and professional resources.
+      </p>
+      <div class="space-y-3">
+        <a href="mailto:support@accessablecompression.com" class="block w-full inline-flex items-center justify-center rounded-md bg-primary text-primary-foreground px-6 py-3 text-sm font-medium hover:bg-primary/90 transition-colors">Email Us</a>
+        <a href="/pro" class="block w-full inline-flex items-center justify-center rounded-md border border-input bg-background px-6 py-3 text-sm font-medium hover:bg-accent hover:text-accent-foreground transition-colors">Back to AccessAble Pro</a>
+      </div>
+    </div>
+  </div>
+
+  <Footer slot="footer" />
+</BaseLayout>

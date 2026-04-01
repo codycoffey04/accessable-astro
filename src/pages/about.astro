@@ -1,0 +1,311 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/astro/Header.astro';
+import Footer from '@/components/astro/Footer.astro';
+import Breadcrumb from '@/components/astro/Breadcrumb.astro';
+---
+
+<BaseLayout title="About AccessAble — Built from Lived Experience" description="Founded after a C4 spinal cord injury. AccessAble creates adaptive compression socks designed for real hands and real challenges. Our story.">
+  <Header slot="header" />
+  <Breadcrumb items={[{ label: 'About' }]} />
+
+  <div class="flex flex-col lg:min-h-[calc(100vh-4rem)]">
+    <!-- Hero Section -->
+    <section class="relative bg-[#FAF8F3] pt-8 pb-16 lg:flex-1 lg:flex lg:flex-col lg:justify-center lg:py-12">
+      <div class="container mx-auto px-4">
+        <div class="grid md:grid-cols-2 gap-8 lg:gap-16 items-center">
+
+          <!-- Left Column — Story -->
+          <div class="flex flex-col justify-center">
+            <!-- Badge pill -->
+            <div class="inline-flex items-center gap-2 bg-gold/10 border border-gold/30 rounded-full px-4 py-1.5 mb-6 w-fit">
+              <span class="w-2 h-2 rounded-full bg-gold"></span>
+              <span class="text-xs font-semibold tracking-wider text-gold-text uppercase">
+                Our Story
+              </span>
+            </div>
+
+            <!-- Headline -->
+            <h1 class="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight mb-6">
+              Built from Real Need
+            </h1>
+
+            <!-- Body copy -->
+            <div class="space-y-4 mb-6">
+              <p class="text-lg text-[#374151] leading-relaxed">
+                I broke my neck in December 2023. Six months into recovery, the hardest part of my morning wasn't the injury — it was getting compression socks on.
+              </p>
+              <p class="text-lg text-[#374151] leading-relaxed">
+                Medical-grade compression requires grip strength and flexibility I don't have. Adaptive tools felt clunky and clinical. I needed compression that actually worked for my hands — not devices to wrestle with standard socks.
+              </p>
+              <p class="text-lg text-[#374151] leading-relaxed">
+                AccessAble exists to close that gap. Patent-pending adaptive technology — wide-mouth openings and a built-in numbered guide system built into medical-grade graduated compression. No separate tools. No unnecessary barriers.
+              </p>
+            </div>
+
+            <!-- Bold closing line -->
+            <p class="text-lg font-bold text-foreground mb-2">
+              Independence shouldn't require choosing between efficacy and ease.
+            </p>
+
+            <!-- Sign-off -->
+            <p class="text-base italic text-[#374151] mb-8">
+              — Cody, Founder
+            </p>
+
+            <!-- CTA -->
+            <div>
+              <a href="/collections/all" class="inline-flex items-center justify-center h-12 px-8 bg-primary text-primary-foreground hover:bg-[#C9A84C] hover:text-[#1B2A4A] hover:scale-[1.04] transition-all duration-200 ease-in-out rounded-md text-sm font-medium">Explore Our Products →</a>
+            </div>
+          </div>
+
+          <!-- Right Column — Product Image -->
+          <div class="flex flex-col items-center">
+            <div class="relative w-full max-w-md aspect-square flex items-center justify-center">
+              <!-- Subtle radial gradient circle -->
+              <div
+                class="absolute inset-0 flex items-center justify-center pointer-events-none"
+                aria-hidden="true"
+              >
+                <div
+                  class="w-[85%] h-[85%] rounded-full"
+                  style="background: radial-gradient(circle, hsl(43 59% 53% / 0.1), hsl(43 59% 53% / 0.05), transparent)"
+                ></div>
+              </div>
+              <!-- Product image -->
+              <img
+                src="/images/donnease-15-20-black.png"
+                alt="DonnEase adaptive compression sock in black"
+                class="relative z-10 w-full h-full object-contain drop-shadow-lg"
+              />
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div>
+    <!-- Founder Story Section -->
+    <section id="story" class="py-16 bg-white mt-[120px]">
+      <div class="container mx-auto px-4">
+        <div class="max-w-3xl mx-auto">
+          <h2 class="text-3xl font-bold mb-8 text-center">Why AccessAble Exists</h2>
+
+          <div class="prose prose-lg max-w-none space-y-6 text-[#374151]">
+            <p>
+              I'm Cody, founder of AccessAble. In December 2023, a C4 incomplete spinal cord injury changed everything about how I move through the world.
+            </p>
+
+            <p>
+              Six months into recovery, my doctor prescribed 20-30 mmHg graduated compression, daily wear. Simple enough, except standard compression socks require grip strength and flexibility I no longer have. My hands can't pull tight fabric over my heel. I can't reach my feet without a fight. Every morning came down to the same choice: ask someone for help or skip compression entirely.
+            </p>
+
+            <p>
+              Neither option was acceptable.
+            </p>
+
+            <p>
+              I tried what was out there. Plastic frames, metal slides, zipper socks, velcro wraps. Every one of them traded one problem for another. More equipment to manage. More coordination I didn't have. More reminders that something this basic had become this hard.
+            </p>
+
+            <p>
+              What I needed didn't exist yet. Compression socks that delivered real medical-grade support but were actually built for hands like mine.
+            </p>
+
+            <p>
+              So my father built them.
+            </p>
+
+            <p>
+              He owns Runway Knitting Inc., a U.S. hosiery facility where he's spent over 20 years manufacturing compression products. During visits after my injury, he saw firsthand what I was dealing with. Where my fingers couldn't grip. Where the fabric caught on my heel. Where I just gave up. He went back to the factory and started designing around every single limitation.
+            </p>
+
+            <p>
+              The result is DonnEase™. Patent-pending adaptive compression with wide-mouth openings at 3x standard width and an integrated numbered guide system, built directly into medical-grade graduated compression fabric. No separate devices. No compromise on compression efficacy. No unnecessary barriers.
+            </p>
+
+            <p class="font-semibold text-foreground text-xl">
+              Independence shouldn't require choosing between what works medically and what works physically.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mission & Values Section -->
+    <section class="py-16 bg-[#F4F1EA] mt-[120px]">
+      <div class="container mx-auto px-4">
+        <div class="max-w-5xl mx-auto">
+          <h2 class="text-3xl font-bold mb-12 text-center">What Drives Us</h2>
+
+          <div class="grid md:grid-cols-2 gap-8">
+            <div class="rounded-lg border bg-card text-card-foreground shadow-sm p-8 border-t-[3px] border-t-[#C9A84C]">
+              <!-- Target icon -->
+              <svg class="w-12 h-12 text-gold mb-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+              <h3 class="text-xl font-bold mb-3">Purpose-Built Solutions</h3>
+              <p class="text-[#374151]">
+                We don't add adaptive features as an afterthought. We build them into the compression technology itself. Wide openings, numbered markers, and graduated compression working together—not competing.
+              </p>
+            </div>
+            <div class="rounded-lg border bg-card text-card-foreground shadow-sm p-8 border-t-[3px] border-t-[#C9A84C]">
+              <!-- Heart icon -->
+              <svg class="w-12 h-12 text-gold mb-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+              <h3 class="text-xl font-bold mb-3">Dignity Through Design</h3>
+              <p class="text-[#374151]">
+                Independence matters. Adaptive solutions shouldn't look institutional or require clinical settings. Medical-grade compression that fits into daily life, not separate from it.
+              </p>
+            </div>
+            <div class="rounded-lg border bg-card text-card-foreground shadow-sm p-8 border-t-[3px] border-t-[#C9A84C]">
+              <!-- Award icon -->
+              <svg class="w-12 h-12 text-gold mb-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+              <h3 class="text-xl font-bold mb-3">No Compromise on Quality</h3>
+              <p class="text-[#374151]">
+                20-30 mmHg graduated compression manufactured to medical device standards. Adaptive features don't reduce compression efficacy—they make it accessible.
+              </p>
+            </div>
+            <div class="rounded-lg border bg-card text-card-foreground shadow-sm p-8 border-t-[3px] border-t-[#C9A84C]">
+              <!-- Users icon -->
+              <svg class="w-12 h-12 text-gold mb-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              <h3 class="text-xl font-bold mb-3">Real-World Tested</h3>
+              <p class="text-[#374151]">
+                Refined through wear testing with people who have arthritis, limited mobility, post-surgical restrictions, and spinal cord injuries. Built for real hands, not ideal conditions.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Who We Serve Section -->
+    <section class="py-16 bg-[#FAF8F3] mt-[120px]">
+      <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-3xl font-bold mb-8 text-center">Who We Serve</h2>
+
+          <div class="space-y-6 text-lg text-[#374151]">
+            <p>
+              AccessAble exists for anyone who needs medical-grade compression but has limited hand strength, reduced flexibility, or mobility challenges that make traditional compression socks physically inaccessible.
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-6 mt-8">
+              <div class="rounded-lg border bg-card text-card-foreground shadow-sm p-6 border-t-[3px] border-t-[#C9A84C]">
+                <h3 class="font-bold mb-2">Individuals</h3>
+                <ul class="text-[#374151] space-y-2">
+                  <li>• Post-surgical recovery (hip, knee, vascular procedures)</li>
+                  <li>• Arthritis or limited grip strength</li>
+                  <li>• Spinal cord injuries</li>
+                  <li>• Stroke recovery</li>
+                  <li>• Limited hip or knee flexibility</li>
+                  <li>• Wheelchair users</li>
+                  <li>• Chronic mobility challenges</li>
+                </ul>
+              </div>
+
+              <div class="rounded-lg border bg-card text-card-foreground shadow-sm p-6 border-t-[3px] border-t-[#C9A84C]">
+                <h3 class="font-bold mb-2">Healthcare Professionals</h3>
+                <ul class="text-[#374151] space-y-2">
+                  <li>• Physical therapy clinics</li>
+                  <li>• Occupational therapy practices</li>
+                  <li>• Home health agencies</li>
+                  <li>• Skilled nursing facilities</li>
+                  <li>• Rehabilitation centers</li>
+                  <li>• Medical supply distributors</li>
+                </ul>
+              </div>
+            </div>
+
+            <p class="mt-6">
+              If you've been prescribed compression but can't use standard socks independently, AccessAble was built for you.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product Innovation Section -->
+    <section class="py-16 bg-white mt-[120px]">
+      <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-3xl font-bold mb-8 text-center">What Makes AccessAble Different</h2>
+
+          <div class="space-y-6 text-lg text-[#374151]">
+            <p>
+              Standard compression socks and adaptive tools approach the problem as two separate issues: you need compression (medical problem), and you need help putting it on (adaptive problem). That creates a choice between efficacy and independence.
+            </p>
+
+            <p>
+              AccessAble approaches it as one design problem. Our patent-pending technology integrates adaptive features directly into medical-grade compression fabric:
+            </p>
+
+            <div class="bg-gold/10 p-8 rounded-lg my-8">
+              <h3 class="font-bold text-xl mb-4">Patent-Pending Adaptive Technology</h3>
+              <ul class="space-y-3">
+                <li class="flex items-start gap-3">
+                  <span class="text-gold font-bold">•</span>
+                  <span><strong>Wide-mouth opening:</strong> 3x wider than standard compression sock openings. Reduces ankle flexibility needed to slide your foot in.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-gold font-bold">•</span>
+                  <span><strong>Numbered guide system:</strong> Built-in numbered markers at key grip points. Easier to grip than slippery compression material. Requires less fine motor control.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-gold font-bold">•</span>
+                  <span><strong>Seated-friendly design:</strong> Put them on while sitting on bed edge or chair. Reduces forward bending required. No standing balance needed.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-gold font-bold">•</span>
+                  <span><strong>Graduated 20-30 mmHg compression:</strong> Same medical-grade compression as prescription brands. Adaptive features don't compromise compression efficacy.</span>
+                </li>
+              </ul>
+            </div>
+
+            <p>
+              The result: medical-grade compression you can put on yourself, even with limited hand strength or mobility. No separate tools. No unnecessary barriers.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Current Status Section -->
+    <section class="py-16 bg-[#F4F1EA] mt-[120px]">
+      <div class="container mx-auto px-4">
+        <div class="max-w-3xl mx-auto text-center">
+          <h2 class="text-3xl font-bold mb-6">Where We Are Now</h2>
+
+          <div class="space-y-6 text-lg text-[#374151]">
+            <p>
+              AccessAble is currently in the final stages of development. Our DonnEase™ adaptive socks are being refined through real-world wear testing with 40-50 participants who have arthritis, limited mobility, post-surgical restrictions, and spinal cord injuries. Their feedback shapes every detail.
+            </p>
+
+            <p>
+              We're preparing for a mid-2026 launch. If you'd like to be notified when DonnEase™ socks are available, or if you're a healthcare professional interested in compression socks designed for long shifts, we'd love to hear from you.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+              <a href="https://signup.accessablecompression.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center h-12 px-8 bg-primary text-primary-foreground hover:bg-[#C9A84C] hover:text-[#1B2A4A] hover:scale-[1.04] transition-all duration-200 ease-in-out rounded-md text-sm font-medium">Join the Waitlist</a>
+              <a href="/pro" class="inline-flex items-center justify-center h-12 px-8 border border-primary text-primary hover:text-[#C9A84C] hover:bg-transparent transition-all duration-200 ease-in-out rounded-md text-sm font-medium">Healthcare Professionals</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact CTA Section -->
+    <section class="py-16 bg-[#1B2A4A] mt-[120px]">
+      <div class="container mx-auto px-4">
+        <div class="max-w-3xl mx-auto text-center">
+          <h2 class="text-3xl font-bold mb-4 text-white">Questions About AccessAble?</h2>
+          <p class="text-lg text-white/80 mb-8">
+            We're happy to answer questions about our products, sizing, or wholesale opportunities.
+          </p>
+          <a href="/contact" class="inline-flex items-center justify-center h-12 px-8 bg-[#C9A84C] text-[#1B2A4A] hover:bg-[#C9A84C]/90 font-semibold rounded-md text-sm">Contact Us</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <Footer slot="footer" />
+</BaseLayout>

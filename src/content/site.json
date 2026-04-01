@@ -1,0 +1,29 @@
+{
+  "name": "AccessAble",
+  "url": "https://accessablecompression.com",
+  "email": "support@accessablecompression.com",
+  "ogImage": "/og-default.png",
+  "logo": "/images/logo-main-optimized.png",
+  "logoAlt": "/images/ac-logo.png",
+  "tagline": "Adaptive compression socks designed for independence. Built from lived experience.",
+  "founderNote": "Founded by a C4 SCI survivor",
+  "products": {
+    "donnease": { "msrp": 39, "name": "DonnEase\u2122 Adaptive Socks" },
+    "standard": { "msrp": 34, "name": "Compression Socks" },
+    "lowcut": { "msrp": 18, "name": "Low-Cut Pro Footie" }
+  },
+  "brand": {
+    "gold": "#C9A844",
+    "goldHsl": "43 59% 53%",
+    "navy": "#1E4D7B",
+    "navyHsl": "210 56% 30%",
+    "darkNavy": "#1B2A4A",
+    "goldAccent": "#C9A84C"
+  },
+  "social": {
+    "facebook": "#",
+    "instagram": "#"
+  },
+  "ga4": "G-ZGKZE6HVYP",
+  "copyright": 2026
+}

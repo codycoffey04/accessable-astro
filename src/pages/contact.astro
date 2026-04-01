@@ -1,0 +1,173 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/astro/Header.astro';
+import Footer from '@/components/astro/Footer.astro';
+import Breadcrumb from '@/components/astro/Breadcrumb.astro';
+---
+
+<BaseLayout
+  title="Contact AccessAble — Get Help with Adaptive Socks"
+  description="Questions about sizing, compression levels, or orders? Reach our support team. We typically respond within 24-48 hours."
+>
+  <Header slot="header" />
+
+  <Breadcrumb items={[{ label: 'Contact' }]} />
+
+  <!-- Hero Section -->
+  <section class="pt-8 pb-12 lg:pt-12 lg:pb-16 bg-[#FAF8F3]">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto text-center">
+        <div class="inline-flex items-center gap-2 bg-gold/10 border border-gold/30 rounded-full px-4 py-1.5 mb-6">
+          <span class="w-2 h-2 rounded-full bg-gold"></span>
+          <span class="text-xs font-semibold tracking-wider text-gold-text uppercase">Contact</span>
+        </div>
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Let's Talk</h1>
+        <p class="text-xl text-[#374151] leading-relaxed">
+          Questions about adaptive compression? Interested in wear testing or healthcare partnerships? We're here to help.
+        </p>
+        <p class="text-sm italic text-[#374151] mt-3">
+          Founded by a C4 SCI survivor who needed compression socks that actually worked for his hands.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Content -->
+  <div class="container mx-auto px-4 py-[120px]">
+    <div class="max-w-5xl mx-auto">
+      <div class="grid lg:grid-cols-3 gap-8">
+        <!-- Contact Info -->
+        <div class="space-y-7">
+          <div class="rounded-lg border bg-card text-card-foreground shadow-sm border-l-[3px] border-l-[#C9A84C]">
+            <div class="p-6">
+              <svg class="h-8 w-8 text-gold mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+              <h3 class="font-semibold mb-2">Email</h3>
+              <a href="mailto:support@accessablecompression.com" class="text-primary hover:underline text-sm block mb-2">
+                support@accessablecompression.com
+              </a>
+              <p class="text-xs text-[#374151]">We typically respond within 24-48 hours</p>
+            </div>
+          </div>
+
+          <div class="rounded-lg border bg-card text-card-foreground shadow-sm border-l-[3px] border-l-[#C9A84C]">
+            <div class="p-6">
+              <svg class="h-8 w-8 text-gold mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+              <h3 class="font-semibold mb-2">Response Time</h3>
+              <p class="text-[#374151] text-sm mb-2">Within 24-48 hours</p>
+              <p class="text-xs text-[#374151]">Monday-Friday</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form (Netlify Forms) -->
+        <div class="lg:col-span-2">
+          <!-- Email-first messaging -->
+          <div class="bg-gold/10 rounded-lg p-4 mb-6 flex items-start gap-3">
+            <svg class="h-5 w-5 text-gold flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+            <div>
+              <p class="font-medium text-sm">You can also reach us directly at
+                <a href="mailto:support@accessablecompression.com" class="text-primary hover:underline"> support@accessablecompression.com</a>
+              </p>
+              <p class="text-xs text-[#374151] mt-1">We typically respond within 24-48 hours.</p>
+            </div>
+          </div>
+
+          <!-- B2B Callout -->
+          <div class="border-2 border-[#C9A84C] rounded-xl p-6 mb-6">
+            <h3 class="font-bold text-[#1B2A4A] mb-2">Healthcare Professionals &amp; Distributors</h3>
+            <p class="text-sm text-[#374151]">
+              Looking for bulk pricing, samples, or partnership opportunities? Select &ldquo;Healthcare Partnership&rdquo; or &ldquo;Wholesale&rdquo; below, or email us directly at
+              <a href="mailto:pro@accessablecompression.com" class="text-primary hover:underline font-medium"> pro@accessablecompression.com</a>
+            </p>
+          </div>
+
+          <!-- Form -->
+          <div class="bg-white border border-[#E5E0D8] rounded-2xl px-10 py-12 max-md:px-6 max-md:py-8">
+            <form name="accessable-contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="space-y-6">
+              <input type="hidden" name="form-name" value="accessable-contact" />
+              <!-- Honeypot: position-based hiding (not display:none) -->
+              <p style="position: absolute; left: -9999px; opacity: 0;">
+                <label>Don't fill this out: <input name="bot-field" /></label>
+              </p>
+
+              <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label for="contact-name" class="text-[15px] font-bold text-[#1B2A4A] mb-2 block">Name <span class="text-destructive">*</span></label>
+                  <input
+                    id="contact-name"
+                    name="name"
+                    type="text"
+                    required
+                    class="flex w-full min-h-[56px] text-base px-5 border-2 border-[#E5E0D8] rounded-xl bg-background ring-offset-background focus-visible:outline-none focus-visible:ring-0 focus-visible:border-[#C9A84C] focus-visible:shadow-[0_0_0_4px_rgba(201,168,76,0.15)] max-md:min-h-[60px] max-md:text-[17px]"
+                    aria-required="true"
+                  />
+                </div>
+                <div>
+                  <label for="contact-email" class="text-[15px] font-bold text-[#1B2A4A] mb-2 block">Email <span class="text-destructive">*</span></label>
+                  <input
+                    id="contact-email"
+                    name="email"
+                    type="email"
+                    required
+                    class="flex w-full min-h-[56px] text-base px-5 border-2 border-[#E5E0D8] rounded-xl bg-background ring-offset-background focus-visible:outline-none focus-visible:ring-0 focus-visible:border-[#C9A84C] focus-visible:shadow-[0_0_0_4px_rgba(201,168,76,0.15)] max-md:min-h-[60px] max-md:text-[17px]"
+                    aria-required="true"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label for="contact-subject" class="text-[15px] font-bold text-[#1B2A4A] mb-2 block">Subject <span class="text-destructive">*</span></label>
+                <select
+                  id="contact-subject"
+                  name="subject"
+                  required
+                  class="flex w-full min-h-[56px] text-base px-5 border-2 border-[#E5E0D8] rounded-xl bg-background ring-offset-background focus-visible:outline-none focus:ring-0 focus:border-[#C9A84C] focus:shadow-[0_0_0_4px_rgba(201,168,76,0.15)] max-md:min-h-[60px] max-md:text-[17px]"
+                >
+                  <option value="">Select a subject</option>
+                  <option value="Product Support / Sizing Help">Product Support / Sizing Help</option>
+                  <option value="Wear Testing or Feedback">Wear Testing or Feedback</option>
+                  <option value="Healthcare Partnership / Clinic Inquiry">Healthcare Partnership / Clinic Inquiry</option>
+                  <option value="Wholesale / Distributor">Wholesale / Distributor</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="contact-message" class="text-[15px] font-bold text-[#1B2A4A] mb-2 block">Message <span class="text-destructive">*</span></label>
+                <textarea
+                  id="contact-message"
+                  name="message"
+                  required
+                  rows="6"
+                  class="flex w-full min-h-[56px] text-base px-5 py-4 border-2 border-[#E5E0D8] rounded-xl bg-background ring-offset-background focus-visible:outline-none focus-visible:ring-0 focus-visible:border-[#C9A84C] focus-visible:shadow-[0_0_0_4px_rgba(201,168,76,0.15)] max-md:min-h-[60px] max-md:text-[17px]"
+                  aria-required="true"
+                ></textarea>
+              </div>
+
+              <button type="submit" class="bg-[#1B2A4A] text-white py-5 px-[52px] text-lg font-bold rounded-lg min-w-[220px] hover:bg-[#C9A84C] hover:text-[#1B2A4A] hover:-translate-y-0.5 transition-all max-md:w-full">
+                Send Message
+              </button>
+
+              <p class="text-xs text-center text-[#374151]">
+                By submitting, you agree to our <a href="/policies/privacy" class="underline">Privacy Policy</a>
+              </p>
+            </form>
+          </div>
+
+          <!-- FAQ Link -->
+          <div class="mt-6 p-6 bg-[#1B2A4A] rounded-lg text-white">
+            <h3 class="font-semibold mb-2">Need Quick Answers?</h3>
+            <p class="text-white/80 text-sm mb-4">
+              Check our FAQ for answers to common questions about products, shipping, and more.
+            </p>
+            <a href="/pages/faq" class="inline-flex items-center justify-center rounded-md bg-[#C9A84C] text-[#1B2A4A] hover:bg-[#C9A84C]/90 font-semibold px-4 py-2 text-sm transition-colors">
+              View FAQ
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <Footer slot="footer" />
+</BaseLayout>

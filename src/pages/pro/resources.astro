@@ -1,0 +1,43 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/astro/Header.astro';
+import Footer from '@/components/astro/Footer.astro';
+import Breadcrumb from '@/components/astro/Breadcrumb.astro';
+---
+
+<BaseLayout title="Professional Resources — Clinical Compression Guides" description="Clinical education materials and professional resources for healthcare professionals. Coming soon.">
+  <Header slot="header" />
+  <Breadcrumb items={[{ label: 'AccessAble Pro', href: '/pro' }, { label: 'Resources' }]} />
+
+  <div>
+    <!-- Hero -->
+    <section class="bg-[#FAF8F3] py-20">
+      <div class="container mx-auto px-4">
+        <div class="max-w-3xl mx-auto text-center">
+          <!-- BookOpen icon -->
+          <svg class="h-16 w-16 mx-auto mb-6 text-gold" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          <h1 class="text-4xl lg:text-5xl font-bold mb-6">Professional Resources</h1>
+          <p class="text-xl text-[#374151]">
+            Clinical education materials and professional resources for healthcare teams.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Coming Soon -->
+    <section class="py-16 container mx-auto px-4">
+      <div class="max-w-2xl mx-auto text-center">
+        <h2 class="text-2xl font-bold mb-4">Coming Soon</h2>
+        <p class="text-lg text-[#374151] mb-8">
+          We're developing clinical education materials, sizing guides, and professional resources for healthcare teams. Check back soon.
+        </p>
+        <p class="text-sm text-[#374151] mb-8">
+          Questions in the meantime? Reach out to <a href="mailto:support@accessablecompression.com" class="text-primary hover:underline">support@accessablecompression.com</a>
+        </p>
+        <a href="/pro" class="inline-flex items-center justify-center rounded-md bg-primary text-primary-foreground px-6 py-3 text-sm font-medium hover:bg-primary/90 transition-colors">Back to AccessAble Pro</a>
+      </div>
+    </section>
+  </div>
+
+  <Footer slot="footer" />
+</BaseLayout>

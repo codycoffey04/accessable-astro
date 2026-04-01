@@ -1,0 +1,16 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/astro/Header.astro';
+import Footer from '@/components/astro/Footer.astro';
+---
+
+<BaseLayout title="Pro Dashboard — Coming Soon | AccessAble" description="AccessAble Pro Dashboard is coming soon." noindex={true}>
+  <Header slot="header" />
+  <div class="container mx-auto px-4 py-24 text-center">
+    <h1 class="text-4xl font-bold mb-4">Pro Dashboard</h1>
+    <p class="text-xl text-muted-foreground mb-8">Coming Soon</p>
+    <p class="text-muted-foreground max-w-md mx-auto">The AccessAble Pro Dashboard for healthcare professionals is currently being rebuilt. Check back soon.</p>
+    <a href="/pro" class="inline-flex items-center justify-center rounded-md bg-primary text-primary-foreground px-6 py-3 mt-8 text-sm font-medium hover:bg-primary/90 transition-colors">Back to AccessAble Pro</a>
+  </div>
+  <Footer slot="footer" />
+</BaseLayout>

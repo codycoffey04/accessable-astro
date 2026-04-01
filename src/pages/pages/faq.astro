@@ -1,0 +1,203 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/astro/Header.astro';
+import Footer from '@/components/astro/Footer.astro';
+import Breadcrumb from '@/components/astro/Breadcrumb.astro';
+import { generateFAQSchema } from '@/utils/schemaFactory';
+
+const faqs = [
+  {
+    category: "Products & Sizing",
+    questions: [
+      {
+        q: "What compression level should I choose?",
+        a: 'For general daily wear and mild support, our 8-15 mmHg (Gentle Wellness) socks provide light compression suitable for everyday comfort. For moderate support needs like mild swelling or tired legs, 15-20 mmHg (Everyday Relief) is a popular choice. Our 20-30 mmHg (Medical Support) level offers firmer compression often recommended by healthcare providers for conditions like edema or post-surgical recovery. We also offer 30-40 mmHg (Firm Medical) for those who need maximum support. Always consult your healthcare provider before choosing a compression level, especially if you have a medical condition. Visit our <a href="/learn/compression-101">Compression 101</a> guide to learn more about what each level does.'
+      },
+      {
+        q: "How do I measure for compression socks?",
+        a: 'Accurate measurements are key to a good fit. You\'ll need two measurements: calf circumference (wrap a flexible tape around the widest part of your calf while seated) and ankle circumference (measure the narrowest point just above your ankle bone). For the most accurate results, measure in the morning when swelling is at its lowest. If your measurements fall between two sizes, we recommend sizing up for the most comfortable fit. Our <a href="/pages/size-guide">Size Guide</a> has step-by-step instructions with illustrations to walk you through the process.'
+      },
+      {
+        q: "Are your products latex-free?",
+        a: 'Yes, all AccessAble compression socks and DonnEase\u2122 adaptive socks are 100% latex-free. We use a premium nylon-spandex blend (78% Nylon / 22% Spandex) specifically chosen for durability, comfort, and hypoallergenic properties. This is especially important for users with sensitive skin or latex allergies, which are more common among people who have frequent medical contact. If you have any material sensitivity concerns, our full materials list is available on each product page, or you can <a href="/contact">contact us</a> directly.'
+      },
+      {
+        q: "How do I care for my compression socks?",
+        a: "Machine wash on cold or warm cycle and tumble dry on low heat. Avoid bleach and fabric softeners, as they break down the compression fibers over time and reduce the effectiveness of graduated compression. For the longest product life, air drying is recommended. We suggest having at least two pairs so you can rotate while one pair is being washed. Most compression socks maintain their compression efficacy for 3-6 months with daily wear and proper care. You'll know it's time to replace them when they slide down easily or feel noticeably looser."
+      },
+      {
+        q: "What is DonnEase\u2122? How does the numbered guide system work?",
+        a: 'DonnEase\u2122 is AccessAble\'s patent-pending adaptive compression sock technology. Unlike standard compression socks that require significant grip strength and flexibility, DonnEase\u2122 socks feature wide-mouth openings (3x wider than standard), built-in numbered markers, and a numbered guide system that makes independent donning possible even with limited hand strength or mobility. The guide system works in three steps: locate the blue dot (orientation marker for the top of your foot), pull to marker #3 (labeled "PULL TO ANKLE") to position the sock on your foot, then pull to marker #2 (labeled "PULL TO KNEE") to bring the sock to its full height. Read our <a href="/learn/donnease-adaptive-compression-guide">complete DonnEase\u2122 guide</a> for detailed instructions.'
+      },
+      {
+        q: "Do you offer wide-calf sizes?",
+        a: 'Yes, we\'re developing wide-calf sizes (WC-S through WC-XXL) with wider calf circumference ranges designed for people who need more room in the calf area. Wide-calf options will be available at launch. Each size will also come in Short and Tall leg lengths to accommodate different body proportions. Check our <a href="/pages/size-guide">Size Guide</a> for current sizing details, and <a href="https://signup.accessablecompression.com" target="_blank" rel="noopener noreferrer">join our waitlist</a> to be notified when wide-calf sizes are available.'
+      }
+    ]
+  },
+  {
+    category: "Compression Information",
+    questions: [
+      {
+        q: "What does mmHg mean?",
+        a: 'mmHg stands for "millimeters of mercury," the standard unit for measuring compression pressure in medical garments. Higher numbers mean stronger compression. AccessAble offers four compression levels: 8-15 mmHg (Gentle Wellness) for light daily comfort, 15-20 mmHg (Everyday Relief) for mild support, 20-30 mmHg (Medical Support) for moderate medical-grade compression, and 30-40 mmHg (Firm Medical) for maximum support. The compression is "graduated," meaning it\'s strongest at the ankle and decreases toward the knee, which may help support healthy blood flow back toward the heart. Our <a href="/learn/compression-101">Compression 101</a> article explains this in more detail.'
+      },
+      {
+        q: "How long should I wear compression socks?",
+        a: 'Most people wear compression socks during waking hours and remove them before bed. A typical routine is putting them on in the morning and taking them off in the evening. However, wear duration varies based on your individual needs and your healthcare provider\'s recommendations. Some people wear them only during specific activities like long flights, extended standing, or exercise. If you\'ve been prescribed compression for a medical condition, follow your healthcare provider\'s specific guidance on duration. Our <a href="/learn/how-to-put-on-compression-socks-easily">donning guide</a> covers techniques for making the daily routine easier.'
+      },
+      {
+        q: "Can I wear compression socks to bed?",
+        a: "Generally, compression socks are not recommended for sleeping unless specifically advised by your doctor. When you're lying flat, gravity isn't pooling blood in your legs the way it does when standing or sitting, so compression isn't typically needed overnight. Wearing compression to bed without medical guidance could potentially restrict circulation while you sleep. If your healthcare provider has recommended overnight compression for a specific condition, follow their guidance on the appropriate compression level for nighttime use. Some providers recommend a lower compression level for sleeping than for daytime wear."
+      },
+      {
+        q: "Do I need a prescription for compression socks?",
+        a: 'Compression levels up to 20-30 mmHg are available over-the-counter without a prescription. Our 8-15 mmHg (Gentle Wellness) and 15-20 mmHg (Everyday Relief) socks can be purchased by anyone. Our 20-30 mmHg (Medical Support) socks are also available without a prescription, though we recommend consulting with a healthcare provider before using this level to ensure it\'s appropriate for your situation. For 30-40 mmHg (Firm Medical) compression, we strongly recommend getting a healthcare provider\'s recommendation first. If you\'re using compression socks for insurance or HSA/FSA reimbursement, you may need a prescription from your provider.'
+      }
+    ]
+  },
+  {
+    category: "Insurance & Payment",
+    questions: [
+      {
+        q: "Are your socks covered by insurance, HSA, or FSA?",
+        a: "Compression socks may be eligible for HSA (Health Savings Account) and FSA (Flexible Spending Account) reimbursement, especially when prescribed by a healthcare provider. We're working to integrate HSA/FSA payment options directly at checkout before launch. Insurance coverage for compression garments varies by plan and typically requires a prescription and documentation of medical necessity. We recommend checking with your insurance provider about your specific coverage. If you need a letter of medical necessity, your prescribing healthcare provider can typically provide one."
+      },
+      {
+        q: "What payment methods do you accept?",
+        a: "We'll accept all major credit cards (Visa, Mastercard, American Express, Discover), PayPal, Shop Pay, Apple Pay, and Google Pay at launch. We're also working on direct HSA/FSA card acceptance so you can use your health savings funds at checkout without filing for reimbursement separately. Payment processing is handled securely through Shopify's PCI-compliant payment infrastructure, so your financial information is never stored on our servers."
+      }
+    ]
+  },
+  {
+    category: "Shipping & Returns",
+    questions: [
+      {
+        q: "How long does shipping take?",
+        a: 'Standard shipping takes 5-7 business days and is free on orders over a certain threshold. Expedited shipping (2-3 business days) and overnight options will also be available at checkout. Orders are typically processed within 1-2 business days, Monday through Friday. Once your order ships, you\'ll receive a tracking number via email so you can follow your package. We ship to all 50 U.S. states and U.S. territories. Visit our <a href="/policies/shipping-returns">Shipping &amp; Returns</a> page for full details.'
+      },
+      {
+        q: "Do you ship internationally?",
+        a: 'Currently, we plan to ship within the United States and its territories at launch. International shipping is something we\'re exploring for the future as demand grows. If you\'re located outside the U.S. and interested in AccessAble products, <a href="https://signup.accessablecompression.com" target="_blank" rel="noopener noreferrer">join our waitlist</a> and let us know your location\u2014it helps us prioritize which international markets to serve first.'
+      },
+      {
+        q: "What is your return policy?",
+        a: 'We\'ll offer a 30-day return policy for unopened products in their original packaging, with a full refund to your original payment method. Opened compression socks can be exchanged for a different size within 30 days\u2014we provide a free prepaid return label for size exchanges because getting the right fit matters. We can\'t accept returns of opened products for refund due to sanitary reasons, unless the product is defective. See our <a href="/policies/shipping-returns">Shipping &amp; Returns</a> page for the full policy.'
+      },
+      {
+        q: "How do I initiate a return or exchange?",
+        a: 'Contact our customer service team at <a href="mailto:support@accessablecompression.com">support@accessablecompression.com</a> with your order number and the reason for your return or exchange. We\'ll email you a prepaid return shipping label and instructions. For size exchanges, we\'ll ship your replacement as soon as we receive your return. Refunds are processed within 5-7 business days of receiving your return, with an additional 3-5 business days for the refund to appear on your statement depending on your financial institution.'
+      }
+    ]
+  },
+  {
+    category: "AccessAble Pro",
+    questions: [
+      {
+        q: "What is AccessAble Pro?",
+        a: 'AccessAble Pro is our compression sock line designed specifically for healthcare professionals who spend long hours on their feet. Nurses, physical therapists, CNAs, surgeons, and other healthcare workers often deal with leg fatigue, swelling, and discomfort from extended shifts. Pro socks feature 8-15 mmHg (Gentle Wellness) compression in professional-friendly colors, with the same seamless toe construction and moisture-wicking fabric as our consumer line. Visit the <a href="/pro">AccessAble Pro</a> page to learn more.'
+      },
+      {
+        q: "Do you offer team orders for healthcare facilities?",
+        a: 'Yes, we offer team orders for groups of 10 or more pairs. Whether you\'re outfitting a nursing unit, PT clinic, or home health team, we can help. Team orders include simplified sizing coordination and a single point of contact for your facility. Pricing is based on order volume. <a href="/contact">Contact us</a> to discuss your team\'s needs and get a custom quote.'
+      },
+      {
+        q: "What makes Pro socks different from your consumer line?",
+        a: "AccessAble Pro socks are optimized for the demands of 12-hour healthcare shifts. They use the same high-quality graduated compression technology but at the 8-15 mmHg (Gentle Wellness) level, which provides all-day comfort without being too firm for active movement. Pro socks come in professional colors appropriate for clinical settings, feature enhanced moisture-wicking for temperature regulation during long shifts, and have reinforced heel and toe construction for extra durability with daily wear."
+      },
+      {
+        q: "Can healthcare professionals try a sample before ordering for their team?",
+        a: 'We\'re setting up a sample program for healthcare professionals who want to try AccessAble Pro socks before placing a team order. <a href="https://signup.accessablecompression.com" target="_blank" rel="noopener noreferrer">Join our Pro waitlist</a> to be notified when samples are available, or <a href="/contact">contact us</a> to discuss your needs. We want healthcare workers to experience the difference before committing to a larger order.'
+      }
+    ]
+  },
+  {
+    category: "Accessibility & Adaptive Features",
+    questions: [
+      {
+        q: "Are your products designed for wheelchair users?",
+        a: 'Yes, all DonnEase\u2122 adaptive socks are designed with wheelchair users in mind. The wide-mouth opening and numbered guide system work well from a seated position, whether you\'re in a wheelchair, on a bed edge, or in a chair. The numbered guide system (#2, #3, blue dot) provides clear visual and tactile feedback so you can confirm correct placement without needing to reach or bend. Our <a href="/learn/compression-socks-spinal-cord-injury">SCI compression guide</a> includes a specific wheelchair-seated donning technique with step-by-step instructions.'
+      },
+      {
+        q: "Do you offer tools to help with putting on compression socks?",
+        a: 'Our DonnEase\u2122 socks are designed so you don\'t need separate donning tools. The adaptive features\u2014wide-mouth opening, built-in numbered markers, and numbered guide system\u2014are built directly into the sock itself. This eliminates the need for plastic frames, metal slides, or other external devices that can be awkward and add complexity. Our <a href="/learn/how-to-put-on-compression-socks-easily">donning guide</a> covers five different techniques including one-handed, low-dexterity, and caregiver-assisted methods.'
+      },
+      {
+        q: "Can I use your products with mobility aids like walkers or canes?",
+        a: 'Absolutely. Our compression socks are tested with wheelchairs, walkers, canes, and other mobility aids to ensure compatibility. The seamless toe design prevents irritation against braces or orthotics, and the fabric won\'t catch on wheelchair footrests or leg rests. Our <a href="/learn/mobility-aids">Mobility Aids &amp; Sock Compatibility</a> guide provides specific tips for using compression socks alongside different types of mobility equipment.'
+      },
+      {
+        q: "What makes AccessAble different from other compression sock brands?",
+        a: 'AccessAble is the only compression sock brand that builds adaptive donning features directly into medical-grade compression fabric. Other brands sell standard compression socks and tell you to buy a separate donning aid if you struggle. We integrate the solution into the sock itself with our patent-pending DonnEase\u2122 technology. Our founder, Cody, has a C4 incomplete spinal cord injury\u2014this isn\'t market research, it\'s lived experience. Every product is tested by real users with arthritis, limited mobility, and spinal cord injuries. And we\'re manufactured by Runway Knitting Inc., a family-owned U.S. manufacturer. Read our <a href="/about">full story</a>.'
+      }
+    ]
+  },
+  {
+    category: "About AccessAble",
+    questions: [
+      {
+        q: "When are you launching? When can I buy?",
+        a: 'We\'re currently in final wear testing with real users\u2014over 40 participants with conditions like arthritis, spinal cord injuries, limited mobility, and post-surgical restrictions. We expect to launch in mid-2026. <a href="https://signup.accessablecompression.com" target="_blank" rel="noopener noreferrer">Join our waitlist</a> at signup.accessablecompression.com to be the first to know when DonnEase\u2122 adaptive compression socks are available for purchase. Waitlist members will get early access and launch-day notifications.'
+      }
+    ]
+  }
+];
+
+// Build flat FAQ list for schema
+const allFaqsForSchema = faqs.flatMap(category =>
+  category.questions.map(q => ({
+    question: q.q,
+    answer: q.a.replace(/<[^>]*>/g, '')
+  }))
+);
+
+const faqSchema = generateFAQSchema(allFaqsForSchema);
+---
+
+<BaseLayout title="FAQ — Compression Socks, Sizing & Shipping Answers" description="Answers to common questions about adaptive compression socks, sizing, compression levels, shipping, returns, DonnEase™.">
+  <script type="application/ld+json" slot="schema" set:html={JSON.stringify(faqSchema)} />
+  <Header slot="header" />
+  <Breadcrumb items={[{ label: 'FAQ' }]} />
+
+  <div class="container mx-auto px-4 py-12">
+    <div class="max-w-4xl mx-auto">
+      <!-- Header -->
+      <div class="text-center mb-12">
+        <h1 class="text-4xl font-bold mb-4">Frequently Asked Questions</h1>
+        <p class="text-xl text-[#374151] mb-8">
+          Find answers to common questions about our products, shipping, and services.
+        </p>
+      </div>
+
+      <!-- FAQ Categories -->
+      {faqs.map((category) => (
+        <div class="mb-8">
+          <h2 class="text-2xl font-bold mb-4">{category.category}</h2>
+          {category.questions.map((faq) => (
+            <details class="group border-b">
+              <summary class="flex items-center justify-between w-full py-4 text-left font-medium cursor-pointer hover:underline [&::-webkit-details-marker]:hidden list-none">
+                <span>{faq.q}</span>
+                <svg class="h-4 w-4 shrink-0 transition-transform duration-200 group-open:rotate-180 ml-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+              </summary>
+              <div class="pb-4 text-[#374151] [&_a]:text-primary [&_a]:underline [&_a:hover]:text-primary/80" set:html={faq.a} />
+            </details>
+          ))}
+        </div>
+      ))}
+
+      <!-- Contact CTA -->
+      <div class="mt-16 p-8 bg-[#F4F1EA] rounded-lg text-center">
+        <h3 class="text-2xl font-bold mb-4">Still have questions?</h3>
+        <p class="text-[#374151] mb-6">
+          Our customer support team is here to help.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/contact" class="inline-flex items-center justify-center rounded-md bg-primary text-primary-foreground px-6 py-3 text-sm font-medium hover:bg-primary/90 transition-colors">Contact Us</a>
+          <a href="mailto:support@accessablecompression.com" class="inline-flex items-center justify-center rounded-md border border-input bg-background px-6 py-3 text-sm font-medium hover:bg-accent hover:text-accent-foreground transition-colors">Email Support</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <Footer slot="footer" />
+</BaseLayout>

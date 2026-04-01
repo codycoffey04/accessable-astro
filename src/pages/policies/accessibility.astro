@@ -1,0 +1,216 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/astro/Header.astro';
+import Footer from '@/components/astro/Footer.astro';
+import Breadcrumb from '@/components/astro/Breadcrumb.astro';
+---
+
+<BaseLayout
+  title="Accessibility Statement — WCAG 2.1 AA Commitment"
+  description="AccessAble's commitment to digital accessibility. WCAG 2.1 AA compliance, screen reader support."
+>
+  <Header slot="header" />
+
+  <Breadcrumb items={[{ label: 'Accessibility Statement' }]} />
+
+  <div class="container mx-auto px-4 py-12">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="text-4xl font-bold mb-8">Accessibility Statement</h1>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold mb-4">Our Commitment to Accessibility</h2>
+        <p class="text-lg text-muted-foreground mb-6">
+          AccessAble is committed to ensuring digital accessibility for people with disabilities. We are continually improving the user experience for everyone and applying the relevant accessibility standards to ensure we provide equal access to all our users.
+        </p>
+        <p class="text-muted-foreground">
+          We strive to meet or exceed the requirements of the <strong>Web Content Accessibility Guidelines (WCAG) 2.1 Level AA</strong>, an internationally recognized standard for web accessibility developed by the World Wide Web Consortium (W3C).
+        </p>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold mb-6">Accessibility Features</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="rounded-lg border bg-card text-card-foreground shadow-sm">
+            <div class="p-6">
+              <div class="flex items-start gap-3 mb-3">
+                <!-- CheckCircle icon -->
+                <svg class="h-6 w-6 text-primary flex-shrink-0 mt-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                <div>
+                  <h3 class="font-semibold mb-2">Keyboard Navigation</h3>
+                  <p class="text-sm text-muted-foreground">
+                    All interactive elements can be accessed and activated using only a keyboard. Tab, Arrow, Enter, Escape, and Space keys are fully supported.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="rounded-lg border bg-card text-card-foreground shadow-sm">
+            <div class="p-6">
+              <div class="flex items-start gap-3 mb-3">
+                <svg class="h-6 w-6 text-primary flex-shrink-0 mt-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                <div>
+                  <h3 class="font-semibold mb-2">Screen Reader Compatibility</h3>
+                  <p class="text-sm text-muted-foreground">
+                    Our site is compatible with popular screen readers including JAWS, NVDA, and VoiceOver. ARIA labels and live regions ensure dynamic content changes are announced.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="rounded-lg border bg-card text-card-foreground shadow-sm">
+            <div class="p-6">
+              <div class="flex items-start gap-3 mb-3">
+                <svg class="h-6 w-6 text-primary flex-shrink-0 mt-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                <div>
+                  <h3 class="font-semibold mb-2">High-Contrast Mode</h3>
+                  <p class="text-sm text-muted-foreground">
+                    Toggle high-contrast mode from the footer for enhanced visibility. Maintains 7:1 contrast ratio for all text and UI elements.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="rounded-lg border bg-card text-card-foreground shadow-sm">
+            <div class="p-6">
+              <div class="flex items-start gap-3 mb-3">
+                <svg class="h-6 w-6 text-primary flex-shrink-0 mt-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                <div>
+                  <h3 class="font-semibold mb-2">Touch Target Sizing</h3>
+                  <p class="text-sm text-muted-foreground">
+                    All interactive elements meet WCAG 2.2 requirements with minimum 48x48px touch targets and 8px spacing between adjacent targets.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="rounded-lg border bg-card text-card-foreground shadow-sm">
+            <div class="p-6">
+              <div class="flex items-start gap-3 mb-3">
+                <svg class="h-6 w-6 text-primary flex-shrink-0 mt-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                <div>
+                  <h3 class="font-semibold mb-2">Image Alt Text</h3>
+                  <p class="text-sm text-muted-foreground">
+                    All images include descriptive alternative text. Product images describe both the product and mobility context when applicable.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="rounded-lg border bg-card text-card-foreground shadow-sm">
+            <div class="p-6">
+              <div class="flex items-start gap-3 mb-3">
+                <svg class="h-6 w-6 text-primary flex-shrink-0 mt-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                <div>
+                  <h3 class="font-semibold mb-2">Video Accessibility</h3>
+                  <p class="text-sm text-muted-foreground">
+                    All video content includes captions, transcripts, and audio descriptions for users who are deaf, hard of hearing, or blind.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="rounded-lg border bg-card text-card-foreground shadow-sm">
+            <div class="p-6">
+              <div class="flex items-start gap-3 mb-3">
+                <svg class="h-6 w-6 text-primary flex-shrink-0 mt-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                <div>
+                  <h3 class="font-semibold mb-2">Skip Navigation Links</h3>
+                  <p class="text-sm text-muted-foreground">
+                    "Skip to main content" links on every page allow keyboard users to bypass repetitive navigation and jump directly to content.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="rounded-lg border bg-card text-card-foreground shadow-sm">
+            <div class="p-6">
+              <div class="flex items-start gap-3 mb-3">
+                <svg class="h-6 w-6 text-primary flex-shrink-0 mt-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                <div>
+                  <h3 class="font-semibold mb-2">Form Accessibility</h3>
+                  <p class="text-sm text-muted-foreground">
+                    All forms include visible labels, proper field associations, clear error messages, and keyboard-friendly controls.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold mb-4">Testing and Monitoring</h2>
+        <p class="text-muted-foreground mb-4">
+          We regularly test our website using:
+        </p>
+        <ul class="list-disc list-inside space-y-2 text-muted-foreground mb-4">
+          <li>Automated accessibility scanning tools (WAVE, Axe DevTools)</li>
+          <li>Manual keyboard navigation testing</li>
+          <li>Screen reader testing with NVDA and JAWS</li>
+          <li>Color contrast analysis</li>
+          <li>Real user testing with people who have disabilities</li>
+        </ul>
+        <p class="text-muted-foreground">
+          We are committed to ongoing monitoring and improvement to ensure our site remains accessible as we add new features and content.
+        </p>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold mb-4">Known Limitations</h2>
+        <p class="text-muted-foreground mb-4">
+          While we strive for full accessibility, we acknowledge that some areas may still present challenges:
+        </p>
+        <ul class="list-disc list-inside space-y-2 text-muted-foreground">
+          <li>Some third-party embedded content (payment processors, social media) may have accessibility limitations beyond our control</li>
+          <li>Older PDF documents may not be fully accessible; we are working to remediate these</li>
+        </ul>
+        <p class="text-muted-foreground mt-4">
+          We are actively working to address these limitations and welcome your feedback.
+        </p>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold mb-4">Feedback and Contact Information</h2>
+        <p class="text-muted-foreground mb-6">
+          We welcome your feedback on the accessibility of our website. If you encounter any accessibility barriers or have suggestions for improvement, please contact us:
+        </p>
+        <div class="bg-muted/40 rounded-lg p-6">
+          <ul class="space-y-3">
+            <li>
+              <strong>Email:</strong>
+              <a href="mailto:support@accessablecompression.com" class="text-primary hover:underline">
+                support@accessablecompression.com
+              </a>
+            </li>
+          </ul>
+          <p class="text-sm text-muted-foreground mt-4">
+            We aim to respond to accessibility feedback within 3 business days and to resolve issues as quickly as possible.
+          </p>
+        </div>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold mb-4">Third-Party Applications</h2>
+        <p class="text-muted-foreground">
+          Our website integrates with third-party services (Shopify for e-commerce). While we work with vendors who share our commitment to accessibility, we cannot guarantee the accessibility of all third-party content. If you experience accessibility issues with third-party content, please let us know so we can work with our vendors to address them.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-bold mb-4">Updates to This Statement</h2>
+        <p class="text-muted-foreground">
+          This accessibility statement was last updated on January 1, 2024. We review and update this statement regularly as we make improvements to our site and as accessibility standards evolve.
+        </p>
+      </section>
+    </div>
+  </div>
+
+  <Footer slot="footer" />
+</BaseLayout>

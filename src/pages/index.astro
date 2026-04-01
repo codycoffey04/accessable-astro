@@ -1,0 +1,128 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/astro/Header.astro';
+import Footer from '@/components/astro/Footer.astro';
+import { generateOrganizationSchema, generateFAQSchema } from '@/utils/schemaFactory';
+---
+
+<BaseLayout
+  title="AccessAble — Adaptive Compression Socks for Independence"
+  description="Purpose-built compression socks designed for people with limited mobility, reduced dexterity, and medical conditions. DonnEase™ adaptive technology makes donning easier."
+>
+  <Header slot="header" />
+
+  <!-- Hero -->
+  <section class="relative bg-gradient-to-b from-[#FAF8F3] to-white pt-16 pb-20 lg:pt-24 lg:pb-28">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <div class="inline-flex items-center gap-2 bg-gold/10 border border-gold/30 rounded-full px-4 py-1.5 mb-6">
+          <span class="w-2 h-2 rounded-full bg-gold"></span>
+          <span class="text-xs font-semibold tracking-wider text-gold-text uppercase">Adaptive Compression</span>
+        </div>
+
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-[#1B2A4A] mb-6 leading-tight" style="font-family: 'Playfair Display', Georgia, serif;">
+          Compression Socks That Work<br class="hidden md:block" /> With Your Body, Not Against It
+        </h1>
+
+        <p class="text-xl text-[#374151] leading-relaxed max-w-2xl mx-auto mb-8">
+          Purpose-built for people with limited mobility, reduced dexterity, and medical conditions. Our DonnEase™ numbered guide system makes independent donning possible.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="/collections/all" class="inline-flex items-center justify-center rounded-lg bg-[#1B2A4A] text-white px-8 py-4 text-lg font-semibold hover:bg-[#C9A84C] hover:text-[#1B2A4A] transition-all hover:-translate-y-0.5">
+            Shop All Products
+          </a>
+          <a href="/collections/donnease" class="inline-flex items-center justify-center rounded-lg border-2 border-[#1B2A4A] text-[#1B2A4A] px-8 py-4 text-lg font-semibold hover:bg-[#1B2A4A] hover:text-white transition-all">
+            Explore DonnEase™
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Highlights -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-[#1B2A4A] mb-4" style="font-family: 'Playfair Display', Georgia, serif;">
+          Designed for Real Life
+        </h2>
+        <p class="text-lg text-[#374151] max-w-2xl mx-auto">
+          Every product is built from lived experience — not just market research.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <!-- DonnEase -->
+        <div class="rounded-xl border bg-card p-6 text-center hover:shadow-lg transition-shadow">
+          <div class="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="h-8 w-8 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold text-[#1B2A4A] mb-2">DonnEase™ Adaptive</h3>
+          <p class="text-[#374151] text-sm mb-4">Numbered guide system for independent donning. Designed for limited dexterity.</p>
+          <p class="text-2xl font-bold text-[#1B2A4A]">$39</p>
+          <a href="/collections/donnease" class="inline-block mt-4 text-sm font-semibold text-primary hover:underline">Learn more &rarr;</a>
+        </div>
+
+        <!-- Standard -->
+        <div class="rounded-xl border bg-card p-6 text-center hover:shadow-lg transition-shadow">
+          <div class="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="h-8 w-8 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+          </div>
+          <h3 class="text-xl font-bold text-[#1B2A4A] mb-2">Compression Socks</h3>
+          <p class="text-[#374151] text-sm mb-4">20–30 mmHg graduated compression. All-day comfort and support.</p>
+          <p class="text-2xl font-bold text-[#1B2A4A]">$34</p>
+          <a href="/collections/compression-socks" class="inline-block mt-4 text-sm font-semibold text-primary hover:underline">Learn more &rarr;</a>
+        </div>
+
+        <!-- Bundles -->
+        <div class="rounded-xl border bg-card p-6 text-center hover:shadow-lg transition-shadow">
+          <div class="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="h-8 w-8 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /></svg>
+          </div>
+          <h3 class="text-xl font-bold text-[#1B2A4A] mb-2">Easy Start Bundle</h3>
+          <p class="text-[#374151] text-sm mb-4">Compression socks + DonnEase™ donning aid. Everything you need to get started.</p>
+          <p class="text-2xl font-bold text-[#1B2A4A]">Save 15%</p>
+          <a href="/collections/bundles" class="inline-block mt-4 text-sm font-semibold text-primary hover:underline">Learn more &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Section -->
+  <section class="py-16 bg-[#FAF8F3]">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto text-center">
+        <div>
+          <div class="text-3xl font-bold text-[#1B2A4A] mb-2">FDA-Listed</div>
+          <p class="text-[#374151] text-sm">Manufactured in FDA-registered facilities</p>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-[#1B2A4A] mb-2">Made in USA</div>
+          <p class="text-[#374151] text-sm">Proudly manufactured domestically</p>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-[#1B2A4A] mb-2">Patent Pending</div>
+          <p class="text-[#374151] text-sm">DonnEase™ numbered guide technology</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-[#1B2A4A] text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4" style="font-family: 'Playfair Display', Georgia, serif;">
+        Ready to Experience the Difference?
+      </h2>
+      <p class="text-white/80 text-lg max-w-2xl mx-auto mb-8">
+        Join thousands who've discovered compression socks designed for their real-world needs.
+      </p>
+      <a href="/collections/all" class="inline-flex items-center justify-center rounded-lg bg-[#C9A84C] text-[#1B2A4A] px-8 py-4 text-lg font-semibold hover:bg-[#C9A84C]/90 transition-all hover:-translate-y-0.5">
+        Shop All Products
+      </a>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</BaseLayout>

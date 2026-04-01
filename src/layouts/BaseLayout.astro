@@ -1,0 +1,96 @@
+---
+import '@/styles/global.css';
+import siteData from '@/content/site.json';
+import { generateOrganizationSchema } from '@/utils/schemaFactory';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+  ogType?: string;
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description,
+  canonical = Astro.url.pathname === '/' ? siteData.url : `${siteData.url}${Astro.url.pathname}`,
+  ogImage = siteData.ogImage,
+  ogType = 'website',
+  noindex = false,
+} = Astro.props;
+
+const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteData.url}${ogImage}`;
+const orgSchema = generateOrganizationSchema();
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+  <!-- Title & Meta -->
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+  {noindex && <meta name="robots" content="noindex, nofollow" />}
+
+  <!-- Open Graph -->
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:type" content={ogType} />
+  <meta property="og:image" content={fullOgImage} />
+  <meta property="og:site_name" content={siteData.name} />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={fullOgImage} />
+
+  <!-- Fonts: self-hosted Playfair Display (fallback to Google Fonts until woff2 is downloaded) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+
+  <!-- High-contrast mode: apply before paint to prevent FOUC -->
+  <script is:inline>
+    if (localStorage.getItem('high-contrast') === 'true') {
+      document.documentElement.classList.add('high-contrast');
+    }
+  </script>
+
+  <!-- GA4 (G-ZGKZE6HVYP) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZGKZE6HVYP"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-ZGKZE6HVYP');
+  </script>
+
+  <!-- Organization schema (every page) -->
+  <script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
+
+  <!-- Page-specific schema slot -->
+  <slot name="schema" />
+</head>
+<body class="min-h-screen flex flex-col bg-background text-foreground antialiased">
+  <!-- Skip to main content -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded">
+    Skip to main content
+  </a>
+
+  <slot name="header" />
+
+  <main id="main-content" class="flex-1">
+    <slot />
+  </main>
+
+  <slot name="footer" />
+</body>
+</html>

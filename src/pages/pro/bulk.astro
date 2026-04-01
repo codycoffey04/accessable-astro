@@ -1,0 +1,63 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/astro/Header.astro';
+import Footer from '@/components/astro/Footer.astro';
+import Breadcrumb from '@/components/astro/Breadcrumb.astro';
+---
+
+<BaseLayout title="Team Orders — Group Pricing for Healthcare Teams" description="Team discounts on AccessAble Pro compression socks for healthcare practices and departments ordering 10+ pairs.">
+  <Header slot="header" />
+  <Breadcrumb items={[{ label: 'AccessAble Pro', href: '/pro' }, { label: 'Team Orders' }]} />
+
+  <div>
+    <!-- Hero -->
+    <section class="bg-[#FAF8F3] py-20">
+      <div class="container mx-auto px-4 text-center">
+        <!-- Users icon -->
+        <svg class="h-16 w-16 mx-auto mb-6 text-gold" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <h1 class="text-4xl lg:text-5xl font-bold mb-6">Team Orders</h1>
+        <p class="text-xl text-[#374151] max-w-3xl mx-auto mb-4">
+          Get your whole team in AccessAble Pro compression socks.
+        </p>
+        <p class="text-lg text-[#374151] max-w-2xl mx-auto">
+          We offer team discounts for practices and departments ordering 10+ pairs. Contact us for group pricing — we'll work with your team to get the right sizes for everyone.
+        </p>
+      </div>
+    </section>
+
+    <!-- Details -->
+    <section class="py-16 container mx-auto px-4">
+      <div class="max-w-3xl mx-auto">
+        <div class="space-y-8">
+          <div>
+            <h2 class="text-2xl font-bold mb-4">How It Works</h2>
+            <ol class="space-y-4 text-[#374151]">
+              <li class="flex gap-3">
+                <span class="bg-gold/10 text-gold font-bold rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0">1</span>
+                <span>Contact us with your team size and any sizing questions.</span>
+              </li>
+              <li class="flex gap-3">
+                <span class="bg-gold/10 text-gold font-bold rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0">2</span>
+                <span>We'll provide group pricing and help coordinate sizes across your team.</span>
+              </li>
+              <li class="flex gap-3">
+                <span class="bg-gold/10 text-gold font-bold rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0">3</span>
+                <span>Your team gets AccessAble Pro socks at a discount — shipped together or individually.</span>
+              </li>
+            </ol>
+          </div>
+
+          <div class="bg-muted/40 rounded-lg border p-8 text-center">
+            <p class="text-lg font-semibold mb-2">Minimum order: 10 pairs</p>
+            <p class="text-[#374151] mb-6">
+              Mix sizes and colors across your team. Perfect for nursing units, therapy departments, or entire practices.
+            </p>
+            <a href="/contact" class="inline-flex items-center justify-center rounded-md bg-primary text-primary-foreground px-6 py-3 text-sm font-medium hover:bg-primary/90 transition-colors">Contact Us About Team Orders</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <Footer slot="footer" />
+</BaseLayout>

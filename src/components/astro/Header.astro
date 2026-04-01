@@ -1,0 +1,111 @@
+---
+// Static header shell — MobileNav and CartDrawer islands wired in Day 2
+const currentPath = Astro.url.pathname;
+
+const navLinks = [
+  { href: '/learn', label: 'Learn' },
+  { href: '/about', label: 'About' },
+  { href: '/pro', label: 'AccessAble Pro' },
+  { href: '/contact', label: 'Contact' },
+];
+
+const shopMenu = {
+  byProduct: [
+    { href: '/collections/donnease', label: 'DonnEase\u2122 Adaptive Socks' },
+    { href: '/collections/compression-socks', label: 'Compression Socks' },
+    { href: '/collections/bundles', label: 'Bundles' },
+  ],
+  byCompression: [
+    { href: '/collections/all?compression=8-15', label: 'Mild (8\u201315 mmHg)' },
+    { href: '/collections/all?compression=15-20', label: 'Moderate (15\u201320 mmHg)' },
+    { href: '/collections/all?compression=20-30', label: 'Firm (20\u201330 mmHg)' },
+  ],
+  byNeed: [
+    { href: '/collections/limited-mobility', label: 'Limited Mobility & Dexterity' },
+    { href: '/collections/post-surgery', label: 'Post-Surgical Recovery' },
+    { href: '/collections/travel', label: 'Daily Wear & Travel' },
+  ],
+};
+---
+
+<header class="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+  <div class="container mx-auto px-4">
+    <div class="flex h-16 items-center justify-between gap-4">
+      <!-- Logo -->
+      <a href="/" class="flex items-center min-w-fit gap-2.5" aria-label="AccessAble Home">
+        <img
+          src="/images/ac-logo.png"
+          alt=""
+          class="h-12 w-auto object-contain"
+        />
+        <span class="text-[28px] font-bold text-[#1B2A4A]" style="font-family: 'Playfair Display', Georgia, serif; letter-spacing: -0.02em;">
+          AccessAble
+        </span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden lg:flex items-center gap-1" aria-label="Main navigation">
+        <!-- Shop dropdown -->
+        <div class="relative group">
+          <button class="inline-flex h-12 items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground gap-1">
+            Shop
+            <svg class="h-4 w-4 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+          </button>
+          <div class="absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
+            <div class="grid gap-6 p-6 w-[680px] grid-cols-3 bg-background border rounded-lg shadow-lg">
+              <div>
+                <h3 class="text-xs font-semibold uppercase tracking-wider text-[hsl(var(--gold-text))] mb-3">By Product</h3>
+                <ul class="space-y-1">
+                  {shopMenu.byProduct.map(item => (
+                    <li><a href={item.href} class="block px-3 py-2 rounded-md text-sm hover:bg-accent transition-colors">{item.label}</a></li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <h3 class="text-xs font-semibold uppercase tracking-wider text-[hsl(var(--gold-text))] mb-3">By Compression Level</h3>
+                <ul class="space-y-1">
+                  {shopMenu.byCompression.map(item => (
+                    <li><a href={item.href} class="block px-3 py-2 rounded-md text-sm hover:bg-accent transition-colors">{item.label}</a></li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <h3 class="text-xs font-semibold uppercase tracking-wider text-[hsl(var(--gold-text))] mb-3">By Need</h3>
+                <ul class="space-y-1">
+                  {shopMenu.byNeed.map(item => (
+                    <li><a href={item.href} class="block px-3 py-2 rounded-md text-sm hover:bg-accent transition-colors">{item.label}</a></li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {navLinks.map(link => (
+          <a
+            href={link.href}
+            class:list={[
+              'inline-flex h-12 items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground',
+              currentPath.startsWith(link.href) && 'bg-accent/50',
+            ]}
+          >
+            {link.label}
+          </a>
+        ))}
+      </nav>
+
+      <!-- Right side: Cart + Mobile menu (islands wired Day 2) -->
+      <div class="flex items-center gap-2">
+        <!-- Cart placeholder — will be replaced by CartIcon island -->
+        <a href="/collections/all" class="inline-flex items-center justify-center h-12 w-12 rounded-md hover:bg-accent transition-colors" aria-label="Cart">
+          <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" /></svg>
+        </a>
+
+        <!-- Mobile menu placeholder — will be replaced by MobileNav island -->
+        <button class="lg:hidden inline-flex items-center justify-center h-12 w-12 rounded-md hover:bg-accent transition-colors" aria-label="Menu" id="mobile-menu-trigger">
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
