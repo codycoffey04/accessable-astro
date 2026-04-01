@@ -1,5 +1,6 @@
 ---
-import CartDrawer from '@/components/islands/CartDrawer';
+// TODO: Re-enable when live sales begin
+// import CartDrawer from '@/components/islands/CartDrawer';
 import MobileNav from '@/components/islands/MobileNav';
 
 const currentPath = Astro.url.pathname;
@@ -96,9 +97,27 @@ const shopMenu = {
         ))}
       </nav>
 
-      <!-- Right side: Cart + Mobile menu (React islands) -->
+      <!-- Right side: Waitlist CTA + Mobile menu -->
+      <!-- TODO: Swap back to <CartDrawer client:load /> when live sales begin -->
       <div class="flex items-center gap-2">
-        <CartDrawer client:load />
+        <a
+          href="https://signup.accessablecompression.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hidden sm:inline-flex items-center justify-center rounded-md bg-primary text-primary-foreground px-3 py-1.5 text-sm font-medium hover:bg-primary/90 transition-colors whitespace-nowrap"
+        >
+          Join Waitlist
+        </a>
+        <!-- Mobile: icon-only version -->
+        <a
+          href="https://signup.accessablecompression.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="sm:hidden inline-flex items-center justify-center h-10 w-10 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+          aria-label="Join Waitlist"
+        >
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+        </a>
         <MobileNav client:load />
       </div>
     </div>
