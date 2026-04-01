@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { createPortal } from "react-dom";
 
 const shopMenu = {
   byProduct: [
@@ -41,7 +42,8 @@ export default function MobileNav() {
         </svg>
       </button>
 
-      {isOpen && (
+      {/* Portal to document.body — escapes header's backdrop-filter containing block */}
+      {isOpen && typeof document !== 'undefined' && createPortal(
         <>
           {/* Backdrop */}
           <div
@@ -134,7 +136,8 @@ export default function MobileNav() {
               ))}
             </nav>
           </div>
-        </>
+        </>,
+        document.body
       )}
     </>
   );
