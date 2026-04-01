@@ -1,5 +1,7 @@
 ---
-// Static header shell — MobileNav and CartDrawer islands wired in Day 2
+import CartDrawer from '@/components/islands/CartDrawer';
+import MobileNav from '@/components/islands/MobileNav';
+
 const currentPath = Astro.url.pathname;
 
 const navLinks = [
@@ -94,17 +96,10 @@ const shopMenu = {
         ))}
       </nav>
 
-      <!-- Right side: Cart + Mobile menu (islands wired Day 2) -->
+      <!-- Right side: Cart + Mobile menu (React islands) -->
       <div class="flex items-center gap-2">
-        <!-- Cart placeholder — will be replaced by CartIcon island -->
-        <a href="/collections/all" class="inline-flex items-center justify-center h-12 w-12 rounded-md hover:bg-accent transition-colors" aria-label="Cart">
-          <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" /></svg>
-        </a>
-
-        <!-- Mobile menu placeholder — will be replaced by MobileNav island -->
-        <button class="lg:hidden inline-flex items-center justify-center h-12 w-12 rounded-md hover:bg-accent transition-colors" aria-label="Menu" id="mobile-menu-trigger">
-          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
-        </button>
+        <CartDrawer client:load />
+        <MobileNav client:load />
       </div>
     </div>
   </div>

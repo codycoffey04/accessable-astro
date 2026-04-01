@@ -2,127 +2,788 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Header from '@/components/astro/Header.astro';
 import Footer from '@/components/astro/Footer.astro';
-import { generateOrganizationSchema, generateFAQSchema } from '@/utils/schemaFactory';
 ---
 
 <BaseLayout
   title="AccessAble — Adaptive Compression Socks for Independence"
-  description="Purpose-built compression socks designed for people with limited mobility, reduced dexterity, and medical conditions. DonnEase™ adaptive technology makes donning easier."
+  description="Compression socks designed for limited mobility, arthritis & post-surgery. DonnEase™ adaptive design for easier independent donning. Free shipping."
 >
   <Header slot="header" />
 
-  <!-- Hero -->
-  <section class="relative bg-gradient-to-b from-[#FAF8F3] to-white pt-16 pb-20 lg:pt-24 lg:pb-28">
-    <div class="container mx-auto px-4">
-      <div class="max-w-4xl mx-auto text-center">
-        <div class="inline-flex items-center gap-2 bg-gold/10 border border-gold/30 rounded-full px-4 py-1.5 mb-6">
-          <span class="w-2 h-2 rounded-full bg-gold"></span>
-          <span class="text-xs font-semibold tracking-wider text-gold-text uppercase">Adaptive Compression</span>
-        </div>
+  <!-- Hero + Trust Bar — fill viewport below header -->
+  <div class="flex flex-col lg:min-h-[calc(100vh-4rem)]">
 
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-[#1B2A4A] mb-6 leading-tight" style="font-family: 'Playfair Display', Georgia, serif;">
-          Compression Socks That Work<br class="hidden md:block" /> With Your Body, Not Against It
-        </h1>
+    <!-- Hero Section -->
+    <section class="relative bg-[#FAF8F3] pt-8 pb-16 lg:flex-1 lg:flex lg:flex-col lg:justify-center lg:py-12">
+      <div class="container mx-auto px-4">
+        <div class="grid md:grid-cols-2 gap-8 lg:gap-16 items-center">
 
-        <p class="text-xl text-[#374151] leading-relaxed max-w-2xl mx-auto mb-8">
-          Purpose-built for people with limited mobility, reduced dexterity, and medical conditions. Our DonnEase™ numbered guide system makes independent donning possible.
-        </p>
+          <!-- Left Column — Copy -->
+          <div class="flex flex-col justify-center">
+            <!-- Badge pill -->
+            <div class="inline-flex items-center gap-2 bg-gold/10 border border-gold/30 rounded-full px-4 py-1.5 mb-6 w-fit">
+              <span class="w-2 h-2 rounded-full bg-gold"></span>
+              <span class="text-xs font-semibold tracking-wider text-gold-text uppercase">
+                Patent-Pending Adaptive Technology
+              </span>
+            </div>
 
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href="/collections/all" class="inline-flex items-center justify-center rounded-lg bg-[#1B2A4A] text-white px-8 py-4 text-lg font-semibold hover:bg-[#C9A84C] hover:text-[#1B2A4A] transition-all hover:-translate-y-0.5">
-            Shop All Products
-          </a>
-          <a href="/collections/donnease" class="inline-flex items-center justify-center rounded-lg border-2 border-[#1B2A4A] text-[#1B2A4A] px-8 py-4 text-lg font-semibold hover:bg-[#1B2A4A] hover:text-white transition-all">
-            Explore DonnEase™
-          </a>
+            <!-- Headline -->
+            <h1 class="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight mb-6">
+              Compression That<br />
+              <span class="text-gold">Works With You</span>
+            </h1>
+
+            <!-- Body copy — bullet points -->
+            <ul class="space-y-3 mb-6 text-lg text-[#374151]">
+              <li class="flex items-start gap-2">
+                <span class="mt-2 w-1.5 h-1.5 rounded-full bg-[#374151]/60 flex-shrink-0"></span>
+                Don and doff independently, even with arthritis or limited grip
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="mt-2 w-1.5 h-1.5 rounded-full bg-[#374151]/60 flex-shrink-0"></span>
+                Medical-grade 15–30 mmHg graduated compression
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="mt-2 w-1.5 h-1.5 rounded-full bg-[#374151]/60 flex-shrink-0"></span>
+                No frames. No separate devices. Just pull on the numbered guides
+              </li>
+            </ul>
+
+            <!-- Price + Color swatches -->
+            <div class="flex items-center gap-6 mb-6">
+              <div class="flex items-center gap-3">
+                <button
+                  data-color="black"
+                  data-src="/images/donnease-15-20-black.png"
+                  data-alt="DonnEase adaptive compression sock in black"
+                  aria-label="Select Black color"
+                  class="w-8 h-8 rounded-full border-2 transition-all ring-2 ring-gold ring-offset-2 border-gold bg-gray-900"
+                ></button>
+                <button
+                  data-color="tan"
+                  data-src="/images/donnease-15-20-tan.PNG"
+                  data-alt="DonnEase adaptive compression sock in tan"
+                  aria-label="Select Tan color"
+                  class="w-8 h-8 rounded-full border-2 transition-all border-gray-300 hover:border-gray-400 bg-[#D2B48C]"
+                ></button>
+                <button
+                  data-color="white"
+                  data-src="/images/donnease-15-20-white.PNG"
+                  data-alt="DonnEase adaptive compression sock in white"
+                  aria-label="Select White color"
+                  class="w-8 h-8 rounded-full border-2 transition-all border-gray-300 hover:border-gray-400 bg-white"
+                ></button>
+              </div>
+              <div class="flex items-baseline gap-1">
+                <span class="text-2xl font-bold text-foreground">$39</span>
+                <span class="text-sm text-[#374151]">per pair</span>
+              </div>
+            </div>
+
+            <!-- CTA buttons -->
+            <div class="flex flex-col sm:flex-row gap-3 mb-8">
+              <a
+                href="/collections/all"
+                class="inline-flex items-center justify-center h-12 px-8 rounded-md bg-primary text-primary-foreground font-semibold hover:bg-[#C9A84C] hover:text-[#1B2A4A] hover:scale-[1.04] transition-all duration-200 ease-in-out"
+              >
+                Find Your Fit
+              </a>
+              <a
+                href="/learn/donnease-adaptive-compression-guide"
+                class="inline-flex items-center justify-center h-12 px-8 rounded-md border border-primary text-primary font-semibold hover:text-[#C9A84C] hover:bg-transparent transition-all duration-200 ease-in-out"
+              >
+                How It Works
+              </a>
+            </div>
+
+            <!-- Spec pills -->
+            <div class="flex flex-wrap gap-2">
+              <span class="inline-flex items-center bg-gold/10 border border-gold/30 rounded-full px-3 py-1 text-xs font-medium text-gold-text">8-15 to 20-30 mmHg</span>
+              <span class="inline-flex items-center bg-gold/10 border border-gold/30 rounded-full px-3 py-1 text-xs font-medium text-gold-text">78% Nylon / 22% Spandex</span>
+              <span class="inline-flex items-center bg-gold/10 border border-gold/30 rounded-full px-3 py-1 text-xs font-medium text-gold-text">Made in USA</span>
+              <span class="inline-flex items-center bg-gold/10 border border-gold/30 rounded-full px-3 py-1 text-xs font-medium text-gold-text">S–XXL</span>
+            </div>
+          </div>
+
+          <!-- Right Column — Product Image -->
+          <div class="flex flex-col items-center">
+            <div class="relative w-full max-w-md aspect-square flex items-center justify-center">
+              <div
+                class="absolute inset-0 flex items-center justify-center pointer-events-none"
+                aria-hidden="true"
+              >
+                <div
+                  class="w-[85%] h-[85%] rounded-full"
+                  style="background: radial-gradient(circle, hsl(43 59% 53% / 0.1), hsl(43 59% 53% / 0.05), transparent);"
+                ></div>
+              </div>
+              <img
+                id="hero-product-img"
+                src="/images/donnease-15-20-black.png"
+                alt="DonnEase adaptive compression sock in black"
+                class="relative z-10 w-full h-full object-contain drop-shadow-lg"
+              />
+            </div>
+          </div>
+
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Product Highlights -->
-  <section class="py-20 bg-white">
-    <div class="container mx-auto px-4">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-bold text-[#1B2A4A] mb-4" style="font-family: 'Playfair Display', Georgia, serif;">
-          Designed for Real Life
-        </h2>
-        <p class="text-lg text-[#374151] max-w-2xl mx-auto">
-          Every product is built from lived experience — not just market research.
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-        <!-- DonnEase -->
-        <div class="rounded-xl border bg-card p-6 text-center hover:shadow-lg transition-shadow">
-          <div class="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg class="h-8 w-8 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+    <!-- Trust Bar -->
+    <section class="py-[72px] bg-white">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-wrap justify-center gap-x-8 gap-y-3 md:gap-x-12 lg:gap-x-16">
+          <div class="flex items-center gap-2">
+            <!-- Shield icon -->
+            <svg class="h-5 w-5 text-gold flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+            <span class="text-sm font-medium text-primary whitespace-nowrap">Made in USA — FDA-Licensed Facility</span>
           </div>
-          <h3 class="text-xl font-bold text-[#1B2A4A] mb-2">DonnEase™ Adaptive</h3>
-          <p class="text-[#374151] text-sm mb-4">Numbered guide system for independent donning. Designed for limited dexterity.</p>
-          <p class="text-2xl font-bold text-[#1B2A4A]">$39</p>
-          <a href="/collections/donnease" class="inline-block mt-4 text-sm font-semibold text-primary hover:underline">Learn more &rarr;</a>
-        </div>
-
-        <!-- Standard -->
-        <div class="rounded-xl border bg-card p-6 text-center hover:shadow-lg transition-shadow">
-          <div class="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg class="h-8 w-8 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+          <div class="flex items-center gap-2">
+            <!-- Lightbulb icon -->
+            <svg class="h-5 w-5 text-gold flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
+            <span class="text-sm font-medium text-primary whitespace-nowrap">Patent-Pending Adaptive Technology</span>
           </div>
-          <h3 class="text-xl font-bold text-[#1B2A4A] mb-2">Compression Socks</h3>
-          <p class="text-[#374151] text-sm mb-4">20–30 mmHg graduated compression. All-day comfort and support.</p>
-          <p class="text-2xl font-bold text-[#1B2A4A]">$34</p>
-          <a href="/collections/compression-socks" class="inline-block mt-4 text-sm font-semibold text-primary hover:underline">Learn more &rarr;</a>
-        </div>
-
-        <!-- Bundles -->
-        <div class="rounded-xl border bg-card p-6 text-center hover:shadow-lg transition-shadow">
-          <div class="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg class="h-8 w-8 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /></svg>
+          <div class="flex items-center gap-2">
+            <!-- Heart icon -->
+            <svg class="h-5 w-5 text-gold flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+            <span class="text-sm font-medium text-primary whitespace-nowrap">Medical-Grade Graduated Compression</span>
           </div>
-          <h3 class="text-xl font-bold text-[#1B2A4A] mb-2">Easy Start Bundle</h3>
-          <p class="text-[#374151] text-sm mb-4">Compression socks + DonnEase™ donning aid. Everything you need to get started.</p>
-          <p class="text-2xl font-bold text-[#1B2A4A]">Save 15%</p>
-          <a href="/collections/bundles" class="inline-block mt-4 text-sm font-semibold text-primary hover:underline">Learn more &rarr;</a>
+          <div class="flex items-center gap-2">
+            <!-- Star icon -->
+            <svg class="h-5 w-5 text-gold flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" /></svg>
+            <span class="text-sm font-medium text-primary whitespace-nowrap">Real User Tested — Rated 4.6★ by Wear Testers</span>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Trust Section -->
+  </div><!-- end Hero + Trust Bar viewport wrapper -->
+
+  <!-- Featured Products -->
   <section class="py-16 bg-[#FAF8F3]">
     <div class="container mx-auto px-4">
-      <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto text-center">
-        <div>
-          <div class="text-3xl font-bold text-[#1B2A4A] mb-2">FDA-Listed</div>
-          <p class="text-[#374151] text-sm">Manufactured in FDA-registered facilities</p>
+      <h2 class="text-3xl font-bold mb-8 text-center">Featured Products</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- DonnEase Adaptive -->
+        <div class="rounded-lg border bg-card overflow-hidden group">
+          <a href="/collections/donnease">
+            <div class="aspect-square overflow-hidden bg-muted relative">
+              <span class="absolute top-3 left-3 z-10 inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold bg-primary text-primary-foreground">Adaptive Design</span>
+              <img
+                src="/images/donnease-15-20-black.png"
+                alt="AccessAble DonnEase™ Adaptive Compression Sock"
+                class="object-cover w-full h-full group-hover:scale-105 transition-transform"
+              />
+            </div>
+          </a>
+          <div class="p-4">
+            <a href="/collections/donnease">
+              <h3 class="font-medium mb-1 hover:text-primary transition-colors">AccessAble DonnEase™ Adaptive Compression Sock</h3>
+            </a>
+            <p class="text-sm text-[#374151] mb-3">Wide-mouth opening, built-in numbered markers, guided donning system. Put on compression socks independently.</p>
+            <div class="flex items-center justify-between">
+              <span class="font-bold">$39.00</span>
+              <a
+                href="https://signup.accessablecompression.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center justify-center rounded-md bg-primary text-primary-foreground px-3 py-1.5 text-sm font-medium hover:bg-primary/90 transition-colors"
+              >
+                <!-- Mail icon -->
+                <svg class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                Join Waitlist
+              </a>
+            </div>
+          </div>
         </div>
-        <div>
-          <div class="text-3xl font-bold text-[#1B2A4A] mb-2">Made in USA</div>
-          <p class="text-[#374151] text-sm">Proudly manufactured domestically</p>
+
+        <!-- Compression Socks (Tan) -->
+        <div class="rounded-lg border bg-card overflow-hidden group">
+          <a href="/collections/compression-socks">
+            <div class="aspect-square overflow-hidden bg-muted relative">
+              <img
+                src="/images/donnease-15-20-tan.PNG"
+                alt="AccessAble Compression Socks (Tan)"
+                class="object-cover w-full h-full group-hover:scale-105 transition-transform"
+              />
+            </div>
+          </a>
+          <div class="p-4">
+            <a href="/collections/compression-socks">
+              <h3 class="font-medium mb-1 hover:text-primary transition-colors">AccessAble Compression Socks (Tan)</h3>
+            </a>
+            <p class="text-sm text-[#374151] mb-3">Medical-grade graduated compression. Available in 15-20 or 20-30 mmHg.</p>
+            <div class="flex items-center justify-between">
+              <span class="font-bold">$34.00</span>
+              <a
+                href="https://signup.accessablecompression.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center justify-center rounded-md bg-primary text-primary-foreground px-3 py-1.5 text-sm font-medium hover:bg-primary/90 transition-colors"
+              >
+                <svg class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                Join Waitlist
+              </a>
+            </div>
+          </div>
         </div>
-        <div>
-          <div class="text-3xl font-bold text-[#1B2A4A] mb-2">Patent Pending</div>
-          <p class="text-[#374151] text-sm">DonnEase™ numbered guide technology</p>
+
+        <!-- Starter Kit -->
+        <div class="rounded-lg border bg-card overflow-hidden group">
+          <a href="/collections/bundles">
+            <div class="aspect-square overflow-hidden bg-muted relative">
+              <span class="absolute top-3 left-3 z-10 inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold bg-primary text-primary-foreground">Best Value</span>
+              <img
+                src="/images/donnease-15-20-white.PNG"
+                alt="Starter Kit — DonnEase™ + Compression Socks"
+                class="object-cover w-full h-full group-hover:scale-105 transition-transform"
+              />
+            </div>
+          </a>
+          <div class="p-4">
+            <a href="/collections/bundles">
+              <h3 class="font-medium mb-1 hover:text-primary transition-colors">Starter Kit — DonnEase™ + Compression Socks</h3>
+            </a>
+            <p class="text-sm text-[#374151] mb-3">1 DonnEase™ + 1 Standard Compression Sock. Everything you need to get started.</p>
+            <div class="flex items-center justify-between">
+              <span class="font-bold">$65.00</span>
+              <a
+                href="https://signup.accessablecompression.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center justify-center rounded-md bg-primary text-primary-foreground px-3 py-1.5 text-sm font-medium hover:bg-primary/90 transition-colors"
+              >
+                <svg class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                Join Waitlist
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature Highlights Icon Grid -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+        <div class="text-center">
+          <div class="flex justify-center mb-4">
+            <!-- Shield icon -->
+            <svg class="h-12 w-12 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+          </div>
+          <h3 class="text-lg font-bold mb-2">Medical-Grade Compression</h3>
+          <p class="text-sm text-[#374151]">
+            Graduated compression technology built to professional standards. FDA-registered manufacturing.
+          </p>
+        </div>
+
+        <div class="text-center">
+          <div class="flex justify-center mb-4">
+            <!-- Wrench icon -->
+            <svg class="h-12 w-12 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+          </div>
+          <h3 class="text-lg font-bold mb-2">Adaptive Design</h3>
+          <p class="text-sm text-[#374151]">
+            Wide-mouth opening and built-in numbered markers. Put them on yourself in under 60 seconds.
+          </p>
+        </div>
+
+        <div class="text-center">
+          <div class="flex justify-center mb-4">
+            <!-- Clock icon -->
+            <svg class="h-12 w-12 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>
+          </div>
+          <h3 class="text-lg font-bold mb-2">All-Day Comfort</h3>
+          <p class="text-sm text-[#374151]">
+            Moisture-wicking nylon-spandex fabric. Reinforced construction. Designed for 12+ hour wear.
+          </p>
+        </div>
+
+        <div class="text-center">
+          <div class="flex justify-center mb-4">
+            <!-- Ruler icon -->
+            <svg class="h-12 w-12 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 2v20M6 6h4M6 10h8M6 14h4M6 18h6M18 2v20" /></svg>
+          </div>
+          <h3 class="text-lg font-bold mb-2">Extended Sizing</h3>
+          <p class="text-sm text-[#374151]">
+            S through XXL. Built for real bodies, not just averages.
+          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="py-20 bg-[#1B2A4A] text-white">
-    <div class="container mx-auto px-4 text-center">
-      <h2 class="text-3xl md:text-4xl font-bold mb-4" style="font-family: 'Playfair Display', Georgia, serif;">
-        Ready to Experience the Difference?
-      </h2>
-      <p class="text-white/80 text-lg max-w-2xl mx-auto mb-8">
-        Join thousands who've discovered compression socks designed for their real-world needs.
-      </p>
-      <a href="/collections/all" class="inline-flex items-center justify-center rounded-lg bg-[#C9A84C] text-[#1B2A4A] px-8 py-4 text-lg font-semibold hover:bg-[#C9A84C]/90 transition-all hover:-translate-y-0.5">
-        Shop All Products
-      </a>
+  <!-- How It Works -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-12 text-center">Independent Comfort in Three Steps</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div class="text-center">
+          <div class="w-12 h-12 rounded-full bg-[#C9A84C] text-primary-foreground flex items-center justify-center text-xl font-bold mx-auto mb-4">
+            1
+          </div>
+          <h3 class="text-xl font-bold mb-3">Choose Your Compression Level</h3>
+          <p class="text-[#374151] mb-4">
+            15-20 mmHg for daily support. 20-30 mmHg for post-surgical or as directed by your provider. Unsure?
+          </p>
+          <a href="/learn" class="text-primary font-medium hover:underline">See our Compression Guide &rarr;</a>
+        </div>
+
+        <div class="text-center">
+          <div class="w-12 h-12 rounded-full bg-[#C9A84C] text-primary-foreground flex items-center justify-center text-xl font-bold mx-auto mb-4">
+            2
+          </div>
+          <h3 class="text-xl font-bold mb-3">Find Your Size</h3>
+          <p class="text-[#374151] mb-4">
+            Measure your calf and ankle circumference. Use our sizing chart for the best fit.
+          </p>
+          <a href="/size-guide" class="text-primary font-medium hover:underline">Watch our sizing video &rarr;</a>
+        </div>
+
+        <div class="text-center">
+          <div class="w-12 h-12 rounded-full bg-[#C9A84C] text-primary-foreground flex items-center justify-center text-xl font-bold mx-auto mb-4">
+            3
+          </div>
+          <h3 class="text-xl font-bold mb-3">Experience the Difference</h3>
+          <p class="text-[#374151]">
+            Wide opening. Numbered guide system. Comfort that lasts all day.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Proof -->
+  <section class="py-20 bg-[#F4F1EA]">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+          Real-World Tested. Purpose-Built for Independence.
+        </h2>
+        <p class="text-xl text-[#374151] max-w-2xl mx-auto">
+          Adaptive compression refined through real-world wear testing with mobility-challenged users.
+        </p>
+      </div>
+
+      <!-- Design Principles Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 max-w-4xl mx-auto">
+        <div class="text-center p-6 bg-white rounded-lg shadow-sm">
+          <div class="w-16 h-16 mx-auto mb-4 bg-gold/10 rounded-full flex items-center justify-center">
+            <!-- Target icon -->
+            <svg class="w-8 h-8 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="6" /><circle cx="12" cy="12" r="2" /></svg>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Purpose-Built</h3>
+          <p class="text-[#374151] text-sm">
+            Designed specifically for limited hand strength and mobility
+          </p>
+        </div>
+
+        <div class="text-center p-6 bg-white rounded-lg shadow-sm">
+          <div class="w-16 h-16 mx-auto mb-4 bg-gold/10 rounded-full flex items-center justify-center">
+            <!-- CheckCircle icon -->
+            <svg class="w-8 h-8 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          </div>
+          <h3 class="font-bold text-lg mb-2">User-Tested</h3>
+          <p class="text-[#374151] text-sm">
+            Refined through real-world wear testing
+          </p>
+        </div>
+
+        <div class="text-center p-6 bg-white rounded-lg shadow-sm">
+          <div class="w-16 h-16 mx-auto mb-4 bg-gold/10 rounded-full flex items-center justify-center">
+            <!-- Award icon -->
+            <svg class="w-8 h-8 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7" /><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" /></svg>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Patent Pending</h3>
+          <p class="text-[#374151] text-sm">
+            Innovative adaptive compression technology
+          </p>
+        </div>
+      </div>
+
+      <!-- Testimonials from Wear Testing -->
+      <div class="mb-6">
+        <p class="text-center text-sm text-[#374151] mb-8">
+          Feedback from wear testing participants
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <!-- Testimonial 1: Erica Fraser -->
+        <div class="rounded-lg border bg-card p-6">
+          <div class="flex items-start gap-4">
+            <!-- Quote icon -->
+            <svg class="w-8 h-8 text-gold flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" /></svg>
+            <div>
+              <p class="text-[#374151] mb-4">
+                "I almost forgot my socks were on which made me realize just how amazing these feel and fit. Super easy to get socks on which I feel like I usually need a nap after putting the other compression sock on the market."
+              </p>
+              <div class="flex items-center gap-2">
+                <p class="font-semibold">Erica Fraser</p>
+                <span class="text-xs px-2 py-1 bg-primary/10 text-primary rounded-full">
+                  Wear Tester
+                </span>
+              </div>
+              <p class="text-sm text-[#374151]">Independent donner</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2: Bobby DeLeon -->
+        <div class="rounded-lg border bg-card p-6">
+          <div class="flex items-start gap-4">
+            <svg class="w-8 h-8 text-gold flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" /></svg>
+            <div>
+              <p class="text-[#374151] mb-4">
+                "Caretaker is usually struggling and out of breath. Her fingers and hands stay sore! This was so easy and fast. Instructions were easy to follow. The video was helpful. Thrilled!"
+              </p>
+              <div class="flex items-center gap-2">
+                <p class="font-semibold">Bobby DeLeon</p>
+                <span class="text-xs px-2 py-1 bg-primary/10 text-primary rounded-full">
+                  Wear Tester
+                </span>
+              </div>
+              <p class="text-sm text-[#374151]">Caretaker-assisted</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3: Wendell Morris -->
+        <div class="rounded-lg border bg-card p-6">
+          <div class="flex items-start gap-4">
+            <svg class="w-8 h-8 text-gold flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" /></svg>
+            <div>
+              <p class="text-[#374151] mb-4">
+                "I like the extra welt makes easier to put on and take off. The compression works great for me, not too tight and it doesn't slide down my leg. Very good fit for my legs."
+              </p>
+              <div class="flex items-center gap-2">
+                <p class="font-semibold">Wendell Morris</p>
+                <span class="text-xs px-2 py-1 bg-primary/10 text-primary rounded-full">
+                  Wear Tester
+                </span>
+              </div>
+              <p class="text-sm text-[#374151]">Independent donner</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Educational Content Preview -->
+  <section class="py-16 bg-[#FAF8F3]">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-12 text-center">Learn What Works for You</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div class="rounded-lg border bg-card border-l-[3px] border-l-[#C9A84C]">
+          <div class="p-6">
+            <h3 class="text-lg font-bold mb-3">Compression 101: What You Need to Know</h3>
+            <p class="text-sm text-[#374151] mb-4">
+              Understanding compression levels, sizing, and when to wear them.
+            </p>
+            <a href="/learn/compression-101" class="text-primary font-medium hover:underline">5 min read &rarr;</a>
+          </div>
+        </div>
+
+        <div class="rounded-lg border bg-card border-l-[3px] border-l-[#C9A84C]">
+          <div class="p-6">
+            <h3 class="text-lg font-bold mb-3">Putting On Compression Socks: A Step-by-Step Guide</h3>
+            <p class="text-sm text-[#374151] mb-4">
+              Video tutorial with adaptive techniques for limited mobility.
+            </p>
+            <a href="/learn" class="text-primary font-medium hover:underline">Watch now &rarr;</a>
+          </div>
+        </div>
+
+        <div class="rounded-lg border bg-card border-l-[3px] border-l-[#C9A84C]">
+          <div class="p-6">
+            <h3 class="text-lg font-bold mb-3">Choosing the Right Compression Level</h3>
+            <p class="text-sm text-[#374151] mb-4">
+              15-20 vs. 20-30 mmHg—what's right for your situation?
+            </p>
+            <a href="/learn/compression-101" class="text-primary font-medium hover:underline">5 min read &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Founder Story -->
+  <section class="py-16 bg-[#F4F1EA]">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-6">Built from Real Need</h2>
+        <div class="space-y-4 text-lg text-[#374151]">
+          <p>
+            After a spinal cord injury, I needed medical-grade compression socks. My healthcare provider prescribed them. My hands couldn't put them on.
+          </p>
+          <p>
+            Standard compression requires grip strength and flexibility I don't have. Adaptive tools felt clunky and clinical. I needed compression that actually worked for my hands—not devices to wrestle with standard socks.
+          </p>
+          <p>
+            AccessAble exists to solve that gap. Patent-pending adaptive compression technology—wide-mouth openings and a built-in numbered guide system built into medical-grade graduated compression. No separate tools. No unnecessary barriers.
+          </p>
+          <p class="font-semibold text-foreground">
+            Independence shouldn't require choosing between efficacy and ease.
+          </p>
+        </div>
+        <a href="/about" class="inline-flex items-center justify-center rounded-md border border-primary text-primary px-8 py-3 text-base font-semibold hover:bg-primary hover:text-primary-foreground transition-colors mt-8">
+          Our Story
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Condition-Specific Callouts -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-12 text-center">Designed for Your Situation</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="rounded-lg border bg-card border-t-[3px] border-t-[#C9A84C]">
+          <div class="p-6">
+            <h3 class="text-lg font-bold mb-2">Post-Surgical Recovery</h3>
+            <p class="text-sm text-[#374151] mb-4">
+              Graduated compression designed for comfort during recovery. Compatible with mobility aids.
+            </p>
+            <a href="/collections/post-surgery" class="text-primary font-medium hover:underline">Learn More &rarr;</a>
+          </div>
+        </div>
+
+        <div class="rounded-lg border bg-card border-t-[3px] border-t-[#C9A84C]">
+          <div class="p-6">
+            <h3 class="text-lg font-bold mb-2">Limited Hand Strength</h3>
+            <p class="text-sm text-[#374151] mb-4">
+              Adaptive features for arthritis, reduced grip, or limited dexterity. Independent donning.
+            </p>
+            <a href="/collections/limited-mobility" class="text-primary font-medium hover:underline">Learn More &rarr;</a>
+          </div>
+        </div>
+
+        <div class="rounded-lg border bg-card border-t-[3px] border-t-[#C9A84C]">
+          <div class="p-6">
+            <h3 class="text-lg font-bold mb-2">Wheelchair Users</h3>
+            <p class="text-sm text-[#374151] mb-4">
+              Built to work with your daily routine. Comfortable seated wear. Easy on, easy off.
+            </p>
+            <a href="/collections/wheelchair-users" class="text-primary font-medium hover:underline">Learn More &rarr;</a>
+          </div>
+        </div>
+
+        <div class="rounded-lg border bg-card border-t-[3px] border-t-[#C9A84C]">
+          <div class="p-6">
+            <h3 class="text-lg font-bold mb-2">Travel & Circulation</h3>
+            <p class="text-sm text-[#374151] mb-4">
+              For long flights, road trips, and extended standing. All-day comfort without compromise.
+            </p>
+            <a href="/collections/travel" class="text-primary font-medium hover:underline">Learn More &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Not Sure Where to Start? (replaces SizingQuiz) -->
+  <section class="py-16 bg-[#F4F1EA]">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+          Not Sure Where to Start?
+        </h2>
+        <p class="text-lg text-[#374151] mb-8">
+          Answer three questions to find your ideal compression solution.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="/pages/size-guide"
+            class="inline-flex items-center justify-center rounded-md bg-primary text-primary-foreground px-8 py-3 text-base font-semibold hover:bg-primary/90 transition-colors"
+          >
+            View Size Guide
+          </a>
+          <a
+            href="/learn"
+            class="inline-flex items-center justify-center rounded-md border border-primary text-primary px-8 py-3 text-base font-semibold hover:bg-primary hover:text-primary-foreground transition-colors"
+          >
+            Browse the Learn Hub
+          </a>
+        </div>
+        <p class="text-sm text-[#374151] mt-6">
+          This information provides product suggestions only. Always follow your healthcare provider's guidance.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- AccessAble Pro Callout -->
+  <section class="py-16 bg-[#1B2A4A]">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto text-center">
+        <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold mb-4 bg-[#C9A84C] text-[#1B2A4A]">For Healthcare Professionals</span>
+        <h2 class="text-3xl font-bold mb-4 text-white">Compression Socks Built for Healthcare Professionals</h2>
+        <p class="text-lg text-white/80 mb-8">
+          Premium compression socks designed for nurses, PTs, and healthcare workers who spend 12+ hours on their feet. DonnEase™ adaptive features make donning easier during long shifts.
+        </p>
+        <div class="grid md:grid-cols-2 gap-4 mb-8 text-left">
+          <div class="flex items-start gap-3">
+            <!-- CheckCircle icon -->
+            <svg class="h-5 w-5 text-[#C9A84C] mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+            <span class="text-white">8-15 mmHg designed for 12+ hour shifts</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg class="h-5 w-5 text-[#C9A84C] mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+            <span class="text-white">Moisture-wicking nylon-spandex blend for all-day comfort</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg class="h-5 w-5 text-[#C9A84C] mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+            <span class="text-white">Team orders available for 10+ pairs</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg class="h-5 w-5 text-[#C9A84C] mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+            <span class="text-white">DonnEase™ adaptive features for easier donning</span>
+          </div>
+        </div>
+        <a href="/pro" class="inline-flex items-center justify-center rounded-md bg-[#C9A84C] text-[#1B2A4A] px-8 py-3 text-base font-semibold hover:bg-[#C9A84C]/90 transition-colors">
+          Explore Pro Solutions &rarr;
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom Trust Bar -->
+  <section class="py-12 bg-[#FAF8F3]">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-6 max-w-4xl mx-auto text-center">
+        <div class="flex flex-col items-center gap-2">
+          <!-- Award icon -->
+          <svg class="h-8 w-8 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7" /><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" /></svg>
+          <p class="text-sm font-medium">30-Day Fit Guarantee</p>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <!-- Package icon -->
+          <svg class="h-8 w-8 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /></svg>
+          <p class="text-sm font-medium">Free Exchanges</p>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <!-- Lock icon -->
+          <svg class="h-8 w-8 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0110 0v4" /></svg>
+          <p class="text-sm font-medium">Secure Site</p>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <!-- Users icon -->
+          <svg class="h-8 w-8 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 00-3-3.87" /><path d="M16 3.13a4 4 0 010 7.75" /></svg>
+          <p class="text-sm font-medium">Designed for Accessibility</p>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <!-- Shield icon -->
+          <svg class="h-8 w-8 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+          <p class="text-sm font-medium">FDA-Registered Manufacturing</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Email Signup -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-xl mx-auto text-center">
+        <!-- Mail icon -->
+        <svg class="h-10 w-10 text-gold mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+        <h2 class="text-2xl font-bold mb-2">Stay in the Loop</h2>
+        <p class="text-[#374151] mb-6">
+          Get launch updates, sizing tips, and early access to new products.
+        </p>
+        <form name="waitlist" method="POST" data-netlify="true" class="flex flex-col sm:flex-row gap-3 justify-center">
+          <input type="hidden" name="form-name" value="waitlist" />
+          <input
+            type="email"
+            name="email"
+            placeholder="Your email address"
+            required
+            class="h-12 sm:max-w-xs w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+            aria-label="Email address"
+          />
+          <button
+            type="submit"
+            class="inline-flex items-center justify-center rounded-md bg-primary text-primary-foreground h-12 px-8 text-sm font-medium hover:bg-primary/90 transition-colors"
+          >
+            Join the Waitlist
+          </button>
+        </form>
+        <p class="text-xs text-[#374151] mt-3">No spam. Unsubscribe anytime.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Learn First. Choose What Fits. CTA -->
+  <section class="py-16 bg-[#F4F1EA]">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-4">Learn First. Choose What Fits.</h2>
+        <p class="text-lg text-[#374151] mb-8">
+          Explore our guides, compare compression levels, and find what works for your situation.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3 justify-center">
+          <a
+            href="/learn"
+            class="inline-flex items-center justify-center rounded-md bg-primary text-primary-foreground px-8 py-3 text-base font-semibold hover:bg-primary/90 transition-colors"
+          >
+            Browse the Learn Hub
+          </a>
+          <a
+            href="/collections/all"
+            class="inline-flex items-center justify-center rounded-md border border-primary text-primary px-8 py-3 text-base font-semibold hover:bg-primary hover:text-primary-foreground transition-colors"
+          >
+            Shop All Products
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Trust Icons Row -->
+  <section class="py-8 bg-[#FAF8F3]">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-wrap justify-center gap-x-8 gap-y-3 md:gap-x-12 lg:gap-x-16">
+        <div class="flex items-center gap-2">
+          <svg class="h-5 w-5 text-gold flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+          <span class="text-sm font-medium text-primary whitespace-nowrap">FDA-Registered Facility</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <!-- Truck icon -->
+          <svg class="h-5 w-5 text-gold flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" /><polygon points="16 8 20 8 23 11 23 16 16 16 16 8" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" /></svg>
+          <span class="text-sm font-medium text-primary whitespace-nowrap">Free U.S. Shipping</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <svg class="h-5 w-5 text-gold flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7" /><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" /></svg>
+          <span class="text-sm font-medium text-primary whitespace-nowrap">30-Day Guarantee</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <svg class="h-5 w-5 text-gold flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+          <span class="text-sm font-medium text-primary whitespace-nowrap">Built for Independence</span>
+        </div>
+      </div>
     </div>
   </section>
 
   <Footer slot="footer" />
 </BaseLayout>
+
+<!-- Hero Color Swatch Script -->
+<script is:inline>
+  document.querySelectorAll('[data-color]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const img = document.getElementById('hero-product-img');
+      img.src = btn.dataset.src;
+      img.alt = btn.dataset.alt;
+      document.querySelectorAll('[data-color]').forEach(b => {
+        b.classList.remove('ring-2', 'ring-gold', 'ring-offset-2', 'border-gold');
+        b.classList.add('border-gray-300');
+      });
+      btn.classList.add('ring-2', 'ring-gold', 'ring-offset-2', 'border-gold');
+      btn.classList.remove('border-gray-300');
+    });
+  });
+</script>
