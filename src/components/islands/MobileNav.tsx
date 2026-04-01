@@ -50,11 +50,8 @@ export default function MobileNav() {
           />
 
           {/* Drawer */}
-          <div
-            className="fixed inset-y-0 left-0 z-[100] w-[85vw] max-w-80 shadow-lg"
-            style={{ backgroundColor: '#ffffff' }}
-          >
-            <div className="flex items-center justify-between p-4 border-b" style={{ backgroundColor: '#ffffff' }}>
+          <div className="fixed inset-y-0 left-0 z-[100] w-[85vw] max-w-80 bg-white shadow-lg flex flex-col">
+            <div className="flex items-center justify-between p-4 border-b bg-white shrink-0">
               <h2 className="text-lg font-semibold">Menu</h2>
               <button
                 onClick={() => setIsOpen(false)}
@@ -67,7 +64,7 @@ export default function MobileNav() {
               </button>
             </div>
 
-            <nav className="p-4 space-y-1 overflow-y-auto" style={{ backgroundColor: '#ffffff', height: 'calc(100% - 57px)' }}>
+            <nav className="p-4 space-y-1 overflow-y-auto flex-1 bg-white">
               {/* Shop dropdown */}
               <div>
                 <button

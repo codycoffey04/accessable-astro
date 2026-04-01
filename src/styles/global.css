@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+/* Tailwind v4: explicitly scan React island + UI files for class names.
+   Without this, classes used only in .tsx islands won't be generated. */
+@source "../components/islands";
+@source "../components/ui";
+@source "../stores";
+
 /* ===== Theme Tokens (from Lovable index.css — 1:1 port) ===== */
 
 @layer base {
