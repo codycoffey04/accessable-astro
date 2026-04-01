@@ -45,14 +45,14 @@ export default function MobileNav() {
       {/* Portal to document.body — escapes header's backdrop-filter containing block */}
       {isOpen && typeof document !== 'undefined' && createPortal(
         <>
-          {/* Backdrop */}
+          {/* Backdrop — full screen, opaque enough to hide page content */}
           <div
-            className="fixed inset-0 z-[99] bg-black/50"
+            className="fixed inset-0 z-[99] bg-black/60"
             onClick={() => setIsOpen(false)}
           />
 
-          {/* Drawer */}
-          <div className="fixed inset-y-0 left-0 z-[100] w-[85vw] max-w-80 bg-white shadow-lg flex flex-col">
+          {/* Drawer — full width on mobile */}
+          <div className="fixed inset-0 z-[100] w-full bg-white flex flex-col">
             <div className="flex items-center justify-between p-4 border-b bg-white shrink-0">
               <h2 className="text-lg font-semibold">Menu</h2>
               <button
