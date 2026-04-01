@@ -50,12 +50,15 @@ export default function MobileNav() {
           />
 
           {/* Drawer */}
-          <div className="fixed inset-y-0 left-0 z-[100] w-80 bg-white shadow-lg animate-in slide-in-from-left duration-300">
-            <div className="flex items-center justify-between p-4 border-b">
+          <div
+            className="fixed inset-y-0 left-0 z-[100] w-[85vw] max-w-80 shadow-lg"
+            style={{ backgroundColor: '#ffffff' }}
+          >
+            <div className="flex items-center justify-between p-4 border-b" style={{ backgroundColor: '#ffffff' }}>
               <h2 className="text-lg font-semibold">Menu</h2>
               <button
                 onClick={() => setIsOpen(false)}
-                className="inline-flex items-center justify-center h-10 w-10 rounded-md hover:bg-accent"
+                className="inline-flex items-center justify-center h-10 w-10 rounded-md hover:bg-gray-100"
                 aria-label="Close menu"
               >
                 <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -64,7 +67,7 @@ export default function MobileNav() {
               </button>
             </div>
 
-            <nav className="p-4 space-y-1">
+            <nav className="p-4 space-y-1 overflow-y-auto" style={{ backgroundColor: '#ffffff', height: 'calc(100% - 57px)' }}>
               {/* Shop dropdown */}
               <div>
                 <button
