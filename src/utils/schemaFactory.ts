@@ -112,7 +112,8 @@ export const generateOrganizationSchema = () => ({
   '@type': 'Organization',
   '@id': `${SITE}/#organization`,
   name: 'AccessAble',
-  legalName: 'AccessAble',
+  legalName: 'AccessAble LLC',
+  foundingDate: '2026-04-16',
   url: SITE,
   logo: {
     '@type': 'ImageObject',
