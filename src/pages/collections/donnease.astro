@@ -69,7 +69,7 @@ const productSchema = {
   <section class="py-16 bg-[#FAF8F3]">
     <div class="container mx-auto px-4">
       <div class="max-w-3xl mx-auto">
-        <h2 class="text-3xl font-bold text-[#1B2A4A] mb-10 text-center">
+        <h2 class="text-3xl font-bold text-primary mb-10 text-center">
           Put them on yourself. No tools. No frustration.
         </h2>
 
@@ -85,7 +85,7 @@ const productSchema = {
                 </svg>
               </div>
               <div>
-                <h3 class="font-semibold text-[#1B2A4A] text-lg">{benefit.title}</h3>
+                <h3 class="font-semibold text-primary text-lg">{benefit.title}</h3>
                 <p class="text-[#374151] mt-1">{benefit.desc}</p>
               </div>
             </div>
@@ -102,7 +102,7 @@ const productSchema = {
         <p class="text-xl text-[#374151] italic mb-4">
           "I needed compression socks after my spinal cord injury. My hands couldn't put them on. So I built ones that could."
         </p>
-        <p class="font-semibold text-[#1B2A4A]">
+        <p class="font-semibold text-primary">
           Built from lived experience. Founded by a C4 SCI survivor.
         </p>
       </div>
@@ -121,7 +121,7 @@ const productSchema = {
               {badge.iconName === 'Heart' && <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />}
               {badge.iconName === 'Clock' && <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />}
             </svg>
-            <span class="text-sm font-medium text-[#1B2A4A] whitespace-nowrap">{badge.label}</span>
+            <span class="text-sm font-medium text-primary whitespace-nowrap">{badge.label}</span>
           </div>
         ))}
       </div>
@@ -131,7 +131,7 @@ const productSchema = {
   <!-- Cross-sell: Complete Your Independence Kit -->
   <section class="py-16 bg-[#FAF8F3]">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-[#1B2A4A] mb-4 text-center">
+      <h2 class="text-3xl font-bold text-primary mb-4 text-center">
         Complete Your Independence Kit
       </h2>
       <p class="text-center text-[#374151] mb-8 max-w-xl mx-auto">
@@ -162,7 +162,7 @@ const productSchema = {
               </a>
               <p class="text-sm text-[#374151] mb-2">{item.desc}</p>
               <div class="flex items-center gap-2 mb-3 mt-auto">
-                <span class="font-bold text-[#1B2A4A]">{item.price}</span>
+                <span class="font-bold text-primary">{item.price}</span>
                 <span class="text-sm line-through text-muted-foreground">{item.originalPrice}</span>
                 <span class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold bg-secondary text-secondary-foreground">{item.savings}</span>
               </div>
@@ -185,7 +185,7 @@ const productSchema = {
   </section>
 
   <!-- Final CTA Banner -->
-  <section class="py-16 bg-[#1B2A4A]">
+  <section class="py-16 bg-primary">
     <div class="max-w-3xl mx-auto px-4 text-center">
       <h2 class="text-3xl font-bold mb-4 text-white">
         Put them on yourself. No tools. No unnecessary barriers.
@@ -197,7 +197,7 @@ const productSchema = {
         href="https://signup.accessablecompression.com"
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center justify-center rounded-md text-lg font-semibold bg-[#C9A844] text-[#1B2A4A] hover:bg-[#C9A844]/90 h-12 px-8"
+        class="inline-flex items-center justify-center rounded-md text-lg font-semibold bg-primary text-primary-foreground hover:bg-primary-hover h-12 px-8"
       >
         <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />

@@ -43,18 +43,18 @@ export default function DonnEasePDP() {
         {/* RIGHT COLUMN: Sticky Sidebar */}
         <div className="lg:sticky lg:top-24 lg:self-start space-y-6">
           {/* Product Title */}
-          <h1 className="text-3xl lg:text-4xl font-bold text-[#1B2A4A]">
+          <h1 className="text-3xl lg:text-4xl font-bold text-primary">
             DonnEase&#8482; Adaptive Compression Socks
           </h1>
 
           {/* Price */}
           <div className="flex items-baseline gap-2">
-            <span className="text-[32px] font-bold text-[#1B2A4A]">$39</span>
+            <span className="text-[32px] font-bold text-primary">$39</span>
             <span className="text-lg text-[#374151]">/pair</span>
           </div>
 
           {/* Wear Tester Rating */}
-          <p className="font-medium text-[#1B2A4A]">
+          <p className="font-medium text-primary">
             <span className="text-[#C9A844]" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>{' '}
             <span>Rated 4.6 by 12 wear testers</span>
           </p>
@@ -97,7 +97,7 @@ export default function DonnEasePDP() {
                       : 'border-[#E5E7EB] opacity-70 hover:opacity-100 hover:border-gray-400'
                   }`}
                 >
-                  <span className="block font-semibold text-[#1B2A4A]">{level.label}</span>
+                  <span className="block font-semibold text-primary">{level.label}</span>
                   <span className="block text-xs text-[#374151] mt-0.5">{level.sublabel}</span>
                 </button>
               ))}
@@ -111,7 +111,7 @@ export default function DonnEasePDP() {
           <div>
             <div className="flex items-center justify-between mb-3">
               <p className="text-sm font-medium text-[#374151]">Size</p>
-              <a href="/pages/size-guide" className="text-[#1B2A4A] underline font-medium min-h-[48px] inline-flex items-center gap-1">
+              <a href="/pages/size-guide" className="text-primary underline font-medium min-h-[48px] inline-flex items-center gap-1">
                 <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4H6zM3 6h18" />
                 </svg>
@@ -127,7 +127,7 @@ export default function DonnEasePDP() {
                   aria-pressed={selectedSize === s}
                   className={`min-w-[64px] h-12 px-4 rounded-lg border-2 font-medium transition-all ${
                     selectedSize === s
-                      ? 'border-[#C9A844] bg-[#C9A844]/5 text-[#1B2A4A]'
+                      ? 'border-[#C9A844] bg-[#C9A844]/5 text-primary'
                       : 'border-gray-200 text-[#374151] hover:border-gray-400'
                   }`}
                 >
@@ -139,7 +139,7 @@ export default function DonnEasePDP() {
 
           {/* CTA Button */}
           <button
-            className="w-full bg-[#C9A844] text-[#1B2A4A] hover:bg-[#C9A844]/90 font-semibold rounded-lg inline-flex items-center justify-center"
+            className="w-full bg-primary text-primary-foreground hover:bg-primary-hover font-semibold rounded-lg inline-flex items-center justify-center"
             style={{ padding: '18px 48px', fontSize: '18px' }}
             onClick={() => window.open('https://signup.accessablecompression.com', '_blank', 'noopener,noreferrer')}
           >

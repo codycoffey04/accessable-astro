@@ -16,9 +16,9 @@ import Breadcrumb from '@/components/astro/Breadcrumb.astro';
         <div class="grid md:grid-cols-2 gap-8 lg:gap-12 items-start">
           <!-- Left Column - Text Content -->
           <div class="flex flex-col justify-center">
-            <div class="inline-flex items-center gap-2 bg-gold/10 border border-gold/30 rounded-full px-4 py-1.5 mb-4 w-fit">
-              <span class="w-2 h-2 rounded-full bg-gold"></span>
-              <span class="text-xs font-semibold tracking-wider text-gold-text uppercase">For Healthcare Professionals</span>
+            <div class="inline-flex items-center gap-2 bg-secondary rounded-full px-4 py-1.5 mb-4 w-fit">
+              <span class="w-2 h-2 rounded-full bg-primary"></span>
+              <span class="text-xs font-semibold tracking-wider text-foreground uppercase">For Healthcare Professionals</span>
             </div>
             <h1 class="text-4xl lg:text-5xl font-bold mb-4">
               All-Day Compression That Keeps Your Clinical Teams Standing
@@ -52,8 +52,8 @@ import Breadcrumb from '@/components/astro/Breadcrumb.astro';
             </ul>
 
             <div class="flex flex-col sm:flex-row gap-4">
-              <a href="https://signup.accessablecompression.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center h-12 px-8 rounded-lg bg-[#1B2A4A] text-white hover:bg-[#C9A84C] hover:text-[#1B2A4A] transition-all duration-200 ease-in-out text-sm font-medium">Request Bulk Pricing & Samples</a>
-              <a href="/pro/login" class="inline-flex items-center justify-center h-12 px-8 rounded-lg border-2 border-[#1B2A4A] text-[#1B2A4A] bg-transparent hover:bg-[#C9A84C] hover:border-[#C9A84C] hover:text-[#1B2A4A] transition-all duration-200 ease-in-out text-sm font-medium">Login to Pro Portal</a>
+              <a href="https://signup.accessablecompression.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center h-12 px-8 rounded-lg bg-primary text-white hover:bg-primary-hover hover:text-primary-foreground transition-all duration-200 ease-in-out text-sm font-medium">Request Bulk Pricing & Samples</a>
+              <a href="/pro/login" class="inline-flex items-center justify-center h-12 px-8 rounded-lg border-2 border-primary text-primary bg-transparent hover:bg-primary-hover hover:border-primary-hover hover:text-primary-foreground transition-all duration-200 ease-in-out text-sm font-medium">Login to Pro Portal</a>
             </div>
 
             <div class="mt-8 border border-amber-500 bg-amber-50 rounded-lg p-4 flex items-start gap-3">
@@ -92,11 +92,11 @@ import Breadcrumb from '@/components/astro/Breadcrumb.astro';
     <!-- Sub-navigation -->
     <div class="bg-[#FAF8F3] pb-8">
       <nav class="flex items-center justify-center flex-wrap gap-3" aria-label="Pro section navigation">
-        <a href="/pro/bulk" class="inline-flex items-center justify-center h-11 px-6 text-sm font-semibold border-2 border-[#1B2A4A] text-[#1B2A4A] bg-transparent hover:bg-[#C9A84C] hover:border-[#C9A84C] hover:text-[#1B2A4A] transition-all duration-200 rounded-full">Bulk & Team Ordering</a>
-        <div class="w-px h-8 bg-[#1B2A4A]/20 hidden sm:block"></div>
-        <a href="/pro/login" class="inline-flex items-center gap-2 justify-center h-11 px-6 text-sm font-semibold border-2 border-[#1B2A4A] text-[#1B2A4A] bg-transparent hover:bg-[#C9A84C] hover:border-[#C9A84C] hover:text-[#1B2A4A] transition-all duration-200 rounded-full">Pro Portal Login <span class="text-xs font-normal text-[#374151]/60">(Coming Soon)</span></a>
-        <div class="w-px h-8 bg-[#1B2A4A]/20 hidden sm:block"></div>
-        <a href="/pro/resources" class="inline-flex items-center justify-center h-11 px-6 text-sm font-semibold border-2 border-[#1B2A4A] text-[#1B2A4A] bg-transparent hover:bg-[#C9A84C] hover:border-[#C9A84C] hover:text-[#1B2A4A] transition-all duration-200 rounded-full">Clinical Resources & Sizing</a>
+        <a href="/pro/bulk" class="inline-flex items-center justify-center h-11 px-6 text-sm font-semibold border-2 border-primary text-primary bg-transparent hover:bg-primary-hover hover:border-primary-hover hover:text-primary-foreground transition-all duration-200 rounded-full">Bulk & Team Ordering</a>
+        <div class="w-px h-8 bg-primary/20 hidden sm:block"></div>
+        <a href="/pro/login" class="inline-flex items-center gap-2 justify-center h-11 px-6 text-sm font-semibold border-2 border-primary text-primary bg-transparent hover:bg-primary-hover hover:border-primary-hover hover:text-primary-foreground transition-all duration-200 rounded-full">Pro Portal Login <span class="text-xs font-normal text-[#374151]/60">(Coming Soon)</span></a>
+        <div class="w-px h-8 bg-primary/20 hidden sm:block"></div>
+        <a href="/pro/resources" class="inline-flex items-center justify-center h-11 px-6 text-sm font-semibold border-2 border-primary text-primary bg-transparent hover:bg-primary-hover hover:border-primary-hover hover:text-primary-foreground transition-all duration-200 rounded-full">Clinical Resources & Sizing</a>
       </nav>
     </div>
 
@@ -105,32 +105,32 @@ import Breadcrumb from '@/components/astro/Breadcrumb.astro';
       <div class="container mx-auto px-4">
         <div class="flex flex-wrap justify-center gap-8 md:gap-16">
           <div class="flex items-center gap-3">
-            <div class="bg-gold/10 rounded-full w-10 h-10 flex items-center justify-center">
+            <div class="bg-secondary rounded-full w-10 h-10 flex items-center justify-center">
               <!-- Shield icon -->
               <svg aria-hidden="true" class="h-5 w-5 text-gold" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>
             </div>
-            <span class="text-sm font-semibold text-[#1B2A4A]">FDA-Registered Facility</span>
+            <span class="text-sm font-semibold text-primary">FDA-Registered Facility</span>
           </div>
           <div class="flex items-center gap-3">
-            <div class="bg-gold/10 rounded-full w-10 h-10 flex items-center justify-center">
+            <div class="bg-secondary rounded-full w-10 h-10 flex items-center justify-center">
               <!-- Award icon -->
               <svg aria-hidden="true" class="h-5 w-5 text-gold" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
             </div>
-            <span class="text-sm font-semibold text-[#1B2A4A]">Made in USA</span>
+            <span class="text-sm font-semibold text-primary">Made in USA</span>
           </div>
           <div class="flex items-center gap-3">
-            <div class="bg-gold/10 rounded-full w-10 h-10 flex items-center justify-center">
+            <div class="bg-secondary rounded-full w-10 h-10 flex items-center justify-center">
               <!-- Zap icon -->
               <svg aria-hidden="true" class="h-5 w-5 text-gold" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>
             </div>
-            <span class="text-sm font-semibold text-[#1B2A4A]">Patent-Pending DonnEase™ Technology</span>
+            <span class="text-sm font-semibold text-primary">Patent-Pending DonnEase™ Technology</span>
           </div>
           <div class="flex items-center gap-3">
-            <div class="bg-gold/10 rounded-full w-10 h-10 flex items-center justify-center">
+            <div class="bg-secondary rounded-full w-10 h-10 flex items-center justify-center">
               <!-- CheckCircle icon -->
               <svg aria-hidden="true" class="h-5 w-5 text-gold" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
             </div>
-            <span class="text-sm font-semibold text-[#1B2A4A]">Clinic-Grade Graduated Compression</span>
+            <span class="text-sm font-semibold text-primary">Clinic-Grade Graduated Compression</span>
           </div>
         </div>
       </div>
@@ -146,9 +146,9 @@ import Breadcrumb from '@/components/astro/Breadcrumb.astro';
 
         <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           <!-- Feature 1: Independent Donning Design -->
-          <div class="rounded-xl border border-gray-200 bg-card text-card-foreground shadow-sm hover:border-[#C9A84C] hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+          <div class="rounded-xl border border-gray-200 bg-card text-card-foreground shadow-sm hover:border-primary-hover hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
             <div class="px-8 py-10">
-              <div class="bg-gold/10 rounded-full w-12 h-12 flex items-center justify-center mb-4">
+              <div class="bg-secondary rounded-full w-12 h-12 flex items-center justify-center mb-4">
                 <svg aria-hidden="true" class="h-6 w-6 text-gold" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
               </div>
               <h3 class="font-bold text-lg mb-2">Independent Donning Design</h3>
@@ -159,9 +159,9 @@ import Breadcrumb from '@/components/astro/Breadcrumb.astro';
           </div>
 
           <!-- Feature 2: Size Range for Every Professional -->
-          <div class="rounded-xl border border-gray-200 bg-card text-card-foreground shadow-sm hover:border-[#C9A84C] hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+          <div class="rounded-xl border border-gray-200 bg-card text-card-foreground shadow-sm hover:border-primary-hover hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
             <div class="px-8 py-10">
-              <div class="bg-gold/10 rounded-full w-12 h-12 flex items-center justify-center mb-4">
+              <div class="bg-secondary rounded-full w-12 h-12 flex items-center justify-center mb-4">
                 <svg aria-hidden="true" class="h-6 w-6 text-gold" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
               </div>
               <h3 class="font-bold text-lg mb-2">Size Range for Every Professional</h3>
@@ -172,9 +172,9 @@ import Breadcrumb from '@/components/astro/Breadcrumb.astro';
           </div>
 
           <!-- Feature 3: Clinic-Grade Durability -->
-          <div class="rounded-xl border border-gray-200 bg-card text-card-foreground shadow-sm hover:border-[#C9A84C] hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+          <div class="rounded-xl border border-gray-200 bg-card text-card-foreground shadow-sm hover:border-primary-hover hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
             <div class="px-8 py-10">
-              <div class="bg-gold/10 rounded-full w-12 h-12 flex items-center justify-center mb-4">
+              <div class="bg-secondary rounded-full w-12 h-12 flex items-center justify-center mb-4">
                 <svg aria-hidden="true" class="h-6 w-6 text-gold" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>
               </div>
               <h3 class="font-bold text-lg mb-2">Clinic-Grade Durability</h3>
@@ -185,9 +185,9 @@ import Breadcrumb from '@/components/astro/Breadcrumb.astro';
           </div>
 
           <!-- Feature 4: All-Day Comfort -->
-          <div class="rounded-xl border border-gray-200 bg-card text-card-foreground shadow-sm hover:border-[#C9A84C] hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+          <div class="rounded-xl border border-gray-200 bg-card text-card-foreground shadow-sm hover:border-primary-hover hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
             <div class="px-8 py-10">
-              <div class="bg-gold/10 rounded-full w-12 h-12 flex items-center justify-center mb-4">
+              <div class="bg-secondary rounded-full w-12 h-12 flex items-center justify-center mb-4">
                 <svg aria-hidden="true" class="h-6 w-6 text-gold" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
               </div>
               <h3 class="font-bold text-lg mb-2">All-Day Comfort</h3>
@@ -208,7 +208,7 @@ import Breadcrumb from '@/components/astro/Breadcrumb.astro';
           <p class="text-xl text-[#374151] mb-8">
             We offer team discounts for practices and departments ordering 10+ pairs. Contact us for group pricing.
           </p>
-          <a href="/contact" class="inline-flex items-center justify-center h-12 px-8 bg-primary text-primary-foreground hover:bg-[#C9A84C] hover:text-[#1B2A4A] hover:scale-[1.04] transition-all duration-200 ease-in-out rounded-md text-sm font-medium">Contact Us About Team Orders</a>
+          <a href="/contact" class="inline-flex items-center justify-center h-12 px-8 bg-primary text-primary-foreground hover:bg-primary-hover hover:text-primary-foreground hover:scale-[1.04] transition-all duration-200 ease-in-out rounded-md text-sm font-medium">Contact Us About Team Orders</a>
         </div>
       </div>
     </section>
@@ -319,14 +319,14 @@ import Breadcrumb from '@/components/astro/Breadcrumb.astro';
     </section>
 
     <!-- Waitlist CTA -->
-    <section class="py-16 bg-[#1B2A4A] mt-[120px]">
+    <section class="py-16 bg-primary mt-[120px]">
       <div class="container mx-auto px-4">
         <div class="max-w-3xl mx-auto text-center">
           <h2 class="text-3xl font-bold mb-4 text-white">Request Bulk Pricing & Samples</h2>
           <p class="text-lg text-white/80 mb-8">
             Get volume pricing for your clinic, department, or facility. Early partners get priority access and launch-day rates.
           </p>
-          <a href="https://signup.accessablecompression.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center h-12 px-8 bg-[#C9A84C] text-[#1B2A4A] hover:bg-[#C9A84C]/90 font-semibold rounded-md text-sm">Request Bulk Pricing & Samples</a>
+          <a href="https://signup.accessablecompression.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center h-12 px-8 bg-primary text-primary-foreground hover:bg-primary-hover font-semibold rounded-md text-sm">Request Bulk Pricing & Samples</a>
         </div>
       </div>
     </section>

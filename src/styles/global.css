@@ -19,16 +19,17 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 222 60% 9%;
     --primary-foreground: 210 40% 98%;
+    --primary-hover: 222 70% 5%;
 
-    --secondary: 210 40% 96.1%;
+    --secondary: 30 15% 96%;
     --secondary-foreground: 222.2 47.4% 11.2%;
 
-    --muted: 210 40% 96.1%;
+    --muted: 30 15% 94%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 210 40% 96.1%;
+    --accent: 30 15% 96%;
     --accent-foreground: 222.2 47.4% 11.2%;
 
     --destructive: 0 84.2% 60.2%;
@@ -118,7 +119,7 @@
   .high-contrast {
     --foreground: 0 0% 0%;
     --muted-foreground: 0 0% 20%;
-    --primary: 220 70% 30%;
+    --primary: 222 70% 20%;
     --primary-foreground: 0 0% 100%;
     --gold: 43 80% 25%;
     --gold-text: 43 80% 20%;
@@ -148,6 +149,7 @@
 
   --color-primary: hsl(var(--primary));
   --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-primary-hover: hsl(var(--primary-hover));
 
   --color-secondary: hsl(var(--secondary));
   --color-secondary-foreground: hsl(var(--secondary-foreground));

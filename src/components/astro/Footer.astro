@@ -34,7 +34,7 @@ const legalLinks = [
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="bg-[#1B2A4A] border-t-2 border-[#C9A84C] mt-auto">
+<footer class="bg-primary border-t-2 border-[#C9A844] mt-auto">
   <!-- ROW 1 — Main Content -->
   <div class="container mx-auto px-4 pt-12 pb-8">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.7fr_1fr_1fr_1fr_1fr] gap-8 lg:gap-6">
@@ -67,7 +67,7 @@ const currentYear = new Date().getFullYear();
 
       <!-- Shop Column -->
       <div>
-        <h3 class="font-semibold text-sm uppercase tracking-wider mb-4 text-[#C9A84C]">Shop</h3>
+        <h3 class="font-semibold text-sm uppercase tracking-wider mb-4 text-[#C9A844]">Shop</h3>
         <ul class="space-y-2.5">
           {shopLinks.map(link => (
             <li><a href={link.href} class="text-white/85 hover:text-white transition-colors text-sm">{link.label}</a></li>
@@ -77,7 +77,7 @@ const currentYear = new Date().getFullYear();
 
       <!-- Learn Column -->
       <div>
-        <h3 class="font-semibold text-sm uppercase tracking-wider mb-4 text-[#C9A84C]">Learn</h3>
+        <h3 class="font-semibold text-sm uppercase tracking-wider mb-4 text-[#C9A844]">Learn</h3>
         <ul class="space-y-2.5">
           {learnLinks.map(link => (
             <li><a href={link.href} class="text-white/85 hover:text-white transition-colors text-sm">{link.label}</a></li>
@@ -87,7 +87,7 @@ const currentYear = new Date().getFullYear();
 
       <!-- Company Column -->
       <div>
-        <h3 class="font-semibold text-sm uppercase tracking-wider mb-4 text-[#C9A84C]">Company</h3>
+        <h3 class="font-semibold text-sm uppercase tracking-wider mb-4 text-[#C9A844]">Company</h3>
         <ul class="space-y-2.5">
           {companyLinks.map(link => (
             <li><a href={link.href} class="text-white/85 hover:text-white transition-colors text-sm">{link.label}</a></li>
@@ -97,7 +97,7 @@ const currentYear = new Date().getFullYear();
 
       <!-- Legal Column -->
       <div>
-        <h3 class="font-semibold text-sm uppercase tracking-wider mb-4 text-[#C9A84C]">Legal</h3>
+        <h3 class="font-semibold text-sm uppercase tracking-wider mb-4 text-[#C9A844]">Legal</h3>
         <ul class="space-y-2.5">
           {legalLinks.map(link => (
             <li><a href={link.href} class="text-white/85 hover:text-white transition-colors text-sm">{link.label}</a></li>
@@ -108,7 +108,7 @@ const currentYear = new Date().getFullYear();
   </div>
 
   <!-- ROW 2 — Trust Badges + High-Contrast Toggle -->
-  <div class="border-t border-[#C9A84C]/30">
+  <div class="border-t border-[#C9A844]/30">
     <div class="container mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
       <div class="flex flex-wrap items-center gap-4 md:gap-6">
         <span class="flex items-center gap-1.5 text-white/60 text-xs">
@@ -131,7 +131,7 @@ const currentYear = new Date().getFullYear();
           role="switch"
           aria-checked="false"
           aria-label="Toggle high contrast mode"
-          class="relative inline-flex h-5 w-9 shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-white/20 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1B2A4A]"
+          class="relative inline-flex h-5 w-9 shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-white/20 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
         >
           <span class="pointer-events-none block h-4 w-4 rounded-full bg-white shadow-lg ring-0 transition-transform translate-x-0" id="high-contrast-thumb"></span>
         </button>

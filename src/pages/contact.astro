@@ -17,9 +17,9 @@ import Breadcrumb from '@/components/astro/Breadcrumb.astro';
   <section class="pt-8 pb-12 lg:pt-12 lg:pb-16 bg-[#FAF8F3]">
     <div class="container mx-auto px-4">
       <div class="max-w-3xl mx-auto text-center">
-        <div class="inline-flex items-center gap-2 bg-gold/10 border border-gold/30 rounded-full px-4 py-1.5 mb-6">
-          <span class="w-2 h-2 rounded-full bg-gold"></span>
-          <span class="text-xs font-semibold tracking-wider text-gold-text uppercase">Contact</span>
+        <div class="inline-flex items-center gap-2 bg-secondary rounded-full px-4 py-1.5 mb-6">
+          <span class="w-2 h-2 rounded-full bg-primary"></span>
+          <span class="text-xs font-semibold tracking-wider text-foreground uppercase">Contact</span>
         </div>
         <h1 class="text-4xl md:text-5xl font-bold mb-4">Let's Talk</h1>
         <p class="text-xl text-[#374151] leading-relaxed">
@@ -38,7 +38,7 @@ import Breadcrumb from '@/components/astro/Breadcrumb.astro';
       <div class="grid lg:grid-cols-3 gap-8">
         <!-- Contact Info -->
         <div class="space-y-7">
-          <div class="rounded-lg border bg-card text-card-foreground shadow-sm border-l-[3px] border-l-[#C9A84C]">
+          <div class="rounded-lg border bg-card text-card-foreground shadow-sm">
             <div class="p-6">
               <svg aria-hidden="true" class="h-8 w-8 text-gold mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
               <h3 class="font-semibold mb-2">Email</h3>
@@ -49,7 +49,7 @@ import Breadcrumb from '@/components/astro/Breadcrumb.astro';
             </div>
           </div>
 
-          <div class="rounded-lg border bg-card text-card-foreground shadow-sm border-l-[3px] border-l-[#C9A84C]">
+          <div class="rounded-lg border bg-card text-card-foreground shadow-sm">
             <div class="p-6">
               <svg aria-hidden="true" class="h-8 w-8 text-gold mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
               <h3 class="font-semibold mb-2">Response Time</h3>
@@ -62,7 +62,7 @@ import Breadcrumb from '@/components/astro/Breadcrumb.astro';
         <!-- Contact Form (Netlify Forms) -->
         <div class="lg:col-span-2">
           <!-- Email-first messaging -->
-          <div class="bg-gold/10 rounded-lg p-4 mb-6 flex items-start gap-3">
+          <div class="bg-secondary rounded-lg p-4 mb-6 flex items-start gap-3">
             <svg aria-hidden="true" class="h-5 w-5 text-gold flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
             <div>
               <p class="font-medium text-sm">You can also reach us directly at
@@ -73,8 +73,8 @@ import Breadcrumb from '@/components/astro/Breadcrumb.astro';
           </div>
 
           <!-- B2B Callout -->
-          <div class="border-2 border-[#C9A84C] rounded-xl p-6 mb-6">
-            <h3 class="font-bold text-[#1B2A4A] mb-2">Healthcare Professionals &amp; Distributors</h3>
+          <div class="border-2 border-[#C9A844] rounded-xl p-6 mb-6">
+            <h3 class="font-bold text-primary mb-2">Healthcare Professionals &amp; Distributors</h3>
             <p class="text-sm text-[#374151]">
               Looking for bulk pricing, samples, or partnership opportunities? Select &ldquo;Healthcare Partnership&rdquo; or &ldquo;Wholesale&rdquo; below, or email us directly at
               <a href="mailto:pro@accessablecompression.com" class="text-primary hover:underline font-medium"> pro@accessablecompression.com</a>
@@ -92,36 +92,36 @@ import Breadcrumb from '@/components/astro/Breadcrumb.astro';
 
               <div class="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label for="contact-name" class="text-[15px] font-bold text-[#1B2A4A] mb-2 block">Name <span class="text-destructive">*</span></label>
+                  <label for="contact-name" class="text-[15px] font-bold text-primary mb-2 block">Name <span class="text-destructive">*</span></label>
                   <input
                     id="contact-name"
                     name="name"
                     type="text"
                     required
-                    class="flex w-full min-h-[56px] text-base px-5 border-2 border-[#E5E0D8] rounded-xl bg-background ring-offset-background focus-visible:outline-none focus-visible:ring-0 focus-visible:border-[#C9A84C] focus-visible:shadow-[0_0_0_4px_rgba(201,168,76,0.15)] max-md:min-h-[60px] max-md:text-[17px]"
+                    class="flex w-full min-h-[56px] text-base px-5 border-2 border-[#E5E0D8] rounded-xl bg-background ring-offset-background focus-visible:outline-none focus-visible:ring-0 focus-visible:border-[#C9A844] focus-visible:shadow-[0_0_0_4px_rgba(201,168,68,0.15)] max-md:min-h-[60px] max-md:text-[17px]"
                     aria-required="true"
                   />
                 </div>
                 <div>
-                  <label for="contact-email" class="text-[15px] font-bold text-[#1B2A4A] mb-2 block">Email <span class="text-destructive">*</span></label>
+                  <label for="contact-email" class="text-[15px] font-bold text-primary mb-2 block">Email <span class="text-destructive">*</span></label>
                   <input
                     id="contact-email"
                     name="email"
                     type="email"
                     required
-                    class="flex w-full min-h-[56px] text-base px-5 border-2 border-[#E5E0D8] rounded-xl bg-background ring-offset-background focus-visible:outline-none focus-visible:ring-0 focus-visible:border-[#C9A84C] focus-visible:shadow-[0_0_0_4px_rgba(201,168,76,0.15)] max-md:min-h-[60px] max-md:text-[17px]"
+                    class="flex w-full min-h-[56px] text-base px-5 border-2 border-[#E5E0D8] rounded-xl bg-background ring-offset-background focus-visible:outline-none focus-visible:ring-0 focus-visible:border-[#C9A844] focus-visible:shadow-[0_0_0_4px_rgba(201,168,68,0.15)] max-md:min-h-[60px] max-md:text-[17px]"
                     aria-required="true"
                   />
                 </div>
               </div>
 
               <div>
-                <label for="contact-subject" class="text-[15px] font-bold text-[#1B2A4A] mb-2 block">Subject <span class="text-destructive">*</span></label>
+                <label for="contact-subject" class="text-[15px] font-bold text-primary mb-2 block">Subject <span class="text-destructive">*</span></label>
                 <select
                   id="contact-subject"
                   name="subject"
                   required
-                  class="flex w-full min-h-[56px] text-base px-5 border-2 border-[#E5E0D8] rounded-xl bg-background ring-offset-background focus-visible:outline-none focus:ring-0 focus:border-[#C9A84C] focus:shadow-[0_0_0_4px_rgba(201,168,76,0.15)] max-md:min-h-[60px] max-md:text-[17px]"
+                  class="flex w-full min-h-[56px] text-base px-5 border-2 border-[#E5E0D8] rounded-xl bg-background ring-offset-background focus-visible:outline-none focus:ring-0 focus:border-[#C9A844] focus:shadow-[0_0_0_4px_rgba(201,168,68,0.15)] max-md:min-h-[60px] max-md:text-[17px]"
                 >
                   <option value="">Select a subject</option>
                   <option value="Product Support / Sizing Help">Product Support / Sizing Help</option>
@@ -133,18 +133,18 @@ import Breadcrumb from '@/components/astro/Breadcrumb.astro';
               </div>
 
               <div>
-                <label for="contact-message" class="text-[15px] font-bold text-[#1B2A4A] mb-2 block">Message <span class="text-destructive">*</span></label>
+                <label for="contact-message" class="text-[15px] font-bold text-primary mb-2 block">Message <span class="text-destructive">*</span></label>
                 <textarea
                   id="contact-message"
                   name="message"
                   required
                   rows="6"
-                  class="flex w-full min-h-[56px] text-base px-5 py-4 border-2 border-[#E5E0D8] rounded-xl bg-background ring-offset-background focus-visible:outline-none focus-visible:ring-0 focus-visible:border-[#C9A84C] focus-visible:shadow-[0_0_0_4px_rgba(201,168,76,0.15)] max-md:min-h-[60px] max-md:text-[17px]"
+                  class="flex w-full min-h-[56px] text-base px-5 py-4 border-2 border-[#E5E0D8] rounded-xl bg-background ring-offset-background focus-visible:outline-none focus-visible:ring-0 focus-visible:border-[#C9A844] focus-visible:shadow-[0_0_0_4px_rgba(201,168,68,0.15)] max-md:min-h-[60px] max-md:text-[17px]"
                   aria-required="true"
                 ></textarea>
               </div>
 
-              <button type="submit" class="bg-[#1B2A4A] text-white py-5 px-[52px] text-lg font-bold rounded-lg min-w-[220px] hover:bg-[#C9A84C] hover:text-[#1B2A4A] hover:-translate-y-0.5 transition-all max-md:w-full">
+              <button type="submit" class="bg-primary text-white py-5 px-[52px] text-lg font-bold rounded-lg min-w-[220px] hover:bg-primary-hover hover:text-primary-foreground hover:-translate-y-0.5 transition-all max-md:w-full">
                 Send Message
               </button>
 
@@ -155,12 +155,12 @@ import Breadcrumb from '@/components/astro/Breadcrumb.astro';
           </div>
 
           <!-- FAQ Link -->
-          <div class="mt-6 p-6 bg-[#1B2A4A] rounded-lg text-white">
+          <div class="mt-6 p-6 bg-primary rounded-lg text-white">
             <h3 class="font-semibold mb-2">Need Quick Answers?</h3>
             <p class="text-white/80 text-sm mb-4">
               Check our FAQ for answers to common questions about products, shipping, and more.
             </p>
-            <a href="/pages/faq" class="inline-flex items-center justify-center rounded-md bg-[#C9A84C] text-[#1B2A4A] hover:bg-[#C9A84C]/90 font-semibold px-4 py-2 text-sm transition-colors">
+            <a href="/pages/faq" class="inline-flex items-center justify-center rounded-md bg-primary text-primary-foreground hover:bg-primary-hover font-semibold px-4 py-2 text-sm transition-colors">
               View FAQ
             </a>
           </div>

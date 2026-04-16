@@ -70,7 +70,7 @@ export default function MobileNav() {
               <div>
                 <button
                   onClick={() => setShopOpen(!shopOpen)}
-                  className="flex w-full items-center justify-between py-3 font-semibold text-[#1B2A4A]"
+                  className="flex w-full items-center justify-between py-3 font-semibold text-primary"
                   aria-expanded={shopOpen}
                 >
                   Shop
@@ -127,7 +127,7 @@ export default function MobileNav() {
                 <a
                   key={link.href}
                   href={link.href}
-                  className="block py-3 font-medium text-[#1B2A4A]"
+                  className="block py-3 font-medium text-primary"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.label}
