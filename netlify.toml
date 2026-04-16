@@ -2,6 +2,17 @@
   command = "npm run build"
   publish = "dist"
 
+# Canonicalize .html URLs to clean form (301 to strip .html suffix)
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/*.html"
+  to = "/:splat"
+  status = 301
+
 [[headers]]
   for = "/_astro/*"
   [headers.values]

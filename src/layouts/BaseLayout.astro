@@ -1,7 +1,7 @@
 ---
 import '@/styles/global.css';
 import siteData from '@/content/site.json';
-import { generateOrganizationSchema } from '@/utils/schemaFactory';
+import { generateOrganizationSchema, generateWebSiteSchema } from '@/utils/schemaFactory';
 
 interface Props {
   title: string;
@@ -23,6 +23,7 @@ const {
 
 const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteData.url}${ogImage}`;
 const orgSchema = generateOrganizationSchema();
+const websiteSchema = generateWebSiteSchema();
 ---
 
 <!DOCTYPE html>
@@ -75,6 +76,9 @@ const orgSchema = generateOrganizationSchema();
 
   <!-- Organization schema (every page) -->
   <script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
+
+  <!-- WebSite schema (every page) -->
+  <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
 
   <!-- Page-specific schema slot -->
   <slot name="schema" />

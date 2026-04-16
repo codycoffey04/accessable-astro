@@ -49,17 +49,33 @@ interface FAQ {
   answer: string;
 }
 
-export const generateFAQSchema = (faqs: FAQ[]) => ({
+export const generateFAQSchema = (faqs: FAQ[], pageUrl: string) => ({
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  mainEntity: faqs.map((faq) => ({
+  '@id': `${pageUrl}#faq`,
+  url: pageUrl,
+  mainEntity: faqs.map((faq, idx) => ({
     '@type': 'Question',
+    '@id': `${pageUrl}#faq-${idx + 1}`,
     name: faq.question,
     acceptedAnswer: {
       '@type': 'Answer',
       text: faq.answer,
     },
   })),
+});
+
+export const generateWebSiteSchema = () => ({
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': `${SITE}/#website`,
+  url: SITE,
+  name: 'AccessAble',
+  description: 'Adaptive compression socks designed for independence. Built from lived experience.',
+  publisher: {
+    '@id': `${SITE}/#organization`,
+  },
+  inLanguage: 'en-US',
 });
 
 interface Article {

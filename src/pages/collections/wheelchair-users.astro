@@ -20,7 +20,7 @@ const breadcrumbSchema = generateBreadcrumbSchema([
   { name: 'Collections', url: `${SITE}/collections/all` },
   { name: info.title, url: `${SITE}/collections/${slug}` },
 ]);
-const faqSchema = content.faqs.length > 0 ? generateFAQSchema(content.faqs) : null;
+const faqSchema = content.faqs.length > 0 ? generateFAQSchema(content.faqs, `${SITE}/collections/${slug}`) : null;
 ---
 
 <BaseLayout title={meta.title} description={meta.description}>

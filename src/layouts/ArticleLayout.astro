@@ -63,7 +63,7 @@ const breadcrumbSchema = generateBreadcrumbSchema([
   { name: title, url: `${SITE}/learn/${slug}` },
 ]);
 
-const faqSchema = faqs.length > 0 ? generateFAQSchema(faqs) : null;
+const faqSchema = faqs.length > 0 ? generateFAQSchema(faqs, `${SITE}/learn/${slug}`) : null;
 
 // Resolve related articles
 const relatedArticles = relatedArticleSlugs
