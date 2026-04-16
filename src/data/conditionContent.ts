@@ -309,7 +309,7 @@ export const conditionRecommendations: Record<string, ProductRecommendation> = {
         'Extended sizing with wide-calf options',
       ],
       ctaText: 'Shop Compression Socks',
-      ctaLink: '/collections/compression-socks',
+      ctaLink: '/collections/standard-compression',
     },
     completeSolution: {
       title: 'Post-Surgical Recovery Bundle',
@@ -347,7 +347,7 @@ export const conditionRecommendations: Record<string, ProductRecommendation> = {
         'Extended sizing options',
       ],
       ctaText: 'Shop Compression Socks',
-      ctaLink: '/collections/compression-socks',
+      ctaLink: '/collections/standard-compression',
     },
     completeSolution: {
       title: 'Independence Bundle',
@@ -385,7 +385,7 @@ export const conditionRecommendations: Record<string, ProductRecommendation> = {
         'Extended sizing',
       ],
       ctaText: 'Shop Compression Socks',
-      ctaLink: '/collections/compression-socks',
+      ctaLink: '/collections/standard-compression',
     },
     completeSolution: {
       title: 'Complete Independence Kit',

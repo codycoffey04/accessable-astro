@@ -1,4 +1,13 @@
-// DonnEase PDP static data — single source of truth
+// DonnEase PDP static data.
+//
+// DRIFT RISK (flagged by Codex adversarial review April 16):
+// Colors, compression levels, sizes, price, and availability are hard-coded
+// here AND in the JSON-LD block of src/pages/collections/donnease.astro.
+// A Shopify-side change to the DonnEase product will not propagate here.
+// Should be refactored post-launch alongside standardPDP.ts to read from
+// the Shopify product record at build time so pricing and variant data
+// cannot drift. Until then, any Shopify edit requires a manual sync of
+// this file + the .astro schema block.
 
 export const colorImages: Record<string, { src: string; alt: string; label: string; swatch: string }> = {
   black: {

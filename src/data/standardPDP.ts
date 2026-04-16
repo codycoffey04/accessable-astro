@@ -1,6 +1,16 @@
 // Standard Compression Sock PDP static data.
 // Positioning: quality graduated compression without adaptive-donning features.
 // Compliance-first copy: support / aid / assistance language, no cure / treat / heal.
+//
+// DRIFT RISK (flagged by Codex adversarial review April 16):
+// Colors, compression levels, sizes, price, and availability are hard-coded
+// here AND in the JSON-LD block of src/pages/collections/standard-compression.astro.
+// A Shopify-side change to the corresponding product will not propagate here.
+// This mirrors the existing donneasePDP.ts pattern; both PDPs should be
+// refactored post-launch to read from the Shopify product record at build
+// time so pricing and variant data cannot drift. Until then, any Shopify
+// edit to this product requires a manual sync of this file + the .astro
+// schema block.
 
 export const colorImages: Record<string, { src: string; alt: string; label: string; swatch: string }> = {
   black: {
