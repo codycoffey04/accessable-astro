@@ -5,7 +5,7 @@ import Footer from '@/components/astro/Footer.astro';
 import CollectionHero from '@/components/astro/CollectionHero.astro';
 import CollectionFilters from '@/components/islands/CollectionFilters.tsx';
 import { collectionData, collectionMeta } from '@/data/collectionData';
-import { getProducts } from '@/lib/shopify';
+import { getAllProducts } from '@/lib/shopify';
 import { getProductImage } from '@/data/productImages';
 import { transformProductTitle } from '@/data/productTitleTransform';
 import { generateCollectionSchema, generateBreadcrumbSchema } from '@/utils/schemaFactory';
@@ -16,10 +16,10 @@ const slug = 'compression-socks';
 const info = collectionData[slug];
 const meta = collectionMeta[slug];
 
-// Query Shopify directly for compression-sock products rather than fetching
-// the first N global products and filtering after. Avoids silently dropping
-// valid SKUs once the global catalog exceeds the fetch cap.
-const shopifyProducts = await getProducts(100, 'product_type:"Compression Socks"');
+// Query Shopify directly for compression-sock products and paginate through
+// every matching result. Avoids silently dropping SKUs once the compression
+// inventory exceeds a single fetch window (was 100 previously).
+const shopifyProducts = await getAllProducts('product_type:"Compression Socks"');
 if (shopifyProducts.length === 0) {
   throw new Error('Shopify returned zero products for product_type:"Compression Socks" while building /collections/compression-socks. Aborting build rather than shipping an empty collection.');
 }
