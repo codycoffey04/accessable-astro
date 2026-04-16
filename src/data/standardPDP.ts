@@ -33,8 +33,9 @@ export const colorImages: Record<string, { src: string; alt: string; label: stri
   },
 };
 
-// Standard SKU: 15-20 mmHg and 20-30 mmHg only. 8-15 mmHg is DonnEase-only.
+// Standard SKU: 8-15, 15-20, 20-30 mmHg (matches DonnEase compression range).
 export const compressionLevels = [
+  { value: '8-15', label: '8-15 mmHg', sublabel: 'Gentle Wellness' },
   { value: '15-20', label: '15-20 mmHg', sublabel: 'Everyday Support' },
   { value: '20-30', label: '20-30 mmHg', sublabel: 'Medical Grade' },
 ] as const;
@@ -51,7 +52,7 @@ export const benefits: BenefitItem[] = [
   {
     iconName: 'Activity',
     title: 'Medical-grade graduated compression',
-    desc: 'Calibrated 15-20 and 20-30 mmHg graduated pressure, strongest at the ankle and decreasing up the calf. Same compression ranges healthcare providers commonly recommend for daily wear.',
+    desc: 'Calibrated 8-15, 15-20, and 20-30 mmHg graduated pressure, strongest at the ankle and decreasing up the calf. Same compression ranges healthcare providers commonly recommend for daily wear.',
   },
   {
     iconName: 'Shield',

@@ -3,7 +3,7 @@ import { colorImages, compressionLevels, sizes } from '@/data/standardPDP';
 
 export default function StandardPDP() {
   const [selectedColor, setSelectedColor] = useState<string>('black');
-  const [selectedCompression, setSelectedCompression] = useState<string>('15-20');
+  const [selectedCompression, setSelectedCompression] = useState<string>('15-20'); // default to the most commonly recommended everyday level
   const [selectedSize, setSelectedSize] = useState<string>('');
 
   return (
@@ -81,7 +81,7 @@ export default function StandardPDP() {
           {/* Compression Level Selector (2 levels, not 3) */}
           <div>
             <p className="text-sm font-medium text-[#374151] mb-3">Compression Level</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3" role="radiogroup" aria-label="Select compression level">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3" role="radiogroup" aria-label="Select compression level">
               {compressionLevels.map((level) => (
                 <button
                   key={level.value}
