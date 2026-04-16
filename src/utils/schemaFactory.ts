@@ -112,14 +112,76 @@ export const generateOrganizationSchema = () => ({
   '@type': 'Organization',
   '@id': `${SITE}/#organization`,
   name: 'AccessAble',
+  alternateName: 'AccessAble Adaptive Compression',
+  legalName: 'AccessAble',
   url: SITE,
-  logo: LOGO_URL,
-  description: 'Adaptive compression socks designed for independence. Built from lived experience.',
-  contactPoint: {
-    '@type': 'ContactPoint',
-    email: 'support@accessablecompression.com',
-    contactType: 'customer service',
+  logo: {
+    '@type': 'ImageObject',
+    '@id': `${SITE}/#logo`,
+    url: LOGO_URL,
+    caption: 'AccessAble logo',
   },
+  image: `${SITE}/og-default.png`,
+  description: 'Adaptive compression socks designed for independence. Built from lived experience with spinal cord injury and mobility challenges.',
+  slogan: 'Compression built for independence.',
+  founder: {
+    '@id': `${SITE}/about#founder`,
+  },
+  numberOfEmployees: {
+    '@type': 'QuantitativeValue',
+    value: 1,
+  },
+  contactPoint: [
+    {
+      '@type': 'ContactPoint',
+      email: 'support@accessablecompression.com',
+      contactType: 'customer service',
+      availableLanguage: ['en'],
+      areaServed: 'US',
+    },
+  ],
+  areaServed: {
+    '@type': 'Country',
+    name: 'United States',
+  },
+  knowsAbout: [
+    'adaptive clothing',
+    'graduated compression therapy',
+    'compression socks',
+    'mobility aids',
+    'spinal cord injury accessibility',
+    'assistive donning techniques',
+    'dexterity limitations',
+    'edema management garments',
+  ],
+  knowsLanguage: 'en-US',
+  currenciesAccepted: 'USD',
+  priceRange: '$18-$99',
+  brand: {
+    '@type': 'Brand',
+    name: 'AccessAble',
+  },
+  mainEntityOfPage: `${SITE}/about`,
+});
+
+export const generateFounderPersonSchema = () => ({
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  '@id': `${SITE}/about#founder`,
+  name: 'Cody Coffey',
+  jobTitle: 'Founder',
+  description: 'Founder of AccessAble. Designs adaptive compression socks informed by lived experience with C4 incomplete spinal cord injury.',
+  worksFor: {
+    '@id': `${SITE}/#organization`,
+  },
+  knowsAbout: [
+    'adaptive garment design',
+    'compression therapy',
+    'mobility aid usability',
+    'spinal cord injury lived experience',
+    'dexterity-limited donning design',
+  ],
+  url: `${SITE}/about`,
 });
 
 interface Collection {

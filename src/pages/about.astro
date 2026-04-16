@@ -3,9 +3,15 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import Header from '@/components/astro/Header.astro';
 import Footer from '@/components/astro/Footer.astro';
 import Breadcrumb from '@/components/astro/Breadcrumb.astro';
+import { generateAboutPageSchema, generateFounderPersonSchema } from '@/utils/schemaFactory';
+
+const aboutSchema = generateAboutPageSchema();
+const founderSchema = generateFounderPersonSchema();
 ---
 
 <BaseLayout title="About AccessAble, Built from Lived Experience" description="Founded after a C4 spinal cord injury. AccessAble creates adaptive compression socks designed for real hands and real challenges. Our story.">
+  <script slot="schema" type="application/ld+json" set:html={JSON.stringify(aboutSchema)} />
+  <script slot="schema" type="application/ld+json" set:html={JSON.stringify(founderSchema)} />
   <Header slot="header" />
   <Breadcrumb items={[{ label: 'About' }]} />
 
