@@ -23,7 +23,7 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 const faqSchema = content.faqs.length > 0 ? generateFAQSchema(content.faqs, `${SITE}/collections/${slug}`) : null;
 ---
 
-<BaseLayout title={meta.title} description={meta.description}>
+<BaseLayout title={meta.title} description={meta.description} noindex={true}>
   <script slot="schema" type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
   <script slot="schema" type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   {faqSchema && <script slot="schema" type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}

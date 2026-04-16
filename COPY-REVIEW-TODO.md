@@ -132,11 +132,18 @@ The 4 `/learn/*.astro` files that load source content from `/Desktop/accessable/
 
 **Rule:** Every shipped `/collections/*` condition page should have substantive audience-specific content across all major sections: challenges, how compression helps, practical tips, and (where applicable) caregiver notes.
 
-**Why:** The page layout in `src/components/astro/ConditionSection.astro` conditionally hides empty sections (lines 72, 88, 120, 136, 152), so thin entries render as short, mostly-educational pages that miss the differentiated value of a dedicated audience collection. Wheelchair users are a core audience and diabetes is a high-volume search target. Both pages currently ship with the fallback CTA only (added April 16 in `1dbe2a2`).
+**Why:** The page layout in `src/components/astro/ConditionSection.astro` conditionally hides empty sections (lines 72, 88, 120, 136, 152), so thin entries render as short, mostly-educational pages that miss the differentiated value of a dedicated audience collection. Wheelchair users are a core audience and diabetes is a high-volume search target.
+
+### Current indexing status (April 16 QA decision)
+
+| Page | Indexable? | Reason |
+|---|---|---|
+| `/collections/diabetes` | **noindex** (as of commit flagging this TODO) | Too empty to ship as indexable. Also excluded from sitemap via `astro.config.mjs` filter. Remove noindex + sitemap exclusion once Section 3a copy below is written. |
+| `/collections/wheelchair-users` | **indexable** | Core audience segment. Ships with 3 wheelchair-specific FAQs + 1 caregiver note + 3 educational paragraphs + shopping fallback CTA. Thin but not empty. **Priority-high copy task** to fill Section 3b before expanding reach (e.g., earned links, micro-influencer seeding referencing this URL). |
 
 **Current state of empty data keys in `src/data/conditionContent.ts`:**
 
-### 3a. `diabetes` entry (approx L203-228)
+### 3a. `diabetes` entry (approx L203-228) — UNBLOCKS noindex removal
 
 Needs content in:
 - `challenges: []` — diabetes-specific daily-life friction points (neuropathy, foot inspection needs, circulation monitoring, seamless fit priorities, etc.)
@@ -148,7 +155,16 @@ Needs content in:
 - `faqs: []` — diabetes-specific FAQs (can I wear with neuropathy, how does this differ from diabetic socks, etc.)
 - `caregiverNotes` — optional, add if relevant
 
-### 3b. `wheelchair-users` entry (approx L230-260)
+**When 3a is complete:**
+
+1. Remove `noindex={true}` from `src/pages/collections/diabetes.astro` BaseLayout.
+2. Remove the `!page.includes('/collections/diabetes')` line from the sitemap filter in `astro.config.mjs`.
+3. Rebuild and confirm `dist/sitemap-0.xml` includes the diabetes URL.
+4. Request indexing via Google Search Console.
+
+### 3b. `wheelchair-users` entry (approx L230-260) — PRIORITY HIGH
+
+Wheelchair users are a core audience segment and the page is live + indexable. Thin content today undermines the brand promise for that segment. Prioritize this copy work above diabetes and above the faq.astro word-count expansion.
 
 Needs content in:
 - `challenges: []` — wheelchair-specific friction points (pressure points from long sitting, reaching feet from seated, compatibility with cushions/braces, working around footrests)

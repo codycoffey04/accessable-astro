@@ -15,7 +15,8 @@ export default defineConfig({
         !page.includes('/pro/login') &&
         !page.includes('/contact-success') &&
         !page.includes('/collections/donning-aids') &&
-        !page.includes('/collections/travel'),
+        !page.includes('/collections/travel') &&
+        !page.includes('/collections/diabetes'),
     }),
   ],
   vite: {
