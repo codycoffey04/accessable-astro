@@ -13,11 +13,11 @@ import type { ProductCopyConfig } from '@/data/productCopy';
 import { generateProductSchema, generateBreadcrumbSchema } from '@/utils/schemaFactory';
 
 export async function getStaticPaths() {
-  let products: ShopifyProduct[] = [];
-  try {
-    products = await getProducts(50);
-  } catch (e) {
-    console.error('Failed to fetch products for static paths:', e);
+  // Fail the build if Shopify can't be reached or returns zero products —
+  // silently producing zero /products/* pages is worse than a visible failure.
+  const products = await getProducts(50);
+  if (products.length === 0) {
+    throw new Error('Shopify returned zero products while generating /products/* static paths. Aborting build.');
   }
 
   return products.map((product) => ({

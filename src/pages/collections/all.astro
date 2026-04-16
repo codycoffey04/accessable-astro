@@ -16,34 +16,34 @@ const slug = 'all';
 const info = collectionData[slug];
 const meta = collectionMeta[slug];
 
-let products: SerializedProduct[] = [];
-try {
-  const shopifyProducts = await getProducts(50);
-  products = shopifyProducts.map((p) => {
-    const img = getProductImage(p.node.images.edges, p.node.productType, p.node.handle, p.node.title);
-    const compressionLevels: string[] = [];
-    const compOption = p.node.options?.find((o: any) => o.name.toLowerCase().includes('compression'));
-    if (compOption) {
-      for (const val of compOption.values) {
-        const match = val.match(/(\d+-\d+)/);
-        if (match) compressionLevels.push(match[1]);
-      }
-    }
-    return {
-      handle: p.node.handle,
-      title: p.node.title,
-      displayTitle: transformProductTitle(p.node.title),
-      productType: p.node.productType,
-      price: p.node.priceRange.minVariantPrice.amount,
-      image: img.url,
-      imageAlt: img.altText || '',
-      compressionLevels,
-      sizes: p.node.options?.find((o: any) => o.name.toLowerCase() === 'size')?.values || [],
-    };
-  });
-} catch (e) {
-  console.error('Failed to fetch products for all collection:', e);
+// Fetch the full catalog. Fail the build if Shopify is unavailable or
+// returns an empty list — do not silently ship an empty /collections/all.
+const shopifyProducts = await getProducts(50);
+if (shopifyProducts.length === 0) {
+  throw new Error('Shopify returned zero products while building /collections/all. Aborting build rather than shipping an empty catalog.');
 }
+const products: SerializedProduct[] = shopifyProducts.map((p) => {
+  const img = getProductImage(p.node.images.edges, p.node.productType, p.node.handle, p.node.title);
+  const compressionLevels: string[] = [];
+  const compOption = p.node.options?.find((o: any) => o.name.toLowerCase().includes('compression'));
+  if (compOption) {
+    for (const val of compOption.values) {
+      const match = val.match(/(\d+-\d+)/);
+      if (match) compressionLevels.push(match[1]);
+    }
+  }
+  return {
+    handle: p.node.handle,
+    title: p.node.title,
+    displayTitle: transformProductTitle(p.node.title),
+    productType: p.node.productType,
+    price: p.node.priceRange.minVariantPrice.amount,
+    image: img.url,
+    imageAlt: img.altText || '',
+    compressionLevels,
+    sizes: p.node.options?.find((o: any) => o.name.toLowerCase() === 'size')?.values || [],
+  };
+});
 
 const collectionSchema = generateCollectionSchema({ name: info.title, description: info.description, url: `${SITE}/collections/${slug}` });
 const breadcrumbSchema = generateBreadcrumbSchema([
