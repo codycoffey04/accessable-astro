@@ -1,0 +1,174 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/astro/Header.astro';
+import Footer from '@/components/astro/Footer.astro';
+import MedicalDisclaimer from '@/components/astro/MedicalDisclaimer.astro';
+import StandardPDPIsland from '@/components/islands/StandardPDP.tsx';
+import { benefits, whoItsFor, trustBadges } from '@/data/standardPDP';
+import { generateBreadcrumbSchema } from '@/utils/schemaFactory';
+
+const SITE = 'https://accessablecompression.com';
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: SITE },
+  { name: 'Collections', url: `${SITE}/collections/all` },
+  { name: 'Standard Compression Socks', url: `${SITE}/collections/standard-compression` },
+]);
+
+const productSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: 'AccessAble Standard Compression Socks',
+  description: 'Quality graduated compression socks for daily wear. Medical-grade 15-20 and 20-30 mmHg compression, premium knit construction, made in USA.',
+  image: [
+    `${SITE}/images/compression-sock-black-product.jpg`,
+    `${SITE}/images/compression-sock-tan-product.jpg`,
+    `${SITE}/images/compression-sock-white-product.jpg`,
+  ],
+  brand: { '@type': 'Brand', name: 'AccessAble' },
+  material: '78% Nylon, 22% Spandex',
+  color: ['Black', 'Tan', 'White'],
+  size: ['S', 'M', 'L', 'XL', 'XXL'],
+  offers: {
+    '@type': 'Offer',
+    price: '34.00',
+    priceCurrency: 'USD',
+    availability: 'https://schema.org/PreOrder',
+    url: `${SITE}/collections/standard-compression`,
+  },
+};
+---
+
+<BaseLayout
+  title="AccessAble Standard Compression Socks, 15-20 and 20-30 mmHg"
+  description="Quality graduated compression socks for daily wear. Medical-grade 15-20 and 20-30 mmHg, premium knit, made in USA. $34/pair."
+  ogType="product"
+>
+  <script slot="schema" type="application/ld+json" set:html={JSON.stringify(productSchema)} />
+  <script slot="schema" type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <Header slot="header" />
+
+  <!-- Breadcrumbs -->
+  <nav class="container mx-auto px-4 py-4" aria-label="Breadcrumb">
+    <ol class="flex items-center space-x-2 text-sm text-muted-foreground">
+      <li><a href="/" class="hover:text-primary transition-colors">Home</a></li>
+      <li aria-hidden="true">/</li>
+      <li><a href="/collections/all" class="hover:text-primary transition-colors">Collections</a></li>
+      <li aria-hidden="true">/</li>
+      <li aria-current="page" class="text-foreground">Standard Compression Socks</li>
+    </ol>
+  </nav>
+
+  <MedicalDisclaimer />
+
+  <!-- 2-Column PDP Hero (React Island) -->
+  <StandardPDPIsland client:visible />
+
+  <!-- Why AccessAble Standard -->
+  <section class="py-16 bg-[#FAF8F3]">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold text-primary mb-4 text-center">
+          Why AccessAble Standard
+        </h2>
+        <p class="text-center text-[#374151] mb-10 max-w-xl mx-auto">
+          Quality compression socks without compromise. Calibrated at the category standard, priced for everyday wear.
+        </p>
+
+        <div class="space-y-6">
+          {benefits.map((benefit) => (
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center flex-shrink-0">
+                <svg aria-hidden="true" class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  {benefit.iconName === 'Activity' && <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M22 12h-4l-3 9L9 3l-3 9H2" />}
+                  {benefit.iconName === 'Shield' && <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />}
+                  {benefit.iconName === 'Feather' && <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.24 12.24a6 6 0 00-8.49-8.49L5 10.5V19h8.5z M16 8L2 22 M17.5 15H9" />}
+                  {benefit.iconName === 'Heart' && <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />}
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-semibold text-primary text-lg">{benefit.title}</h3>
+                <p class="text-[#374151] mt-1">{benefit.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who it's for -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-3xl font-bold text-primary mb-4 text-center">Who it's for</h2>
+        <p class="text-center text-[#374151] mb-10 max-w-2xl mx-auto">
+          Designed for daily wearers who want calibrated graduated compression without adaptive donning features. If you need easier donning, see DonnEase&trade;.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {whoItsFor.map((item) => (
+            <div class="rounded-lg border bg-card text-card-foreground shadow-sm p-6">
+              <h3 class="font-semibold text-primary text-lg mb-2">{item.title}</h3>
+              <p class="text-[#374151]">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+
+        <div class="text-center mt-10">
+          <a
+            href="/collections/donnease"
+            class="inline-flex items-center justify-center rounded-md text-sm font-medium border border-primary text-primary hover:text-primary-hover hover:bg-transparent transition-all duration-200 ease-in-out h-11 px-6"
+          >
+            Need adaptive donning? See DonnEase&trade; &rarr;
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Badges -->
+  <section class="py-[72px] bg-[#F4F1EA]">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-wrap justify-center gap-x-8 gap-y-3 md:gap-x-12 lg:gap-x-16">
+        {trustBadges.map((badge) => (
+          <div class="flex items-center gap-2">
+            <svg aria-hidden="true" class="h-5 w-5 text-[#C9A844] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              {badge.iconName === 'Shield' && <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />}
+              {badge.iconName === 'Heart' && <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />}
+              {badge.iconName === 'Feather' && <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.24 12.24a6 6 0 00-8.49-8.49L5 10.5V19h8.5z M16 8L2 22 M17.5 15H9" />}
+              {badge.iconName === 'Clock' && <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />}
+            </svg>
+            <span class="text-sm font-medium text-primary whitespace-nowrap">{badge.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA Banner (lightened per Issue 5) -->
+  <section class="py-16 bg-secondary">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-4 text-foreground">
+        Ready for everyday compression that just works?
+      </h2>
+      <p class="text-lg mb-8 text-[#374151]">
+        Join the waitlist for early access and twenty percent off at launch.
+      </p>
+      <a
+        href="https://signup.accessablecompression.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center justify-center rounded-md text-lg font-semibold bg-primary text-primary-foreground hover:bg-primary-hover h-12 px-8"
+      >
+        <svg aria-hidden="true" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+        Join the Waitlist
+      </a>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</BaseLayout>
