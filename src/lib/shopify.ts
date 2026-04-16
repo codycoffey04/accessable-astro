@@ -56,9 +56,10 @@ export interface ShopifyProduct {
 }
 
 const STOREFRONT_QUERY = `
-  query GetProducts($first: Int!, $query: String) {
-    products(first: $first, query: $query) {
+  query GetProducts($first: Int!, $query: String, $after: String) {
+    products(first: $first, query: $query, after: $after) {
       edges {
+        cursor
         node {
           id
           title
@@ -102,6 +103,10 @@ const STOREFRONT_QUERY = `
           }
         }
       }
+      pageInfo {
+        hasNextPage
+        endCursor
+      }
     }
   }
 `;
@@ -139,6 +144,32 @@ export async function storefrontApiRequest(query: string, variables: any = {}) {
 export async function getProducts(first = 50, query?: string) {
   const data = await storefrontApiRequest(STOREFRONT_QUERY, { first, query });
   return data.data.products.edges as ShopifyProduct[];
+}
+
+// Paginate through every product in the Storefront API. Use when a page
+// needs the complete catalog (e.g., /collections/all) and cannot rely on
+// the first-N window of getProducts().
+// Safety cap: pageSize=250 (Shopify max), max 40 pages = 10k products.
+export async function getAllProducts(query?: string): Promise<ShopifyProduct[]> {
+  const PAGE_SIZE = 250;
+  const MAX_PAGES = 40;
+  const results: ShopifyProduct[] = [];
+  let after: string | undefined;
+
+  for (let page = 0; page < MAX_PAGES; page++) {
+    const data = await storefrontApiRequest(STOREFRONT_QUERY, {
+      first: PAGE_SIZE,
+      query,
+      after,
+    });
+    const edges = data.data.products.edges as ShopifyProduct[];
+    results.push(...edges);
+
+    const pageInfo = data.data.products.pageInfo;
+    if (!pageInfo?.hasNextPage) return results;
+    after = pageInfo.endCursor;
+  }
+  throw new Error(`getAllProducts: exceeded MAX_PAGES (${MAX_PAGES}). Either the catalog is larger than ${PAGE_SIZE * MAX_PAGES} products or pagination is looping.`);
 }
 
 // Cart Create Mutation

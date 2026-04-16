@@ -5,7 +5,7 @@ import Footer from '@/components/astro/Footer.astro';
 import CollectionHero from '@/components/astro/CollectionHero.astro';
 import CollectionFilters from '@/components/islands/CollectionFilters.tsx';
 import { collectionData, collectionMeta } from '@/data/collectionData';
-import { getProducts } from '@/lib/shopify';
+import { getAllProducts } from '@/lib/shopify';
 import { getProductImage } from '@/data/productImages';
 import { transformProductTitle } from '@/data/productTitleTransform';
 import { generateCollectionSchema, generateBreadcrumbSchema } from '@/utils/schemaFactory';
@@ -16,9 +16,12 @@ const slug = 'all';
 const info = collectionData[slug];
 const meta = collectionMeta[slug];
 
-// Fetch the full catalog. Fail the build if Shopify is unavailable or
-// returns an empty list — do not silently ship an empty /collections/all.
-const shopifyProducts = await getProducts(50);
+// Fetch the full catalog. Paginate so the page is not capped at an
+// arbitrary first-N window (Codex adversarial review April 16: getProducts(50)
+// silently dropped SKUs once the catalog exceeded 50 products). Fail the build
+// if Shopify is unavailable or returns an empty list — do not silently ship
+// an empty /collections/all.
+const shopifyProducts = await getAllProducts();
 if (shopifyProducts.length === 0) {
   throw new Error('Shopify returned zero products while building /collections/all. Aborting build rather than shipping an empty catalog.');
 }
