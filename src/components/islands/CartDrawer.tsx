@@ -34,7 +34,7 @@ import { transformProductTitle } from "@/data/productTitleTransform";
 /* ── Inline SVG Icons ─────────────────────────────────────────────── */
 
 const ShoppingCartIcon = ({ className }: { className?: string }) => (
-  <svg
+  <svg aria-hidden="true"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
     fill="none"
@@ -51,7 +51,7 @@ const ShoppingCartIcon = ({ className }: { className?: string }) => (
 );
 
 const MinusIcon = ({ className }: { className?: string }) => (
-  <svg
+  <svg aria-hidden="true"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
     fill="none"
@@ -66,7 +66,7 @@ const MinusIcon = ({ className }: { className?: string }) => (
 );
 
 const PlusIcon = ({ className }: { className?: string }) => (
-  <svg
+  <svg aria-hidden="true"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
     fill="none"
@@ -82,7 +82,7 @@ const PlusIcon = ({ className }: { className?: string }) => (
 );
 
 const Trash2Icon = ({ className }: { className?: string }) => (
-  <svg
+  <svg aria-hidden="true"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
     fill="none"
@@ -101,7 +101,7 @@ const Trash2Icon = ({ className }: { className?: string }) => (
 );
 
 const ExternalLinkIcon = ({ className }: { className?: string }) => (
-  <svg
+  <svg aria-hidden="true"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
     fill="none"

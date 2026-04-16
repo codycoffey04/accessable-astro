@@ -99,6 +99,16 @@
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
   }
+
+  /* Balance H1 wrapping for better visual rhythm on marketing headlines */
+  h1 {
+    text-wrap: balance;
+  }
+
+  h2,
+  h3 {
+    text-wrap: pretty;
+  }
 }
 
 /* ===== Custom classes MUST go in @layer components (Tailwind v4 cascade fix) ===== */
