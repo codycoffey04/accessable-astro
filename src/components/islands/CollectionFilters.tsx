@@ -34,6 +34,12 @@ export default function CollectionFilters({ products }: Props) {
   const [sortBy, setSortBy] = useState('featured');
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 
+  // Hide filter + sort controls on thin catalogs (Issue 3). Filter UI looks
+  // awkward when the collection has only one product: every filter option
+  // either matches the single product or returns zero. Render the product
+  // grid only until the catalog grows.
+  const showControls = products.length > 1;
+
   // Read compression param from URL on mount
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -112,42 +118,46 @@ export default function CollectionFilters({ products }: Props) {
 
   return (
     <div>
-      {/* Top bar: sort + mobile filter trigger */}
+      {/* Top bar: sort + mobile filter trigger (hidden on thin catalogs) */}
       <div className="flex items-center justify-between mb-6">
         <p className="text-sm text-muted-foreground" aria-live="polite">
           Showing {filtered.length} {filtered.length === 1 ? 'product' : 'products'}
         </p>
-        <div className="flex items-center gap-3">
-          {/* Mobile filter button */}
-          <button
-            className="lg:hidden inline-flex items-center gap-2 rounded-md border px-3 py-2 text-sm font-medium"
-            onClick={() => setMobileFiltersOpen(true)}
-          >
-            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
-            </svg>
-            Filters
-          </button>
+        {showControls && (
+          <div className="flex items-center gap-3">
+            {/* Mobile filter button */}
+            <button
+              className="lg:hidden inline-flex items-center gap-2 rounded-md border px-3 py-2 text-sm font-medium"
+              onClick={() => setMobileFiltersOpen(true)}
+            >
+              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+              </svg>
+              Filters
+            </button>
 
-          {/* Sort dropdown */}
-          <select
-            value={sortBy}
-            onChange={(e) => setSortBy(e.target.value)}
-            className="rounded-md border px-3 py-2 text-sm bg-background"
-            aria-label="Sort products"
-          >
-            {SORT_OPTIONS.map((opt) => (
-              <option key={opt.value} value={opt.value}>{opt.label}</option>
-            ))}
-          </select>
-        </div>
+            {/* Sort dropdown */}
+            <select
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value)}
+              className="rounded-md border px-3 py-2 text-sm bg-background"
+              aria-label="Sort products"
+            >
+              {SORT_OPTIONS.map((opt) => (
+                <option key={opt.value} value={opt.value}>{opt.label}</option>
+              ))}
+            </select>
+          </div>
+        )}
       </div>
 
       <div className="flex gap-8">
-        {/* Desktop sidebar */}
-        <aside className="hidden lg:block w-56 flex-shrink-0">
-          <FilterControls />
-        </aside>
+        {/* Desktop sidebar (hidden on thin catalogs) */}
+        {showControls && (
+          <aside className="hidden lg:block w-56 flex-shrink-0">
+            <FilterControls />
+          </aside>
+        )}
 
         {/* Product Grid */}
         <div className="flex-1">
@@ -208,8 +218,8 @@ export default function CollectionFilters({ products }: Props) {
         </div>
       </div>
 
-      {/* Mobile filter overlay */}
-      {mobileFiltersOpen && (
+      {/* Mobile filter overlay (only rendered when controls are visible) */}
+      {showControls && mobileFiltersOpen && (
         <div className="fixed inset-0 z-50 lg:hidden">
           <div className="fixed inset-0 bg-black/50" onClick={() => setMobileFiltersOpen(false)} />
           <div className="fixed inset-y-0 right-0 w-full max-w-xs bg-background p-6 shadow-lg overflow-y-auto">
