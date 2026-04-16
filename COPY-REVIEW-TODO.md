@@ -128,6 +128,49 @@ The 4 `/learn/*.astro` files that load source content from `/Desktop/accessable/
 
 ---
 
+## Section 3 — Empty Condition Page Content (diabetes, wheelchair-users)
+
+**Rule:** Every shipped `/collections/*` condition page should have substantive audience-specific content across all major sections: challenges, how compression helps, practical tips, and (where applicable) caregiver notes.
+
+**Why:** The page layout in `src/components/astro/ConditionSection.astro` conditionally hides empty sections (lines 72, 88, 120, 136, 152), so thin entries render as short, mostly-educational pages that miss the differentiated value of a dedicated audience collection. Wheelchair users are a core audience and diabetes is a high-volume search target. Both pages currently ship with the fallback CTA only (added April 16 in `1dbe2a2`).
+
+**Current state of empty data keys in `src/data/conditionContent.ts`:**
+
+### 3a. `diabetes` entry (approx L203-228)
+
+Needs content in:
+- `challenges: []` — diabetes-specific daily-life friction points (neuropathy, foot inspection needs, circulation monitoring, seamless fit priorities, etc.)
+- `howItHelps.whyCompression: ''` — why people managing diabetes use compression (comfort during long wear, circulation support)
+- `howItHelps.whatAdaptiveFeatures: ''` — what AccessAble products offer (seamless construction, graduated support, fit options)
+- `howItHelps.features: []` — bulleted feature list (material, compression level, fit, care)
+- `howItHelps.disclaimer: ''` — compliance disclaimer ("not a medical device, does not treat or cure diabetes")
+- `practicalTips: []` — daily strategies (foot inspection routine, sizing considerations, wash cycle, when to replace)
+- `faqs: []` — diabetes-specific FAQs (can I wear with neuropathy, how does this differ from diabetic socks, etc.)
+- `caregiverNotes` — optional, add if relevant
+
+### 3b. `wheelchair-users` entry (approx L230-260)
+
+Needs content in:
+- `challenges: []` — wheelchair-specific friction points (pressure points from long sitting, reaching feet from seated, compatibility with cushions/braces, working around footrests)
+- `howItHelps.whyCompression: ''` — why wheelchair users use compression (circulation support during seated days)
+- `howItHelps.whatAdaptiveFeatures: ''` — seated-donning features of DonnEase™
+- `howItHelps.features: []` — wide-mouth opening, numbered markers, brace compatibility, pressure-aware fabric
+- `howItHelps.disclaimer: ''` — compliance disclaimer
+- `practicalTips: []` — elevate foot on footrest, pre-position socks within reach, morning routine, rotation for laundry
+
+`caregiverNotes` and `faqs` are already populated (from April 16 wheelchair content move — commit `957f39f`).
+
+### 3c. `conditionRecommendations` for diabetes and wheelchair-users
+
+Currently only `post-surgery`, `arthritis`, and `limited-mobility` have entries in `conditionRecommendations` (approx L285-401). `/collections/diabetes` and `/collections/wheelchair-users` fall through to the universal shopping fallback added in commit `1dbe2a2`. Once real recommendations are written, add them as new keys in `conditionRecommendations` and the fallback will automatically stop rendering on those pages (gated by `{!recommendations && ...}` in `ConditionSection.astro`).
+
+Suggested structure per entry (match the pattern in existing `post-surgery` / `arthritis` / `limited-mobility` entries):
+- `primary`: DonnEase™ as the headline recommendation with audience-specific "whyHelps" framing
+- `secondary`: Standard Compression Socks (or Low-Cut Pro for diabetes)
+- `completeSolution`: a bundle with audience-specific framing
+
+---
+
 ## Out of scope for this TODO
 
 - Homepage, About, Policies, Contact — copy on these pages was not flagged as short or linking-deficient in the April 16 audit.
@@ -145,3 +188,48 @@ Suggested order:
 5. Finish with articleContent.ts links last. Articles change less often, so this is the stablest place to add cross-links.
 
 After every commit, run `npm run build` and verify the FAQ schema JSON output on one of the affected pages to confirm the expanded copy renders correctly in `dist/.../<page>.html`.
+
+---
+
+## POST-CART-FLIP
+
+Not copy work. Code tasks that must be executed when the CartDrawer is uncommented and the site flips from waitlist-only to Add-to-Cart.
+
+### PCF-1 — Fix primary-recommendation CTA destination
+
+**File:** `src/components/astro/ConditionSection.astro`
+**Lines:** 208-215 (as of commit `1dbe2a2`)
+**Current state:** The primary recommendation CTA is hardcoded to `https://signup.accessablecompression.com` regardless of the `ctaLink` configured in `conditionRecommendations[slug].primary.ctaLink`. This is correct behavior for pre-launch waitlist mode: every "Shop DonnEase™ Socks" button on post-surgery / arthritis / limited-mobility condition pages currently directs users to the waitlist signup even though the data layer already specifies `/collections/donnease` as the intended destination.
+
+**What to change post-cart-flip:**
+
+```astro
+<!-- Change from -->
+<a
+  href="https://signup.accessablecompression.com"
+  target="_blank"
+  rel="noopener noreferrer"
+  class="..."
+>
+  {recommendations.primary.ctaText}
+</a>
+
+<!-- To -->
+<a
+  href={recommendations.primary.ctaLink}
+  class="..."
+>
+  {recommendations.primary.ctaText}
+</a>
+```
+
+Also remove the `target="_blank"` and `rel="noopener noreferrer"` attributes when switching to an internal link.
+
+**Why not change it now:** Codex adversarial review flagged this on April 16 as a medium-severity finding. Decision (April 16 QA): leave as-is because waitlist-only mode makes the hardcoded behavior correct for launch. Revisit only after the CartDrawer is uncommented and the store accepts orders.
+
+**Also check:** the `completeSolution` CTA on the same file (around L274-281) is hardcoded to the waitlist too. Apply the same fix there, using `recommendations.completeSolution.ctaLink`.
+
+### PCF-2 — Confirm no other hardcoded waitlist links on commerce paths
+
+After the cart flip, search the codebase for `signup.accessablecompression.com` and audit every occurrence: which should remain (waitlist list page, dedicated waitlist CTAs in hero/footer when soft-launching, etc.) and which should swap to internal cart/checkout paths. Do this as a batch audit, not one-off fixes.
+
