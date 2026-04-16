@@ -53,7 +53,7 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 ]);
 ---
 
-<BaseLayout title={meta.title} description={meta.description}>
+<BaseLayout title={meta.title} description={meta.description} noindex={true}>
   <script slot="schema" type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
   <script slot="schema" type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 
