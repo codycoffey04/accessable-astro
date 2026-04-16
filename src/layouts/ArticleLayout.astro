@@ -1,0 +1,237 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/astro/Header.astro';
+import Footer from '@/components/astro/Footer.astro';
+import MedicalDisclaimer from '@/components/astro/MedicalDisclaimer.astro';
+import { articles } from '@/data/learnArticles';
+import { generateArticleSchema, generateBreadcrumbSchema, generateFAQSchema } from '@/utils/schemaFactory';
+
+interface Source {
+  title: string;
+  url: string;
+  organization: string;
+}
+
+interface FAQ {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  title: string;
+  description: string;
+  slug: string;
+  category: string;
+  readTime: string;
+  datePublished: string;
+  author?: string;
+  isHealthRelated?: boolean;
+  featuredImage?: string;
+  sources?: Source[];
+  faqs?: FAQ[];
+  relatedArticleSlugs?: string[];
+}
+
+const {
+  title,
+  description,
+  slug,
+  category,
+  readTime,
+  datePublished,
+  author = 'AccessAble Team',
+  isHealthRelated = false,
+  featuredImage,
+  sources = [],
+  faqs = [],
+  relatedArticleSlugs = [],
+} = Astro.props;
+
+const SITE = 'https://accessablecompression.com';
+
+const articleSchema = generateArticleSchema({
+  headline: title,
+  author,
+  datePublished,
+  image: featuredImage ? `${SITE}${featuredImage}` : `${SITE}/images/compression-101.png`,
+  description,
+});
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: SITE },
+  { name: 'Learn Hub', url: `${SITE}/learn` },
+  { name: title, url: `${SITE}/learn/${slug}` },
+]);
+
+const faqSchema = faqs.length > 0 ? generateFAQSchema(faqs) : null;
+
+// Resolve related articles
+const relatedArticles = relatedArticleSlugs
+  .map((s) => articles.find((a) => a.slug === s))
+  .filter(Boolean);
+
+const formattedDate = new Date(datePublished).toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<BaseLayout title={`${title} | AccessAble Learn Hub`} description={description}>
+  <script slot="schema" type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  <script slot="schema" type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  {faqSchema && <script slot="schema" type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
+
+  <Header slot="header" />
+
+  <!-- Breadcrumbs -->
+  <nav class="container mx-auto px-4 py-4" aria-label="Breadcrumb">
+    <ol class="flex items-center space-x-2 text-sm text-muted-foreground">
+      <li><a href="/" class="hover:text-primary transition-colors">Home</a></li>
+      <li aria-hidden="true">/</li>
+      <li><a href="/learn" class="hover:text-primary transition-colors">Learn Hub</a></li>
+      <li aria-hidden="true">/</li>
+      <li aria-current="page" class="text-foreground line-clamp-1">{title}</li>
+    </ol>
+  </nav>
+
+  <!-- Article Header -->
+  <article class="container mx-auto px-4 py-8">
+    <div class="max-w-3xl mx-auto">
+      <!-- Category Badge -->
+      <span class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold bg-primary/10 text-primary mb-4">
+        {category}
+      </span>
+
+      <h1 class="text-3xl lg:text-4xl font-bold text-[#1B2A4A] mb-4">{title}</h1>
+      <p class="text-lg text-muted-foreground mb-6">{description}</p>
+
+      <!-- Meta -->
+      <div class="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-6 pb-6 border-b">
+        <span>{readTime} read</span>
+        <span aria-hidden="true">|</span>
+        <time datetime={datePublished}>{formattedDate}</time>
+        <span aria-hidden="true">|</span>
+        <span>By {author}</span>
+      </div>
+
+      {isHealthRelated && <MedicalDisclaimer />}
+
+      <!-- Featured Image -->
+      {featuredImage && (
+        <div class="aspect-video bg-muted rounded-lg overflow-hidden mb-8">
+          <img
+            src={featuredImage}
+            alt={title}
+            class="w-full h-full object-cover"
+            loading="eager"
+          />
+        </div>
+      )}
+
+      <!-- Article Body -->
+      <div class="prose prose-lg max-w-none">
+        <slot />
+      </div>
+
+      <!-- Sources -->
+      {sources.length > 0 && (
+        <div class="mt-12 pt-8 border-t">
+          <h2 class="text-xl font-bold mb-4">Sources & References</h2>
+          <ol class="space-y-2 text-sm text-muted-foreground list-decimal list-inside">
+            {sources.map((source) => (
+              <li>
+                <a
+                  href={source.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-primary hover:underline"
+                >
+                  {source.title}
+                </a>
+                {' '}<span class="text-muted-foreground">({source.organization})</span>
+              </li>
+            ))}
+          </ol>
+        </div>
+      )}
+
+      <!-- FAQs -->
+      {faqs.length > 0 && (
+        <div class="mt-12 pt-8 border-t">
+          <h2 class="text-xl font-bold mb-6">Frequently Asked Questions</h2>
+          <div class="divide-y">
+            {faqs.map((faq) => (
+              <details class="group py-4">
+                <summary class="flex cursor-pointer items-center justify-between text-left font-semibold hover:text-primary transition-colors">
+                  {faq.question}
+                  <svg class="h-4 w-4 flex-shrink-0 transition-transform group-open:rotate-180 ml-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </summary>
+                <p class="mt-3 text-muted-foreground pr-8">{faq.answer}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  </article>
+
+  <!-- Related Articles -->
+  {relatedArticles.length > 0 && (
+    <section class="py-12 bg-muted/40">
+      <div class="container mx-auto px-4">
+        <div class="max-w-5xl mx-auto">
+          <h2 class="text-2xl font-bold mb-8 text-center">Related Guides</h2>
+          <div class="grid md:grid-cols-3 gap-6">
+            {relatedArticles.map((article) => article && (
+              <a href={`/learn/${article.slug}`} class="rounded-lg border bg-card shadow-sm overflow-hidden group hover:border-primary/50 transition-colors block">
+                <div class="aspect-video bg-muted overflow-hidden">
+                  <img
+                    src={article.featuredImage}
+                    alt={article.title}
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="p-4">
+                  <span class="inline-flex items-center rounded-full border px-2 py-0.5 text-xs font-medium mb-2">
+                    {article.category}
+                  </span>
+                  <h3 class="font-semibold mb-1 group-hover:text-primary transition-colors line-clamp-2">{article.title}</h3>
+                  <p class="text-sm text-muted-foreground">{article.readTime} read</p>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- CTA Banner -->
+  <section class="py-16 bg-[#1B2A4A]">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-4 text-white">
+        Ready to try adaptive compression?
+      </h2>
+      <p class="text-lg mb-8 text-white/90">
+        Join the waitlist for early access and 20% off at launch.
+      </p>
+      <a
+        href="https://signup.accessablecompression.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center justify-center rounded-md text-lg font-semibold bg-[#C9A844] text-[#1B2A4A] hover:bg-[#C9A844]/90 h-12 px-8"
+      >
+        <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+        Join the Waitlist
+      </a>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</BaseLayout>

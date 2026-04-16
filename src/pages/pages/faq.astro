@@ -154,7 +154,7 @@ const allFaqsForSchema = faqs.flatMap(category =>
 const faqSchema = generateFAQSchema(allFaqsForSchema);
 ---
 
-<BaseLayout title="FAQ — Compression Socks, Sizing & Shipping Answers" description="Answers to common questions about adaptive compression socks, sizing, compression levels, shipping, returns, DonnEase™.">
+<BaseLayout title="FAQ, Compression Socks, Sizing & Shipping Answers" description="Answers to common questions about adaptive compression socks, sizing, compression levels, shipping, returns, DonnEase™.">
   <script type="application/ld+json" slot="schema" set:html={JSON.stringify(faqSchema)} />
   <Header slot="header" />
   <Breadcrumb items={[{ label: 'FAQ' }]} />

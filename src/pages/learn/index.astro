@@ -1,0 +1,270 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/astro/Header.astro';
+import Footer from '@/components/astro/Footer.astro';
+import { articles } from '@/data/learnArticles';
+import { generateBreadcrumbSchema, generateBlogSchema } from '@/utils/schemaFactory';
+
+const SITE = 'https://accessablecompression.com';
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: SITE },
+  { name: 'Learn Hub', url: `${SITE}/learn` },
+]);
+
+const blogSchema = generateBlogSchema();
+
+const featuredArticle = articles[0];
+const otherArticles = articles.slice(1);
+
+const categories = [
+  {
+    title: 'Mobility & Independence',
+    description: 'Practical guidance for putting on socks, using adaptive tools, and maintaining dressing independence when you have limited hand strength, reduced flexibility, or balance concerns.',
+    topics: ['Adaptive dressing techniques', 'Working with limited grip strength', 'Seated donning methods', 'Choosing mobility-friendly compression'],
+    link: '/learn/caregiver-guide-compression-socks',
+    cta: 'Explore Mobility Guides',
+  },
+  {
+    title: 'Compression Basics',
+    description: 'Understand compression levels (15-20 vs. 20-30 mmHg), how graduated compression works, sizing fundamentals, and when compression is typically recommended by healthcare providers.',
+    topics: ['What mmHg ratings mean', 'How to measure your legs', 'Compression level differences', 'When to wear compression socks'],
+    link: '/learn/compression-101',
+    cta: 'Learn Compression Basics',
+  },
+  {
+    title: 'Condition-Specific Guides',
+    description: 'Educational resources for people managing arthritis, post-surgical recovery, stroke recovery, limited mobility, and other conditions where compression and adaptive tools may be helpful.',
+    topics: ['Compression after joint replacement', 'Arthritis and compression socks', 'Post-stroke dressing strategies', 'Wheelchair-friendly compression'],
+    link: '/learn/compression-socks-spinal-cord-injury',
+    cta: 'View Condition Guides',
+  },
+  {
+    title: 'Lifestyle & Travel',
+    description: 'Making compression work with your daily life, whether you\'re traveling, working on your feet all day, or managing compression alongside an active routine.',
+    topics: ['Travel tips for compression users', 'Compression for professionals', 'Managing compression with exercise', 'Discrete styling options'],
+    link: '/learn/travel-tips',
+    cta: 'Read Lifestyle Guides',
+  },
+];
+---
+
+<BaseLayout
+  title="Learn Hub, Compression & Mobility Guides"
+  description="Expert guides on compression socks, mobility aids, donning techniques, and independent living. Written from lived experience, not textbooks."
+>
+  <script slot="schema" type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script slot="schema" type="application/ld+json" set:html={JSON.stringify(blogSchema)} />
+
+  <Header slot="header" />
+
+  <!-- Breadcrumbs -->
+  <nav class="container mx-auto px-4 py-4" aria-label="Breadcrumb">
+    <ol class="flex items-center space-x-2 text-sm text-muted-foreground">
+      <li><a href="/" class="hover:text-primary transition-colors">Home</a></li>
+      <li aria-hidden="true">/</li>
+      <li aria-current="page" class="text-foreground">Learn Hub</li>
+    </ol>
+  </nav>
+
+  <!-- Hero -->
+  <section class="pt-8 pb-12 lg:pt-12 lg:pb-16 bg-[#FAF8F3]">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto text-center">
+        <div class="inline-flex items-center gap-2 bg-gold/10 border border-gold/30 rounded-full px-4 py-1.5 mb-6">
+          <span class="w-2 h-2 rounded-full bg-gold"></span>
+          <span class="text-xs font-semibold tracking-wider text-gold-text uppercase">Learn</span>
+        </div>
+        <h1 class="text-4xl md:text-5xl font-bold text-[#1B2A4A] mb-4">Expert Guides for Independent Living</h1>
+        <p class="text-xl text-[#374151] leading-relaxed">
+          Evidence-based advice for mobility, compression, and everyday comfort.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Not Sure Where to Begin? -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto bg-[#F4F1EA] rounded-2xl p-8">
+        <h2 class="text-3xl font-bold mb-6 text-center">Not Sure Where to Begin?</h2>
+
+        <div class="space-y-6">
+          <div>
+            <h3 class="font-semibold text-lg mb-2">If you're new to compression socks:</h3>
+            <p class="text-[#374151] leading-relaxed">
+              Start with <a href="/learn/compression-101" class="text-primary underline">Compression 101: What You Need to Know</a> to understand compression levels and sizing basics.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="font-semibold text-lg mb-2">If you've used compression before but struggled to put them on:</h3>
+            <p class="text-[#374151] leading-relaxed">
+              Check out <a href="/learn/how-to-put-on-compression-socks-easily" class="text-primary underline">How to Put On Compression Socks: The Complete Guide</a> for five donning methods including seated, one-handed, and low-dexterity techniques.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="font-semibold text-lg mb-2">If you have limited hand strength or arthritis:</h3>
+            <p class="text-[#374151] leading-relaxed">
+              Visit our Mobility & Independence section for guides written specifically for hands that hurt, including donning strategies and product features that help.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="font-semibold text-lg mb-2">If you're a caregiver:</h3>
+            <p class="text-[#374151] leading-relaxed">
+              Our <a href="/learn/caregiver-guide-compression-socks" class="text-primary underline">Caregiver's Guide</a> explains how to help without taking over, and what adaptive features to look for in compression products.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="font-semibold text-lg mb-2">If you're a clinician looking for patient resources:</h3>
+            <p class="text-[#374151] leading-relaxed">
+              Browse our condition-specific pages and how-to guides. All content uses plain language and focuses on practical application, making them easy to share with patients.
+            </p>
+          </div>
+
+          <div class="pt-4 border-t">
+            <p class="text-[#374151] italic leading-relaxed">
+              <strong>Still not sure?</strong> Browse by category below. Every guide is written to be read on its own, no prerequisites.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories -->
+  <section class="py-16 bg-[#F4F1EA]">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-8 text-center">Explore by Category</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        {categories.map((cat) => (
+          <div class="rounded-2xl border bg-card p-8 shadow-sm hover:-translate-y-1 hover:shadow-lg transition-all">
+            <h3 class="text-xl font-bold mb-3">{cat.title}</h3>
+            <p class="text-[#374151] mb-4 text-sm">{cat.description}</p>
+            <div class="space-y-1 mb-4 text-sm text-[#374151]">
+              {cat.topics.map((topic) => (
+                <p>&#8226; {topic}</p>
+              ))}
+            </div>
+            <a
+              href={cat.link}
+              class="inline-flex items-center justify-center w-full rounded-md text-sm font-medium border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2"
+            >
+              {cat.cta}
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Article -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-3xl font-bold mb-8 text-center">Featured Guide</h2>
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+          <div class="aspect-video bg-muted rounded-lg overflow-hidden">
+            <img
+              src={featuredArticle.featuredImage}
+              alt={featuredArticle.title}
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          <div>
+            <span class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold bg-primary/10 text-primary mb-3">
+              {featuredArticle.category}
+            </span>
+            <h3 class="text-2xl font-bold mb-3">{featuredArticle.title}</h3>
+            <p class="text-muted-foreground mb-4">{featuredArticle.excerpt}</p>
+            <p class="text-sm text-muted-foreground mb-4">{featuredArticle.readTime} read</p>
+            <a
+              href={`/learn/${featuredArticle.slug}`}
+              class="inline-flex items-center justify-center rounded-md text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-6"
+            >
+              Read Guide
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Bridge CTA -->
+  <section class="py-12 bg-[#FAF8F3]">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-2xl font-bold mb-3">Shop the Socks These Guides Were Written For</h2>
+      <p class="text-muted-foreground mb-6 max-w-xl mx-auto">
+        DonnEase&#8482; adaptive compression socks with wide-mouth opening and numbered guide system. Medical-grade compression you can put on yourself.
+      </p>
+      <a
+        href="/collections/donnease"
+        class="inline-flex items-center justify-center rounded-md text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-6"
+      >
+        Shop DonnEase&#8482;
+      </a>
+    </div>
+  </section>
+
+  <!-- All Articles Grid -->
+  <section class="py-16 bg-white" id="article-grid">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-8 text-center">All Guides</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        {otherArticles.map((article) => (
+          <a href={`/learn/${article.slug}`} class="rounded-lg border bg-card shadow-sm overflow-hidden group hover:border-primary/50 transition-colors block">
+            <div class="aspect-video bg-muted overflow-hidden">
+              <img
+                src={article.featuredImage}
+                alt={article.title}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                loading="lazy"
+              />
+            </div>
+            <div class="p-4">
+              <span class="inline-flex items-center rounded-full border px-2 py-0.5 text-xs font-medium mb-2">
+                {article.category}
+              </span>
+              <h3 class="font-semibold mb-1 group-hover:text-primary transition-colors line-clamp-2">{article.title}</h3>
+              <p class="text-sm text-muted-foreground mb-2 line-clamp-2">{article.excerpt}</p>
+              <p class="text-xs text-muted-foreground">{article.readTime} read</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="py-16 bg-[#1B2A4A]">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-4 text-white">Learn First. Choose What Fits.</h2>
+      <p class="text-lg mb-8 text-white/90">
+        Every guide is written from lived experience, not textbooks. When you're ready, we're here.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/collections/donnease"
+          class="inline-flex items-center justify-center rounded-md text-sm font-semibold bg-[#C9A844] text-[#1B2A4A] hover:bg-[#C9A844]/90 h-11 px-8"
+        >
+          Shop DonnEase&#8482;
+        </a>
+        <a
+          href="https://signup.accessablecompression.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center rounded-md text-sm font-semibold border border-white/30 text-white hover:bg-white/10 h-11 px-8"
+        >
+          Join the Waitlist
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</BaseLayout>

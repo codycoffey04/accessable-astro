@@ -6,7 +6,7 @@ import Breadcrumb from '@/components/astro/Breadcrumb.astro';
 ---
 
 <BaseLayout
-  title="Contact AccessAble — Get Help with Adaptive Socks"
+  title="Contact AccessAble, Get Help with Adaptive Socks"
   description="Questions about sizing, compression levels, or orders? Reach our support team. We typically respond within 24-48 hours."
 >
   <Header slot="header" />
@@ -83,7 +83,7 @@ import Breadcrumb from '@/components/astro/Breadcrumb.astro';
 
           <!-- Form -->
           <div class="bg-white border border-[#E5E0D8] rounded-2xl px-10 py-12 max-md:px-6 max-md:py-8">
-            <form name="accessable-contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="space-y-6">
+            <form name="accessable-contact" method="POST" action="/contact-success" data-netlify="true" netlify-honeypot="bot-field" class="space-y-6">
               <input type="hidden" name="form-name" value="accessable-contact" />
               <!-- Honeypot: position-based hiding (not display:none) -->
               <p style="position: absolute; left: -9999px; opacity: 0;">

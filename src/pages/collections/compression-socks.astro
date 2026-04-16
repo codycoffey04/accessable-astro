@@ -1,0 +1,81 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/astro/Header.astro';
+import Footer from '@/components/astro/Footer.astro';
+import CollectionHero from '@/components/astro/CollectionHero.astro';
+import CollectionFilters from '@/components/islands/CollectionFilters.tsx';
+import { collectionData, collectionMeta } from '@/data/collectionData';
+import { getProducts } from '@/lib/shopify';
+import { getProductImage } from '@/data/productImages';
+import { transformProductTitle } from '@/data/productTitleTransform';
+import { generateCollectionSchema, generateBreadcrumbSchema } from '@/utils/schemaFactory';
+import type { SerializedProduct } from '@/components/islands/CollectionFilters.tsx';
+
+const SITE = 'https://accessablecompression.com';
+const slug = 'compression-socks';
+const info = collectionData[slug];
+const meta = collectionMeta[slug];
+
+let products: SerializedProduct[] = [];
+try {
+  const shopifyProducts = await getProducts(50);
+  products = shopifyProducts
+    .filter((p) => p.node.productType === 'Compression Socks')
+    .map((p) => {
+      const img = getProductImage(p.node.images.edges, p.node.productType, p.node.handle, p.node.title);
+      const compressionLevels: string[] = [];
+      const compOption = p.node.options?.find((o: any) => o.name.toLowerCase().includes('compression'));
+      if (compOption) {
+        for (const val of compOption.values) {
+          const match = val.match(/(\d+-\d+)/);
+          if (match) compressionLevels.push(match[1]);
+        }
+      }
+      return {
+        handle: p.node.handle,
+        title: p.node.title,
+        displayTitle: transformProductTitle(p.node.title),
+        productType: p.node.productType,
+        price: p.node.priceRange.minVariantPrice.amount,
+        image: img.url,
+        imageAlt: img.altText || '',
+        compressionLevels,
+        sizes: p.node.options?.find((o: any) => o.name.toLowerCase() === 'size')?.values || [],
+      };
+    });
+} catch (e) {
+  console.error('Failed to fetch products for compression-socks collection:', e);
+}
+
+const collectionSchema = generateCollectionSchema({ name: info.title, description: info.description, url: `${SITE}/collections/${slug}` });
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: SITE },
+  { name: 'Collections', url: `${SITE}/collections/all` },
+  { name: info.title, url: `${SITE}/collections/${slug}` },
+]);
+---
+
+<BaseLayout title={meta.title} description={meta.description}>
+  <script slot="schema" type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
+  <script slot="schema" type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <Header slot="header" />
+
+  <nav class="container mx-auto px-4 py-4" aria-label="Breadcrumb">
+    <ol class="flex items-center space-x-2 text-sm text-muted-foreground">
+      <li><a href="/" class="hover:text-primary transition-colors">Home</a></li>
+      <li aria-hidden="true">/</li>
+      <li><a href="/collections/all" class="hover:text-primary transition-colors">Collections</a></li>
+      <li aria-hidden="true">/</li>
+      <li aria-current="page" class="text-foreground">{info.title}</li>
+    </ol>
+  </nav>
+
+  <CollectionHero title={info.title} description={info.description} />
+
+  <section class="container mx-auto px-4 py-12">
+    <CollectionFilters client:visible products={products} />
+  </section>
+
+  <Footer slot="footer" />
+</BaseLayout>

@@ -1,0 +1,65 @@
+---
+interface Props {
+  title: string;
+  price: string;
+  image: string;
+  imageAlt: string;
+  href: string;
+  badge?: string;
+  originalPrice?: string;
+  savings?: string;
+  description?: string;
+}
+
+const { title, price, image, imageAlt, href, badge, originalPrice, savings, description } = Astro.props;
+---
+
+<div class="rounded-lg border bg-card text-card-foreground shadow-sm overflow-hidden group flex flex-col">
+  <a href={href}>
+    <div class="aspect-square overflow-hidden bg-muted relative">
+      {badge && (
+        <span class="absolute top-3 left-3 z-10 inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold bg-primary text-primary-foreground">
+          {badge}
+        </span>
+      )}
+      <img
+        src={image}
+        alt={imageAlt}
+        class="object-cover w-full h-full group-hover:scale-105 transition-transform"
+        loading="lazy"
+      />
+    </div>
+  </a>
+  <div class="p-4 flex flex-col flex-1">
+    <a href={href}>
+      <h3 class="font-medium mb-1 hover:text-primary transition-colors line-clamp-2">
+        {title}
+      </h3>
+    </a>
+    {description && (
+      <p class="text-sm text-muted-foreground mb-2">{description}</p>
+    )}
+    <div class="flex items-center gap-2 mb-3 mt-auto">
+      <span class="font-bold text-[#1B2A4A]">{price}</span>
+      {originalPrice && (
+        <span class="text-sm line-through text-muted-foreground">{originalPrice}</span>
+      )}
+      {savings && (
+        <span class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold bg-secondary text-secondary-foreground">
+          {savings}
+        </span>
+      )}
+    </div>
+    <a
+      href="https://signup.accessablecompression.com"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 bg-primary text-primary-foreground hover:bg-primary/90 h-9 px-4 py-2 w-full"
+    >
+      <svg class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+      </svg>
+      Join Waitlist
+    </a>
+  </div>
+</div>

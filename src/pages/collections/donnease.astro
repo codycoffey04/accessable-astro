@@ -1,0 +1,211 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/astro/Header.astro';
+import Footer from '@/components/astro/Footer.astro';
+import MedicalDisclaimer from '@/components/astro/MedicalDisclaimer.astro';
+import DonnEasePDPIsland from '@/components/islands/DonnEasePDP.tsx';
+import { benefits, crossSellBundles, trustBadges } from '@/data/donneasePDP';
+import { generateBreadcrumbSchema } from '@/utils/schemaFactory';
+
+const SITE = 'https://accessablecompression.com';
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: SITE },
+  { name: 'Collections', url: `${SITE}/collections/all` },
+  { name: 'DonnEase\u2122 Adaptive Compression Socks', url: `${SITE}/collections/donnease` },
+]);
+
+const productSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: 'DonnEase\u2122 Adaptive Compression Socks',
+  description: 'Compression socks with wide-mouth opening and built-in numbered guide system for easier independent donning. Medical-grade graduated compression in 8-15, 15-20, and 20-30 mmHg.',
+  image: [
+    `${SITE}/images/donnease-15-20-black.png`,
+    `${SITE}/images/donnease-15-20-tan.PNG`,
+    `${SITE}/images/donnease-15-20-white.PNG`,
+  ],
+  brand: { '@type': 'Brand', name: 'AccessAble' },
+  material: '78% Nylon, 22% Spandex',
+  color: ['Black', 'Tan', 'White'],
+  size: ['S', 'M', 'L', 'XL', 'XXL'],
+  offers: {
+    '@type': 'Offer',
+    price: '39.00',
+    priceCurrency: 'USD',
+    availability: 'https://schema.org/PreOrder',
+    url: `${SITE}/collections/donnease`,
+  },
+};
+---
+
+<BaseLayout
+  title="DonnEase\u2122 Adaptive Compression Socks, Put On Compression Independently"
+  description="Medical-grade compression socks with 3x wider opening and built-in numbered guide system. 8-15, 15-20, 20-30 mmHg. $39/pair. No tools needed."
+  ogType="product"
+>
+  <script slot="schema" type="application/ld+json" set:html={JSON.stringify(productSchema)} />
+  <script slot="schema" type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <Header slot="header" />
+
+  <!-- Breadcrumbs -->
+  <nav class="container mx-auto px-4 py-4" aria-label="Breadcrumb">
+    <ol class="flex items-center space-x-2 text-sm text-muted-foreground">
+      <li><a href="/" class="hover:text-primary transition-colors">Home</a></li>
+      <li aria-hidden="true">/</li>
+      <li><a href="/collections/all" class="hover:text-primary transition-colors">Collections</a></li>
+      <li aria-hidden="true">/</li>
+      <li aria-current="page" class="text-foreground">DonnEase&#8482; Adaptive Compression Socks</li>
+    </ol>
+  </nav>
+
+  <MedicalDisclaimer />
+
+  <!-- 2-Column PDP Hero (React Island) -->
+  <DonnEasePDPIsland client:visible />
+
+  <!-- Benefits Section -->
+  <section class="py-16 bg-[#FAF8F3]">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold text-[#1B2A4A] mb-10 text-center">
+          Put them on yourself. No tools. No frustration.
+        </h2>
+
+        <div class="space-y-6">
+          {benefits.map((benefit) => (
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-full bg-[#C9A844]/10 flex items-center justify-center flex-shrink-0">
+                <svg class="h-6 w-6 text-[#C9A844]" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  {benefit.iconName === 'Maximize' && <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />}
+                  {benefit.iconName === 'Hand' && <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11" />}
+                  {benefit.iconName === 'Activity' && <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M22 12h-4l-3 9L9 3l-3 9H2" />}
+                  {benefit.iconName === 'Feather' && <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.24 12.24a6 6 0 00-8.49-8.49L5 10.5V19h8.5z M16 8L2 22 M17.5 15H9" />}
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-semibold text-[#1B2A4A] text-lg">{benefit.title}</h3>
+                <p class="text-[#374151] mt-1">{benefit.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Founder Callout -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-2xl mx-auto text-center">
+        <p class="text-xl text-[#374151] italic mb-4">
+          "I needed compression socks after my spinal cord injury. My hands couldn't put them on. So I built ones that could."
+        </p>
+        <p class="font-semibold text-[#1B2A4A]">
+          Built from lived experience. Founded by a C4 SCI survivor.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Badges Row -->
+  <section class="py-[72px] bg-[#F4F1EA]">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-wrap justify-center gap-x-8 gap-y-3 md:gap-x-12 lg:gap-x-16">
+        {trustBadges.map((badge) => (
+          <div class="flex items-center gap-2">
+            <svg class="h-5 w-5 text-[#C9A844] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              {badge.iconName === 'Shield' && <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />}
+              {badge.iconName === 'Lightbulb' && <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />}
+              {badge.iconName === 'Heart' && <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />}
+              {badge.iconName === 'Clock' && <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />}
+            </svg>
+            <span class="text-sm font-medium text-[#1B2A4A] whitespace-nowrap">{badge.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Cross-sell: Complete Your Independence Kit -->
+  <section class="py-16 bg-[#FAF8F3]">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-[#1B2A4A] mb-4 text-center">
+        Complete Your Independence Kit
+      </h2>
+      <p class="text-center text-[#374151] mb-8 max-w-xl mx-auto">
+        Save when you bundle. Multiple pairs mean continuous compression during laundry rotation.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        {crossSellBundles.map((item) => (
+          <div class="rounded-lg border bg-card shadow-sm overflow-hidden group flex flex-col">
+            <a href={item.link}>
+              <div class="aspect-square overflow-hidden bg-muted relative">
+                {item.badge && (
+                  <span class="absolute top-3 left-3 z-10 inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold bg-primary text-primary-foreground">
+                    {item.badge}
+                  </span>
+                )}
+                <img
+                  src={item.image}
+                  alt={item.alt}
+                  class="object-cover w-full h-full group-hover:scale-105 transition-transform"
+                  loading="lazy"
+                />
+              </div>
+            </a>
+            <div class="p-4 flex flex-col flex-1">
+              <a href={item.link}>
+                <h3 class="font-medium mb-1 hover:text-primary transition-colors">{item.title}</h3>
+              </a>
+              <p class="text-sm text-[#374151] mb-2">{item.desc}</p>
+              <div class="flex items-center gap-2 mb-3 mt-auto">
+                <span class="font-bold text-[#1B2A4A]">{item.price}</span>
+                <span class="text-sm line-through text-muted-foreground">{item.originalPrice}</span>
+                <span class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold bg-secondary text-secondary-foreground">{item.savings}</span>
+              </div>
+              <a
+                href="https://signup.accessablecompression.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 h-9 px-4 py-2 w-full"
+              >
+                <svg class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                Join Waitlist
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA Banner -->
+  <section class="py-16 bg-[#1B2A4A]">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-4 text-white">
+        Put them on yourself. No tools. No unnecessary barriers.
+      </h2>
+      <p class="text-lg mb-8 text-white/90">
+        Medical-grade compression that actually works with your hands.
+      </p>
+      <a
+        href="https://signup.accessablecompression.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center justify-center rounded-md text-lg font-semibold bg-[#C9A844] text-[#1B2A4A] hover:bg-[#C9A844]/90 h-12 px-8"
+      >
+        <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+        Join the Waitlist
+      </a>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</BaseLayout>

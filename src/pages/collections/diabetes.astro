@@ -1,0 +1,48 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/astro/Header.astro';
+import Footer from '@/components/astro/Footer.astro';
+import CollectionHero from '@/components/astro/CollectionHero.astro';
+import ConditionSection from '@/components/astro/ConditionSection.astro';
+import { collectionData, collectionMeta } from '@/data/collectionData';
+import { conditionContent } from '@/data/conditionContent';
+import { generateCollectionSchema, generateBreadcrumbSchema, generateFAQSchema } from '@/utils/schemaFactory';
+
+const SITE = 'https://accessablecompression.com';
+const slug = 'diabetes';
+const info = collectionData[slug];
+const meta = collectionMeta[slug];
+const content = conditionContent[slug];
+
+const collectionSchema = generateCollectionSchema({ name: info.title, description: info.description, url: `${SITE}/collections/${slug}` });
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: SITE },
+  { name: 'Collections', url: `${SITE}/collections/all` },
+  { name: info.title, url: `${SITE}/collections/${slug}` },
+]);
+const faqSchema = content.faqs.length > 0 ? generateFAQSchema(content.faqs) : null;
+---
+
+<BaseLayout title={meta.title} description={meta.description}>
+  <script slot="schema" type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
+  <script slot="schema" type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  {faqSchema && <script slot="schema" type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
+
+  <Header slot="header" />
+
+  <nav class="container mx-auto px-4 py-4" aria-label="Breadcrumb">
+    <ol class="flex items-center space-x-2 text-sm text-muted-foreground">
+      <li><a href="/" class="hover:text-primary transition-colors">Home</a></li>
+      <li aria-hidden="true">/</li>
+      <li><a href="/collections/all" class="hover:text-primary transition-colors">Collections</a></li>
+      <li aria-hidden="true">/</li>
+      <li aria-current="page" class="text-foreground">{info.title}</li>
+    </ol>
+  </nav>
+
+  <CollectionHero title={info.title} description={info.description} showFDADisclaimer={true} conditionSlug={slug} />
+
+  <ConditionSection condition="diabetes" />
+
+  <Footer slot="footer" />
+</BaseLayout>

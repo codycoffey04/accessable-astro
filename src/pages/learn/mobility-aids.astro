@@ -1,0 +1,43 @@
+---
+import ArticleLayout from '@/layouts/ArticleLayout.astro';
+import { articleContent } from '@/data/articleContent';
+
+const data = articleContent['mobility-aids'];
+---
+
+<ArticleLayout
+  title={data.title}
+  description={data.description}
+  slug="mobility-aids"
+  category={data.category}
+  readTime={data.readTime}
+  datePublished={data.datePublished}
+  isHealthRelated={data.isHealthRelated}
+  featuredImage={data.featuredImage}
+  relatedArticleSlugs={data.relatedArticles}
+>
+
+<h2>Using Compression Socks with Mobility Aids</h2>
+<p>Compression socks can be worn comfortably with wheelchairs, walkers, canes, and other mobility aids. When using a wheelchair, ensure the sock cuff doesn't create pressure points against wheelchair components. Socks should fit smoothly under clothing without bunching. For walker and cane users, compression socks provide all-day comfort during extended standing or walking periods. Choose knee-high styles that stay in place without sliding down, and ensure the heel is properly positioned for optimal comfort throughout the day.</p>
+
+<h2>DonnEase&#8482; Socks for Easier Application</h2>
+<p>DonnEase&#8482; Socks are compression socks specifically designed with adaptive features for easier independent application. These socks feature a wide-mouth opening, approximately 3x wider than standard compression sock openings, which reduces the ankle flexibility needed to slide your foot in. Built-in numbered markers provide textured grip zones that are easier to grip than slippery compression material, especially for hands with limited strength or dexterity.</p>
+
+<ol>
+  <li>Start seated on a bed or stable chair.</li>
+  <li>Hold the sock by the numbered markers with the wide opening facing you.</li>
+  <li>Slide your foot into the wide opening. Notice the reduced resistance compared to standard compression.</li>
+  <li>Once your foot is positioned, grip the numbered markers and pull upward to slide the sock up your leg.</li>
+  <li>Smooth any wrinkles and adjust for comfort. The markers sit flush and stay in place during wear.</li>
+</ol>
+
+<p>The adaptive design allows many users with limited hand strength, reduced flexibility, or balance concerns to put on medical-grade compression independently.</p>
+
+<div class="my-8 aspect-video bg-muted rounded-lg flex items-center justify-center">
+  <div class="text-center p-8">
+    <p class="font-medium mb-2">[Video: Using DonnEase&#8482; Socks with Limited Dexterity]</p>
+    <p class="text-sm text-muted-foreground">Coming soon</p>
+  </div>
+</div>
+
+</ArticleLayout>

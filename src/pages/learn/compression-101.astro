@@ -1,0 +1,45 @@
+---
+import ArticleLayout from '@/layouts/ArticleLayout.astro';
+import { articleContent } from '@/data/articleContent';
+
+const data = articleContent['compression-101'];
+---
+
+<ArticleLayout
+  title={data.title}
+  description={data.description}
+  slug="compression-101"
+  category={data.category}
+  readTime={data.readTime}
+  datePublished={data.datePublished}
+  isHealthRelated={data.isHealthRelated}
+  featuredImage={data.featuredImage}
+  sources={data.sources}
+  faqs={data.faqs}
+  relatedArticleSlugs={data.relatedArticles}
+>
+
+<h2>What is Graduated Compression?</h2>
+<p>Graduated compression technology uses elastic fabric that applies different levels of pressure at different points on your leg. The pressure is strongest at the ankle and gradually decreases up the calf. This pressure gradient is measured in millimeters of mercury (mmHg), the same unit used to measure blood pressure.</p>
+
+<h2>Understanding mmHg Levels</h2>
+<p>Compression socks are available in different pressure levels. 15-20 mmHg is considered mild compression, often used for everyday comfort during long periods of sitting or standing. 20-30 mmHg is moderate compression, commonly recommended by healthcare providers for post-surgical recovery or specific medical situations. Your healthcare provider can determine which compression level is appropriate for your needs.</p>
+
+<div class="my-8 aspect-video bg-muted rounded-lg flex items-center justify-center">
+  <div class="text-center p-8">
+    <p class="font-medium mb-2">[Video: Understanding Compression Levels]</p>
+    <p class="text-sm text-muted-foreground">Coming soon</p>
+  </div>
+</div>
+
+<h2>Who Benefits from Compression?</h2>
+<ul>
+  <li>People with mobility challenges</li>
+  <li>Travelers on long flights</li>
+  <li>Service workers who stand all day</li>
+  <li>Post-surgery recovery</li>
+</ul>
+
+<p>Healthcare providers may recommend compression socks for various situations, including post-surgical recovery, managing certain medical conditions, or for comfort during extended periods of limited mobility. Some people also choose to wear compression socks during travel or work for all-day comfort. Always consult your healthcare provider before starting compression use, especially if you have any medical conditions or concerns.</p>
+
+</ArticleLayout>

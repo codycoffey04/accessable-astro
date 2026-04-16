@@ -153,7 +153,7 @@ export default function ProductConfigurator({ product, productType }: Props) {
                 {option.name}
               </label>
               {nameLower.includes('size') && (
-                <a href="/learn/size-guide" className="text-xs underline text-[var(--color-primary)]">
+                <a href="/pages/size-guide" className="text-xs underline text-[var(--color-primary)]">
                   Size Guide
                 </a>
               )}

@@ -10,7 +10,11 @@ export default defineConfig({
   integrations: [
     react(),
     sitemap({
-      filter: (page) => !page.includes('/pro/dashboard') && !page.includes('/pro/login'),
+      filter: (page) =>
+        !page.includes('/pro/dashboard') &&
+        !page.includes('/pro/login') &&
+        !page.includes('/contact-success') &&
+        !page.includes('/collections/donning-aids'),
     }),
   ],
   vite: {
