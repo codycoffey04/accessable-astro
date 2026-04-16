@@ -188,14 +188,10 @@ export const conditionContent: Record<ConditionType, ConditionContent> = {
       { title: 'Tip 1: Help with positioning, not donning', description: 'If they need help getting their foot closer to their hands, provide that positioning assistance. But let them grip the numbered markers and pull the sock up if they\'re able. Positioning help preserves donning independence.' },
       { title: 'Tip 2: Understand their range of motion', description: 'Know what movements are difficult or restricted. Don\'t assume they can bend forward just because they could last month. Mobility can change. Respect current limitations.' },
       { title: 'Tip 3: Watch for unsafe workarounds', description: 'If you see them bending in ways that cause pain or risk, intervene. Offer to help directly rather than watching them struggle unsafely.' },
-      { title: 'Tip 4: Respect wheelchair positioning', description: 'If they use a wheelchair, understand that reaching their feet from seated position is difficult. Offer to help position their foot closer or stabilize their leg if needed, but let them do the pulling.' },
     ],
     faqs: [
-      { question: 'Can I use DonnEase\u2122 Socks from a wheelchair?', answer: 'Yes. Many wheelchair users use DonnEase\u2122 Socks successfully from seated position. The wide opening and numbered markers reduce the forward bend typically required. Some users find it helpful to elevate their foot slightly (footrest, low stool) to reduce reach distance.' },
-      { question: 'What if I can\'t reach my feet at all, even seated?', answer: 'If you cannot reach your feet from seated position, you may need positioning assistance. A caregiver or therapist can help bring your foot closer to your hands, but you can still grip the numbered markers and pull the sock up yourself once positioned.' },
       { question: 'Will DonnEase\u2122 Socks work with limited hip flexion?', answer: 'The wide opening and numbered markers reduce hip flexion required compared to standard compression. They won\'t remove the need for forward bending entirely, but they significantly reduce how far you need to bend. Seat height matters: higher seats reduce bend angle.' },
       { question: 'Can I use these with back pain restrictions?', answer: 'Many people with chronic back pain use DonnEase\u2122 Socks successfully. The key is reducing forward bending. Seated donning with strategic seat height helps. If you\'re not cleared to bend forward at all, you may need positioning assistance, but you can still pull the socks up yourself.' },
-      { question: 'Are these compatible with leg braces or orthotics?', answer: 'The wide-mouth opening makes it easier to position socks around braces and orthotics. Many users with leg braces find this design more accessible than standard compression socks. The opening is wide enough to slide over most braces.' },
       { question: 'What if my balance is unstable?', answer: 'Use seated methods only. Do not attempt to stand on one leg. Sitting on your bed or a chair removes balance from the equation. The wide opening and numbered markers are designed for seated donning specifically.' },
     ],
   },
@@ -251,7 +247,14 @@ export const conditionContent: Record<ConditionType, ConditionContent> = {
       disclaimer: '',
     },
     practicalTips: [],
-    faqs: [],
+    caregiverNotes: [
+      { title: 'Tip 1: Respect wheelchair positioning', description: 'If they use a wheelchair, understand that reaching their feet from seated position is difficult. Offer to help position their foot closer or stabilize their leg if needed, but let them do the pulling.' },
+    ],
+    faqs: [
+      { question: 'Can I use DonnEase\u2122 Socks from a wheelchair?', answer: 'Yes. Many wheelchair users use DonnEase\u2122 Socks successfully from seated position. The wide opening and numbered markers reduce the forward bend typically required. Some users find it helpful to elevate their foot slightly (footrest, low stool) to reduce reach distance.' },
+      { question: 'What if I can\'t reach my feet at all, even seated?', answer: 'If you cannot reach your feet from seated position, you may need positioning assistance. A caregiver or therapist can help bring your foot closer to your hands, but you can still grip the numbered markers and pull the sock up yourself once positioned.' },
+      { question: 'Are these compatible with leg braces or orthotics?', answer: 'The wide-mouth opening makes it easier to position socks around braces and orthotics. Many users with leg braces find this design more accessible than standard compression socks. The opening is wide enough to slide over most braces.' },
+    ],
   },
 };
 
