@@ -4,7 +4,7 @@ import Header from '@/components/astro/Header.astro';
 import Footer from '@/components/astro/Footer.astro';
 import MedicalDisclaimer from '@/components/astro/MedicalDisclaimer.astro';
 import ProductConfigurator from '@/components/islands/ProductConfigurator.tsx';
-import { getProducts } from '@/lib/shopify';
+import { getAllProducts } from '@/lib/shopify';
 import type { ShopifyProduct } from '@/lib/shopify';
 import { getProductImages } from '@/data/productImages';
 import { transformProductTitle } from '@/data/productTitleTransform';
@@ -13,9 +13,11 @@ import type { ProductCopyConfig } from '@/data/productCopy';
 import { generateProductSchema, generateBreadcrumbSchema } from '@/utils/schemaFactory';
 
 export async function getStaticPaths() {
-  // Fail the build if Shopify can't be reached or returns zero products —
-  // silently producing zero /products/* pages is worse than a visible failure.
-  const products = await getProducts(50);
+  // Paginate through the full catalog. A fixed-window fetch (e.g., first 50)
+  // would silently stop generating /products/[handle] pages once the catalog
+  // exceeds the cap, producing 404s on real SKUs. Fail the build if Shopify
+  // is unreachable or returns zero products.
+  const products = await getAllProducts();
   if (products.length === 0) {
     throw new Error('Shopify returned zero products while generating /products/* static paths. Aborting build.');
   }

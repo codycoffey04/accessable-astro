@@ -173,6 +173,39 @@ const stories = customerStories[condition] || [];
       </div>
     </section>
 
+    <!-- Shopping fallback: condition pages without per-condition recommendation
+         data (e.g., diabetes, wheelchair-users) still need a clear path to
+         products and the waitlist. Rendered only when no recommendations
+         entry exists for this condition slug. -->
+    {!recommendations && (
+      <section class="py-12 bg-muted/40" aria-labelledby="shop-fallback-heading">
+        <div class="container mx-auto px-4">
+          <div class="max-w-3xl mx-auto text-center">
+            <h2 id="shop-fallback-heading" class="text-3xl font-bold mb-4">Shop AccessAble Compression</h2>
+            <p class="text-lg text-muted-foreground mb-8">
+              Our adaptive DonnEase&trade; line and standard compression socks are in final wear testing, launching mid-2026. Join the waitlist for early access, or browse the full lineup.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="https://signup.accessablecompression.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center justify-center rounded-md text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 h-11 px-8"
+              >
+                Join Waitlist
+              </a>
+              <a
+                href="/collections/all"
+                class="inline-flex items-center justify-center rounded-md text-sm font-medium border border-input bg-background hover:bg-accent hover:text-accent-foreground h-11 px-8"
+              >
+                Browse All Products
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    )}
+
     <!-- Recommendations -->
     {recommendations && (
       <section class="py-12 container mx-auto px-4" aria-labelledby="recommendations-heading">
