@@ -6,3 +6,13 @@ dist
 
 # Local Netlify folder
 .netlify
+
+# Wear-test operational data with tester PII — tracked separately per task #7.
+# Decision (path b): move to access-controlled storage (Supabase RLS or
+# equivalent), keep pointer files in repo for workflow continuity. Until that
+# migration ships, exclude these directories from git history. Both contain
+# named-tester data flagged in Codex review rounds 1-2 (complaints/ has
+# adverse-event narratives; research-bundles/ has the non-pre-approved
+# tester roster including a flagged adverse-event reporter).
+content/complaints/
+content/research-bundles/

@@ -1,0 +1,28 @@
+---
+// Small audience-signal pill rendered near the article meta line.
+// Pro audience: "FOR HEALTHCARE TEAMS" — distinguishes /pro/learn articles
+// from consumer Learn Hub content even when both share visual chrome.
+
+interface Props {
+  audience: 'pro' | 'caregivers' | 'consumer';
+}
+
+const { audience } = Astro.props;
+
+const labels: Record<Props['audience'], string | null> = {
+  pro: 'For healthcare teams',
+  caregivers: 'For caregivers',
+  consumer: null, // No badge for default consumer audience.
+};
+
+const label = labels[audience];
+---
+
+{label && (
+  <span
+    class="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-2.5 py-0.5 text-xs font-semibold uppercase tracking-wide text-primary"
+    aria-label={`Audience: ${label}`}
+  >
+    {label}
+  </span>
+)}

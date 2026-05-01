@@ -1,0 +1,44 @@
+---
+// Editorial transparency block rendered above the Sources section.
+// Names the absent clinician explicitly (per the editorial-policy strategy).
+// Variant-driven so Pro articles get reviewer-recruitment line.
+
+type Variant = 'consumer-health' | 'pro' | 'none';
+
+interface Props {
+  variant?: Variant;
+}
+
+const { variant = 'consumer-health' } = Astro.props;
+
+const copy: Record<Exclude<Variant, 'none'>, { heading: string; body: string; cta?: { label: string; href: string } }> = {
+  'consumer-health': {
+    heading: 'How this article was reviewed',
+    body:
+      "AccessAble does not have a clinical reviewer at launch. Content is informed by the founder's lived experience with spinal cord injury, structured feedback from a 12-tester wear program (28 submissions, 4.6★ average), and the published sources cited below. We are actively recruiting a licensed clinician to formally review our health content. Always consult your healthcare provider for guidance specific to you.",
+    cta: { label: 'Read our editorial policy', href: '/about/editorial' },
+  },
+  pro: {
+    heading: 'Editorial transparency for clinical readers',
+    body:
+      'This guide was written by AccessAble\'s founder, who is not a licensed clinician. It synthesizes published clinical literature, AOTA/APTA practice guidance, and structured feedback from a 12-tester wear program. Clinical decisions remain the responsibility of the licensed practitioner. AccessAble is actively recruiting an OT or PT clinical reviewer to formally validate this content.',
+    cta: { label: 'Reach the founder · pro@accessablecompression.com', href: 'mailto:pro@accessablecompression.com' },
+  },
+};
+---
+
+{variant !== 'none' && (
+  <aside class="not-prose my-10 rounded-md border bg-secondary/30 p-5 text-sm" aria-labelledby="transparency-disclosure-heading">
+    <h2 id="transparency-disclosure-heading" class="font-semibold text-foreground">
+      {copy[variant].heading}
+    </h2>
+    <p class="mt-2 text-muted-foreground">{copy[variant].body}</p>
+    {copy[variant].cta && (
+      <p class="mt-3">
+        <a href={copy[variant].cta!.href} class="text-primary hover:underline">
+          → {copy[variant].cta!.label}
+        </a>
+      </p>
+    )}
+  </aside>
+)}

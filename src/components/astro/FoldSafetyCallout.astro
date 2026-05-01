@@ -1,0 +1,34 @@
+---
+// Fold-step safety callout for any donning-related article.
+// Mitigates the wear-test signal from Gina Lytle (nerve pain on first fold).
+// Required on: how-to-put-on-compression-socks-easily, donnease-adaptive-compression-guide,
+// caregiver-guide-compression-socks, compression-socks-spinal-cord-injury,
+// compression-socks-one-handed-application, mobility-aids-and-compression-socks,
+// and any future article describing donning steps.
+
+interface Props {
+  /** Optional contact override; defaults to support email. */
+  contactEmail?: string;
+}
+
+const { contactEmail = 'support@accessablecompression.com' } = Astro.props;
+---
+
+<aside
+  class="not-prose my-6 rounded-md border-l-4 border-l-destructive bg-destructive/5 p-5 text-sm"
+  role="note"
+  aria-label="Fold safety notice"
+>
+  <p class="flex items-start gap-2 font-semibold text-foreground">
+    <svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-destructive" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01M5 21h14a2 2 0 001.732-3l-7-12a2 2 0 00-3.464 0l-7 12A2 2 0 005 21z" />
+    </svg>
+    <span>If donning hurts at any step — including the initial fold — stop.</span>
+  </p>
+  <p class="mt-2 text-muted-foreground">
+    Skin pressure, redness, or new pain during application is a product feedback signal, not user error.
+    Stop the donning sequence, remove the sock, and contact us at <a href={`mailto:${contactEmail}`} class="text-primary hover:underline">{contactEmail}</a>
+    so we can improve the product. Folding the cuff is one of several donning options — if it causes discomfort,
+    use the wide-mouth or tab-pull approach described elsewhere in this guide.
+  </p>
+</aside>

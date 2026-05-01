@@ -1,0 +1,32 @@
+---
+// Display the published date alongside the last-reviewed date.
+// E-E-A-T signal for YMYL content (Mayo Clinic, Cleveland Clinic both use it).
+// Reviewer field defaults to founder; swaps to clinician when one is hired.
+
+interface Props {
+  datePublished: string;
+  lastReviewed?: string;
+  reviewedBy?: string;
+}
+
+const { datePublished, lastReviewed, reviewedBy = 'Cody Coffey, Founder' } = Astro.props;
+
+const formatDate = (iso: string) =>
+  new Date(iso).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+const publishedFormatted = formatDate(datePublished);
+const reviewedFormatted = lastReviewed ? formatDate(lastReviewed) : null;
+---
+
+<p class="text-xs text-muted-foreground">
+  <span>Published <time datetime={datePublished}>{publishedFormatted}</time></span>
+  {reviewedFormatted && (
+    <>
+      <span class="mx-1.5" aria-hidden="true">·</span>
+      <span>
+        Last reviewed <time datetime={lastReviewed}>{reviewedFormatted}</time>
+        {reviewedBy && <> by <span>{reviewedBy}</span></>}
+      </span>
+    </>
+  )}
+</p>

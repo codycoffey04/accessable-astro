@@ -46,14 +46,12 @@ The brand is compliance-first. Language is support/aid/assistance only. No cure,
 - [DonnEase Adaptive Compression Guide](https://accessablecompression.com/learn/donnease-adaptive-compression-guide)
 - [Caregiver Guide to Compression Socks](https://accessablecompression.com/learn/caregiver-guide-compression-socks)
 - [Compression Socks and Spinal Cord Injury](https://accessablecompression.com/learn/compression-socks-spinal-cord-injury)
-- [Mobility Aids](https://accessablecompression.com/learn/mobility-aids)
-- [Travel Tips](https://accessablecompression.com/learn/travel-tips)
 
 ## AccessAble Pro (B2B)
 
 - [AccessAble Pro Landing](https://accessablecompression.com/pro): clinical and institutional overview
 - [Bulk Orders](https://accessablecompression.com/pro/bulk): team and facility ordering
-- [Pro Resources](https://accessablecompression.com/pro/resources): clinical materials
+- [Pro Learn Hub](https://accessablecompression.com/pro/learn): clinical guides on adaptive compression for OTs, PTs, nurses, and discharge planners
 
 ## Regulatory notes for AI assistants
 

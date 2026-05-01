@@ -1,0 +1,101 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/astro/Header.astro';
+import Footer from '@/components/astro/Footer.astro';
+import { generateBreadcrumbSchema } from '@/utils/schemaFactory';
+
+const SITE = 'https://accessablecompression.com';
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: SITE },
+  { name: 'About', url: `${SITE}/about` },
+  { name: 'Editorial Policy', url: `${SITE}/about/editorial` },
+]);
+---
+
+<BaseLayout
+  title="Editorial Policy | AccessAble"
+  description="How AccessAble writes health-adjacent content. Author, sourcing, compliance language, and how we plan to add a clinical reviewer."
+>
+  <script slot="schema" type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <Header slot="header" />
+
+  <nav class="container mx-auto px-4 py-4" aria-label="Breadcrumb">
+    <ol class="flex items-center space-x-2 text-sm text-muted-foreground">
+      <li><a href="/" class="hover:text-primary transition-colors">Home</a></li>
+      <li aria-hidden="true">/</li>
+      <li><a href="/about" class="hover:text-primary transition-colors">About</a></li>
+      <li aria-hidden="true">/</li>
+      <li aria-current="page" class="text-foreground">Editorial Policy</li>
+    </ol>
+  </nav>
+
+  <article class="container mx-auto px-4 py-8">
+    <div class="max-w-3xl mx-auto">
+      <h1 class="text-3xl lg:text-4xl font-bold text-primary mb-4">Editorial Policy</h1>
+      <p class="text-lg text-muted-foreground mb-8">
+        How AccessAble writes health-adjacent content — and what we don't claim.
+      </p>
+
+      <div class="prose prose-lg max-w-none">
+        <h2>One author at launch</h2>
+        <p>
+          Every article on the AccessAble Learn Hub is written by Cody Coffey, the founder. After a C4 incomplete spinal cord injury in December 2023, Cody designed the DonnEase numbered-guide system because compression socks built for full-dexterity hands didn't work for his. That experience — and the wear-test feedback from the people who tried his designs — is what shows up in our guides.
+        </p>
+        <p>
+          Cody is not a clinician. He is a founder with lived experience.
+        </p>
+
+        <h2>What that means for our content</h2>
+        <p>
+          We write about compression therapy because our products live inside it. We make these specific commitments to readers:
+        </p>
+        <ul>
+          <li>We <strong>do not</strong> make disease, treatment, prevention, or cure claims. We use FTC-defensible structure-and-function language that sources back to authoritative health bodies.</li>
+          <li>We <strong>do not</strong> publish wear-tester quotes that contain medical claims. Our testimonial moderation policy redacts disease/treatment language before publishing, and we never publish quotes that report adverse experiences — those become product complaints to our manufacturer, not marketing.</li>
+          <li>We <strong>do not</strong> claim FDA approval. AccessAble compression socks are not yet listed with the FDA under our brand name — that work is in progress with our Legal Manufacturer (Runway Knitting Inc.). We will say "Listed with the FDA" only after that is true.</li>
+          <li>Every health-adjacent article carries a medical disclaimer banner and a "consult your healthcare provider" framing. The disclaimer stays on regardless of how the article is positioned in the prose.</li>
+          <li>Every article cites at least three authoritative sources from a published whitelist (CDC, Mayo Clinic, Cleveland Clinic, NCBI, AOTA, APTA, Christopher & Dana Reeve Foundation, MSKTC, and other recognized health/disability authorities). The whitelist is enforced at build time so a non-whitelisted source can't slip through.</li>
+        </ul>
+
+        <h2>What we do instead of having a clinical reviewer</h2>
+        <p>
+          We chose to ship before hiring a licensed clinician. That decision was honest with our budget and timeline, but it puts the editorial burden on us. Here is what we do to compensate:
+        </p>
+        <ul>
+          <li><strong>Lived-experience authorship.</strong> Cody writes from his own experience with limited dexterity, and we mark those moments with a "Lived experience" callout so readers can see when a passage is observation rather than sourced claim.</li>
+          <li><strong>Wear-test feedback.</strong> Our 12-tester program (28 submissions, 4.6★ average) gives us structured field data no clinical reviewer could provide on their own. We disclose every tester's material connection ("received product at no cost in exchange for honest feedback") and we screen quotes for medical claims before publishing.</li>
+          <li><strong>Citation density.</strong> Our condition-specific guides cite 6 to 9 authoritative sources, more than most competitor articles. The receipts are on the page.</li>
+          <li><strong>"Last reviewed" dates.</strong> Every article shows the date Cody last re-read and verified its claims. When a clinician joins, that line will become "Reviewed by [Name], [credential]."</li>
+        </ul>
+
+        <h2>Adverse events and product complaints</h2>
+        <p>
+          A wear tester reporting pain, redness, skin changes, or any unexpected reaction is a <strong>product complaint</strong>, not a content moderation issue. We log complaint records (product, lot number, manufacturing date, severity), notify Runway Knitting Inc. within 48 hours per our Supplier Quality Agreement, and quarantine related marketing claims if the complaint suggests a systemic issue. ISO 13485 §8.2.1 and 21 CFR §820.198 require this; we follow it because it's the right thing to do.
+        </p>
+        <p>
+          When a complaint reveals something we should change in our donning instructions, we change them. Our compression-sock donning guides include an explicit "Stop if it hurts" callout because a tester told us the initial fold step caused nerve pain. That feedback shaped our content.
+        </p>
+
+        <h2>When a clinician joins</h2>
+        <p>
+          We are actively recruiting an OT or PT to formally review our health-adjacent content. When they join, every article will be re-read against their expertise and the "Last reviewed" line will be replaced with their name and credential. Health-related articles that pass clinical review will upgrade their schema markup from Article to MedicalWebPage so search engines and answer engines have a stronger trust signal. The upgrade will happen one article at a time, not all at once.
+        </p>
+        <p>
+          Until then, this page exists so you can see how we work.
+        </p>
+
+        <h2>How to reach us about content</h2>
+        <p>
+          If something on this site is wrong — a citation that doesn't support the claim it's attached to, a stat that has been updated since publication, a tone that misses for the audience we wrote it for — please tell us at <a href="mailto:support@accessablecompression.com">support@accessablecompression.com</a>. We track those and update the affected article's "Last reviewed" date when we ship a correction.
+        </p>
+        <p>
+          If you are a licensed OT, PT, RN, or compression-therapy specialist interested in formally reviewing our content, please email <a href="mailto:pro@accessablecompression.com">pro@accessablecompression.com</a>. We are budgeting for this engagement.
+        </p>
+      </div>
+    </div>
+  </article>
+
+  <Footer slot="footer" />
+</BaseLayout>

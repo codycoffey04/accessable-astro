@@ -1,0 +1,253 @@
+---
+import { existsSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import { dirname, resolve } from 'node:path';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/astro/Header.astro';
+import Footer from '@/components/astro/Footer.astro';
+import AudienceBadge from '@/components/astro/AudienceBadge.astro';
+import ProMedicalDisclaimer from '@/components/astro/ProMedicalDisclaimer.astro';
+import { publishedProArticles, articles } from '@/data/learnArticles';
+import { generateBreadcrumbSchema, generateBlogSchema } from '@/utils/schemaFactory';
+
+// Build-time assertion: every published Pro-visible article must have a
+// routable page at its declared `basePath`. Without this guard, flipping
+// `published: true` in the registry would surface hub links to URLs that 404.
+// Honors `article.basePath` so an `audience: 'both'` entry that lives at
+// /learn/<slug> is checked against src/pages/learn/, not src/pages/pro/learn/.
+// (Codex round-8 + round-9 footgun fix.)
+const PAGES_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
+for (const article of publishedProArticles) {
+  const basePath = article.basePath ?? '/learn';
+  // basePath starts with `/`; strip it so resolve() treats it as relative.
+  const pagePath = resolve(PAGES_ROOT, basePath.slice(1), `${article.slug}.astro`);
+  if (!existsSync(pagePath)) {
+    throw new Error(
+      `[/pro/learn] Registry advertises published Pro-visible article "${article.slug}" ` +
+        `(basePath ${basePath}) but no page exists at ${pagePath}. Either ship the article ` +
+        `page or set published: false in src/data/learnArticles.ts before deploying.`,
+    );
+  }
+}
+
+const articleHref = (a: { basePath?: '/learn' | '/pro/learn'; slug: string }) =>
+  `${a.basePath ?? '/learn'}/${a.slug}`;
+
+const SITE = 'https://accessablecompression.com';
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: SITE },
+  { name: 'AccessAble Pro', url: `${SITE}/pro` },
+  { name: 'Resources', url: `${SITE}/pro/learn` },
+]);
+
+const blogSchema = generateBlogSchema({
+  basePath: '/pro/learn',
+  name: 'AccessAble Pro Resources',
+  description:
+    'Clinical guides on adaptive compression for OTs, PTs, nurses, and discharge planners. When to recommend, how to fit, and what the donning-non-compliance literature says.',
+});
+
+// All Pro articles, including drafts that aren't yet published — used to
+// preview upcoming Pro content alongside the published list. The hub also
+// surfaces in-progress titles so visiting clinicians know what's coming.
+const allProArticles = articles.filter((a) => a.audience === 'pro' || a.audience === 'both');
+const upcomingProArticles = allProArticles.filter((a) => a.published === false);
+
+const featuredArticle = publishedProArticles.find((a) => a.featured) ?? publishedProArticles[0];
+
+// Until at least one Pro article is live, this hub is a roadmap page (upcoming
+// titles + clinician-recruitment pitch). Direct navigation from /pro still
+// works, but search engines should not index a placeholder hub. Remove this
+// flag (and the matching sitemap exclusion in astro.config.mjs) when the
+// first published Pro article ships.
+const proHubIsPlaceholder = publishedProArticles.length === 0;
+---
+
+<BaseLayout
+  title="AccessAble Pro Resources | Adaptive Compression for Healthcare Teams"
+  description="Clinical guides on adaptive compression for OTs, PTs, nurses, and discharge planners. When to recommend, how to fit, and what the donning-non-compliance literature says."
+  noindex={proHubIsPlaceholder}
+>
+  <script slot="schema" type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script slot="schema" type="application/ld+json" set:html={JSON.stringify(blogSchema)} />
+
+  <ProMedicalDisclaimer />
+
+  <Header slot="header" />
+
+  <nav class="container mx-auto px-4 py-4" aria-label="Breadcrumb">
+    <ol class="flex items-center space-x-2 text-sm text-muted-foreground">
+      <li><a href="/" class="hover:text-primary transition-colors">Home</a></li>
+      <li aria-hidden="true">/</li>
+      <li><a href="/pro" class="hover:text-primary transition-colors">AccessAble Pro</a></li>
+      <li aria-hidden="true">/</li>
+      <li aria-current="page" class="text-foreground">Resources</li>
+    </ol>
+  </nav>
+
+  <section class="pt-8 pb-12 lg:pt-12 lg:pb-16 bg-[#FAF8F3]">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto text-center">
+        <div class="mb-6 flex justify-center">
+          <AudienceBadge audience="pro" />
+        </div>
+        <h1 class="text-4xl md:text-5xl font-bold text-primary mb-4">Pro Resources for Healthcare Teams</h1>
+        <p class="text-xl text-[#374151] leading-relaxed">
+          Clinical reference content on adaptive compression: when to recommend, how to fit, and what the donning-non-compliance literature actually says.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto rounded-2xl border bg-secondary/40 p-6 md:p-8 text-sm">
+        <h2 class="text-lg font-semibold mb-2">A note on authorship</h2>
+        <p class="text-muted-foreground mb-3">
+          AccessAble Pro Resources are written by AccessAble's founder, Cody Coffey, who is not a licensed clinician. They synthesize published clinical literature (AOTA, APTA, NCBI, AHRQ), structured feedback from a 12-tester wear program (28 submissions, 4.6★ average), and our experience designing the DonnEase numbered-guide system. Clinical decisions remain the responsibility of the licensed practitioner.
+        </p>
+        <p class="text-muted-foreground">
+          AccessAble is actively recruiting an OT or PT clinical reviewer to formally validate this content. Interested? <a href="mailto:pro@accessablecompression.com" class="text-primary hover:underline">pro@accessablecompression.com</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  {featuredArticle && (
+    <section class="py-12 bg-[#F4F1EA]">
+      <div class="container mx-auto px-4">
+        <div class="max-w-5xl mx-auto">
+          <h2 class="text-3xl font-bold mb-8 text-center">Featured Pro Guide</h2>
+          <div class="grid md:grid-cols-2 gap-8 items-center">
+            <div class="aspect-video bg-muted rounded-lg overflow-hidden">
+              <img
+                src={featuredArticle.featuredImage}
+                alt={featuredArticle.imageAlt}
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+            <div>
+              <span class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold bg-primary/10 text-primary mb-3">
+                {featuredArticle.category}
+              </span>
+              <h3 class="text-2xl font-bold mb-3">{featuredArticle.title}</h3>
+              <p class="text-muted-foreground mb-4">{featuredArticle.excerpt}</p>
+              <p class="text-sm text-muted-foreground mb-4">{featuredArticle.readTime} read</p>
+              <a
+                href={articleHref(featuredArticle)}
+                class="inline-flex items-center justify-center rounded-md text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-6"
+              >
+                Read Pro Guide
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+
+  {publishedProArticles.length > 1 && (
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold mb-8 text-center">All Pro Resources</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          {publishedProArticles
+            .filter((a) => !featuredArticle || a.slug !== featuredArticle.slug)
+            .map((article) => (
+              <a
+                href={articleHref(article)}
+                class="rounded-lg border bg-card shadow-sm overflow-hidden group hover:border-primary/50 transition-colors block"
+              >
+                <div class="aspect-video bg-muted overflow-hidden">
+                  <img
+                    src={article.featuredImage}
+                    alt={article.imageAlt}
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="p-4">
+                  <span class="inline-flex items-center rounded-full border px-2 py-0.5 text-xs font-medium mb-2">
+                    {article.category}
+                  </span>
+                  <h3 class="font-semibold mb-1 group-hover:text-primary transition-colors line-clamp-2">{article.title}</h3>
+                  <p class="text-sm text-muted-foreground mb-2 line-clamp-2">{article.excerpt}</p>
+                  <p class="text-xs text-muted-foreground">{article.readTime} read</p>
+                </div>
+              </a>
+            ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {publishedProArticles.length === 0 && (
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="max-w-3xl mx-auto rounded-2xl border bg-card p-8 text-center">
+          <h2 class="text-2xl font-bold mb-3">Pro guides arriving alongside our launch</h2>
+          <p class="text-muted-foreground mb-6">
+            Our first two Pro pieces — a clinician's guide to adaptive compression, and a 12-hour-shift guide for nurses — are in production. Sign up to be notified when they go live.
+          </p>
+          <a
+            href="https://signup.accessablecompression.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center rounded-md text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary-hover h-11 px-6"
+          >
+            Get notified when Pro guides go live
+          </a>
+        </div>
+      </div>
+    </section>
+  )}
+
+  {upcomingProArticles.length > 0 && (
+    <section class="py-12 bg-[#FAF8F3]">
+      <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-2xl font-bold mb-6 text-center">In the pipeline</h2>
+          <ul class="grid md:grid-cols-2 gap-4">
+            {upcomingProArticles.map((article) => (
+              <li class="rounded-lg border bg-card p-5 text-sm">
+                <span class="inline-flex items-center rounded-full border px-2 py-0.5 text-xs font-medium mb-2">
+                  {article.category}
+                </span>
+                <p class="font-semibold mb-1">{article.title}</p>
+                <p class="text-muted-foreground line-clamp-2">{article.excerpt}</p>
+                <p class="mt-2 text-xs text-muted-foreground italic">Coming soon</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="py-16 bg-secondary">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-4 text-foreground">Talk to us about Pro</h2>
+      <p class="text-lg mb-8 text-muted-foreground">
+        Bulk pricing, starter kits, and dedicated support for clinics, facilities, and distributors.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/pro/bulk"
+          class="inline-flex items-center justify-center rounded-md text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary-hover h-11 px-8"
+        >
+          Bulk Ordering
+        </a>
+        <a
+          href="/pro"
+          class="inline-flex items-center justify-center rounded-md text-sm font-semibold border border-primary text-primary hover:text-primary-hover hover:bg-transparent h-11 px-8"
+        >
+          About AccessAble Pro
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</BaseLayout>

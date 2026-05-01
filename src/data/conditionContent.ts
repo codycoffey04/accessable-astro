@@ -420,12 +420,12 @@ export const relatedArticles: Record<string, RelatedArticle[]> = {
   ],
   'diabetes': [
     { title: 'Compression 101: What You Need to Know', slug: 'compression-101', excerpt: 'Graduated compression, mmHg ratings, and sizing basics for understanding compression socks.', readTime: '5 min' },
-    { title: 'Travel Tips for Circulation Health', slug: 'travel-tips', excerpt: 'Maintaining foot health and comfort during long journeys.', readTime: '6 min' },
+    { title: 'Caregiver\'s Guide to Putting On Compression Socks', slug: 'caregiver-guide-compression-socks', excerpt: 'Donning techniques for caregivers and family members helping a diabetic loved one with sock application.', readTime: '14 min' },
     { title: 'How to Put On Compression Socks: The Complete Guide', slug: 'how-to-put-on-compression-socks-easily', excerpt: 'Five proven methods including gentle techniques for sensitive feet.', readTime: '12 min' },
   ],
   'limited-mobility': [
     { title: 'How to Put On Compression Socks: The Complete Guide', slug: 'how-to-put-on-compression-socks-easily', excerpt: 'Seated donning, one-handed application, and low-dexterity strategies covered step by step.', readTime: '12 min' },
-    { title: 'Mobility Aids & Sock Compatibility', slug: 'mobility-aids', excerpt: 'Practical guidance for using compression socks with wheelchairs, walkers, and canes.', readTime: '7 min' },
+    { title: 'Compression Socks for Spinal Cord Injury', slug: 'compression-socks-spinal-cord-injury', excerpt: 'Adaptive donning techniques and wheelchair-compatible guidance from a C4 SCI founder.', readTime: '14 min' },
     { title: 'The DonnEase\u2122 Guide: How Adaptive Compression Socks Work', slug: 'donnease-adaptive-compression-guide', excerpt: 'Wide-mouth opening and numbered guide system designed for limited flexibility and seated donning.', readTime: '10 min' },
   ],
   'post-surgery': [
@@ -434,7 +434,7 @@ export const relatedArticles: Record<string, RelatedArticle[]> = {
     { title: 'Compression 101: What You Need to Know', slug: 'compression-101', excerpt: 'Understanding mmHg levels, graduated compression, and how to choose the right compression for recovery.', readTime: '5 min' },
   ],
   'wheelchair-users': [
-    { title: 'Mobility Aids & Sock Compatibility', slug: 'mobility-aids', excerpt: 'Wheelchair-specific guidance for compression socks. Compatible with leg rests and footplates.', readTime: '7 min' },
+    { title: 'Compression Socks for Spinal Cord Injury', slug: 'compression-socks-spinal-cord-injury', excerpt: 'Wheelchair-compatible donning and skin-safety guidance from a C4 SCI wheelchair-user founder.', readTime: '14 min' },
     { title: 'How to Put On Compression Socks: The Complete Guide', slug: 'how-to-put-on-compression-socks-easily', excerpt: 'Seated donning method designed specifically for wheelchair users and balance concerns.', readTime: '12 min' },
     { title: 'Compression 101: What You Need to Know', slug: 'compression-101', excerpt: 'Understanding compression levels and how graduated compression supports circulation while seated.', readTime: '5 min' },
   ],

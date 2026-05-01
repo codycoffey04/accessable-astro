@@ -1,0 +1,35 @@
+---
+// Slot-based callout block used 1–2 times per article wherever Cody's
+// first-person experience is the substantiation for the surrounding paragraph.
+// Banned content inside: any therapeutic claim. Experience and observation only.
+// Pairs with LivedExperienceBadge but is a longer narrative block.
+
+interface Props {
+  /** Optional heading override; defaults to "Lived experience". */
+  label?: string;
+}
+
+const { label = 'Lived experience' } = Astro.props;
+---
+
+<aside
+  class="not-prose my-6 rounded-md border-l-4 border-l-primary bg-secondary/60 px-5 py-4"
+  aria-label={label}
+>
+  <div class="mb-1 flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-primary">
+    <svg
+      class="h-3.5 w-3.5"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      aria-hidden="true"
+    >
+      <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+    </svg>
+    <span>{label}</span>
+  </div>
+  <div class="text-sm leading-relaxed text-foreground/90">
+    <slot />
+  </div>
+</aside>

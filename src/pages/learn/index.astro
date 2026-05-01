@@ -2,7 +2,7 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Header from '@/components/astro/Header.astro';
 import Footer from '@/components/astro/Footer.astro';
-import { articles } from '@/data/learnArticles';
+import { articles, publishedConsumerArticles } from '@/data/learnArticles';
 import { generateBreadcrumbSchema, generateBlogSchema } from '@/utils/schemaFactory';
 
 const SITE = 'https://accessablecompression.com';
@@ -14,37 +14,54 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 
 const blogSchema = generateBlogSchema();
 
-const featuredArticle = articles[0];
-const otherArticles = articles.slice(1);
+// Featured article = the SCI piece (strongest E-E-A-T showcase) per
+// Article Standards v1.0 §9. Hub index pulls from publishedConsumerArticles
+// so unpublished entries never surface as dead links.
+const featuredArticle =
+  publishedConsumerArticles.find((a) => a.featured) ?? publishedConsumerArticles[0];
+const otherArticles = publishedConsumerArticles.filter((a) => a.slug !== featuredArticle.slug);
 
+// Category cards link only to articles that exist today. When new content
+// ships, swap link targets in this array.
 const categories = [
   {
     title: 'Mobility & Independence',
-    description: 'Practical guidance for putting on socks, using adaptive tools, and maintaining dressing independence when you have limited hand strength, reduced flexibility, or balance concerns.',
-    topics: ['Adaptive dressing techniques', 'Working with limited grip strength', 'Seated donning methods', 'Choosing mobility-friendly compression'],
-    link: '/learn/caregiver-guide-compression-socks',
+    description:
+      "Practical guidance for putting on socks, using adaptive tools, and maintaining dressing independence when you have limited hand strength, reduced flexibility, or balance concerns.",
+    topics: [
+      'Adaptive dressing techniques',
+      'Working with limited grip strength',
+      'Seated donning methods',
+      'Choosing mobility-friendly compression',
+    ],
+    link: '/learn/how-to-put-on-compression-socks-easily',
     cta: 'Explore Mobility Guides',
   },
   {
     title: 'Compression Basics',
-    description: 'Understand compression levels (15-20 vs. 20-30 mmHg), how graduated compression works, sizing fundamentals, and when compression is typically recommended by healthcare providers.',
-    topics: ['What mmHg ratings mean', 'How to measure your legs', 'Compression level differences', 'When to wear compression socks'],
+    description:
+      "Understand compression levels (15-20 vs. 20-30 mmHg), how graduated compression works, sizing fundamentals, and when compression is typically recommended by healthcare providers.",
+    topics: [
+      'What mmHg ratings mean',
+      'How to measure your legs',
+      'Compression level differences',
+      'When to wear compression socks',
+    ],
     link: '/learn/compression-101',
     cta: 'Learn Compression Basics',
   },
   {
     title: 'Condition-Specific Guides',
-    description: 'Educational resources for people managing arthritis, post-surgical recovery, stroke recovery, limited mobility, and other conditions where compression and adaptive tools may be helpful.',
-    topics: ['Compression after joint replacement', 'Arthritis and compression socks', 'Post-stroke dressing strategies', 'Wheelchair-friendly compression'],
+    description:
+      "Educational resources for people managing limited mobility after spinal cord injury, stroke recovery, post-surgical recovery, and other conditions where compression and adaptive tools may help.",
+    topics: [
+      'Compression after spinal cord injury',
+      'Adaptive donning for arthritis',
+      'Wheelchair-friendly compression',
+      'Caregiver guidance',
+    ],
     link: '/learn/compression-socks-spinal-cord-injury',
     cta: 'View Condition Guides',
-  },
-  {
-    title: 'Lifestyle & Travel',
-    description: 'Making compression work with your daily life, whether you\'re traveling, working on your feet all day, or managing compression alongside an active routine.',
-    topics: ['Travel tips for compression users', 'Compression for professionals', 'Managing compression with exercise', 'Discrete styling options'],
-    link: '/learn/travel-tips',
-    cta: 'Read Lifestyle Guides',
   },
 ];
 ---
@@ -171,7 +188,7 @@ const categories = [
           <div class="aspect-video bg-muted rounded-lg overflow-hidden">
             <img
               src={featuredArticle.featuredImage}
-              alt={featuredArticle.title}
+              alt={featuredArticle.imageAlt}
               class="w-full h-full object-cover"
               loading="lazy"
             />
@@ -221,7 +238,7 @@ const categories = [
             <div class="aspect-video bg-muted overflow-hidden">
               <img
                 src={article.featuredImage}
-                alt={article.title}
+                alt={article.imageAlt}
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform"
                 loading="lazy"
               />
@@ -236,6 +253,31 @@ const categories = [
             </div>
           </a>
         ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- For Healthcare Professionals -->
+  <section class="py-12 bg-[#F4F1EA]">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto rounded-2xl border bg-card p-8 md:p-10 shadow-sm">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+          <div class="flex-1">
+            <span class="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-2.5 py-0.5 text-xs font-semibold uppercase tracking-wide text-primary mb-3">
+              For Healthcare Teams
+            </span>
+            <h2 class="text-2xl font-bold mb-2">Resources for OTs, PTs, and Nursing Teams</h2>
+            <p class="text-muted-foreground">
+              Clinical guides on adaptive compression for healthcare professionals — when to recommend, how to fit, and what the donning-non-compliance literature says about prescription failure.
+            </p>
+          </div>
+          <a
+            href="/pro/learn"
+            class="inline-flex items-center justify-center rounded-md text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary-hover h-11 px-6 whitespace-nowrap"
+          >
+            Visit AccessAble Pro Resources
+          </a>
+        </div>
       </div>
     </div>
   </section>

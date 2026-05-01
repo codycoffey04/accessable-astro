@@ -3,8 +3,21 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import Header from '@/components/astro/Header.astro';
 import Footer from '@/components/astro/Footer.astro';
 import MedicalDisclaimer from '@/components/astro/MedicalDisclaimer.astro';
+import ProMedicalDisclaimer from '@/components/astro/ProMedicalDisclaimer.astro';
+import AuthorBio from '@/components/astro/AuthorBio.astro';
+import LivedExperienceBadge from '@/components/astro/LivedExperienceBadge.astro';
+import LastReviewed from '@/components/astro/LastReviewed.astro';
+import TransparencyDisclosure from '@/components/astro/TransparencyDisclosure.astro';
+import AudienceBadge from '@/components/astro/AudienceBadge.astro';
+import FoldSafetyCallout from '@/components/astro/FoldSafetyCallout.astro';
 import { articles } from '@/data/learnArticles';
-import { generateArticleSchema, generateBreadcrumbSchema, generateFAQSchema } from '@/utils/schemaFactory';
+import {
+  generateArticleSchema,
+  generateFAQSchema,
+  generateHowToSchema,
+  generateLearnHubBreadcrumb,
+  getLearnHubBreadcrumbItems,
+} from '@/utils/schemaFactory';
 
 interface Source {
   title: string;
@@ -17,6 +30,24 @@ interface FAQ {
   answer: string;
 }
 
+interface HowToStep {
+  text: string;
+  name?: string;
+}
+
+interface HowToSection {
+  name: string;
+  steps: HowToStep[];
+}
+
+interface ReviewedBy {
+  name: string;
+  credential?: string;
+}
+
+type AudienceVariant = 'consumer' | 'pro';
+type TransparencyVariant = 'consumer-health' | 'pro' | 'none';
+
 interface Props {
   title: string;
   description: string;
@@ -24,12 +55,36 @@ interface Props {
   category: string;
   readTime: string;
   datePublished: string;
+  dateModified?: string;
+  lastReviewed?: string;
+  reviewedBy?: ReviewedBy | string;
   author?: string;
+  authorBioVariant?: AudienceVariant;
+  audience?: AudienceVariant;
+  audienceBadge?: 'pro' | 'caregivers' | 'consumer';
+  transparencyVariant?: TransparencyVariant;
+  livedExperienceBadge?: boolean;
   isHealthRelated?: boolean;
+  /** Required: descriptive, mobility-context-appropriate. NEVER falls back
+   *  to article title (Codex-flagged WCAG/ADA blind spot). Empty string
+   *  errors at build via the assertion below. */
+  imageAlt: string;
   featuredImage?: string;
   sources?: Source[];
   faqs?: FAQ[];
   relatedArticleSlugs?: string[];
+  /** When provided, layout emits HowTo schema and a styled procedure list. */
+  howToSections?: HowToSection[];
+  /** Plain-text article body for Article schema's E-E-A-T signal. Optional. */
+  articleBody?: string;
+  /** Numeric word count emitted in Article schema. */
+  wordCount?: number;
+  /** URL base for breadcrumbs, schema URLs, and related-article hrefs.
+   *  Defaults to /learn for consumer Learn Hub. /pro/learn for Pro audience. */
+  basePath?: '/learn' | '/pro/learn';
+  /** Show the fold-safety callout (Gina Lytle wear-test mitigation).
+   *  Required on every donning-touching article. */
+  showFoldSafetyCallout?: boolean;
 }
 
 const {
@@ -39,95 +94,181 @@ const {
   category,
   readTime,
   datePublished,
-  author = 'AccessAble Team',
+  dateModified,
+  lastReviewed,
+  reviewedBy,
+  author = 'Cody Coffey, Founder of AccessAble',
+  authorBioVariant,
+  audience = 'consumer',
+  audienceBadge,
+  transparencyVariant,
+  livedExperienceBadge = true,
   isHealthRelated = false,
+  imageAlt,
   featuredImage,
   sources = [],
   faqs = [],
   relatedArticleSlugs = [],
+  howToSections,
+  articleBody,
+  wordCount,
+  basePath = '/learn',
+  showFoldSafetyCallout = false,
 } = Astro.props;
 
+// Build-time assertion: imageAlt is required.
+// Codex adversarial review flagged title-as-alt fallback as a WCAG/ADA blind
+// spot. Articles that fail to provide imageAlt should fail the build, not
+// silently ship with bad accessibility.
+if (!imageAlt || imageAlt.trim().length === 0) {
+  throw new Error(
+    `ArticleLayout: imageAlt is required for slug "${slug}". ` +
+      `Provide a descriptive, mobility-context-appropriate alt string. ` +
+      `Title-as-alt fallback is banned per Article Standards v1.0 §1.`,
+  );
+}
+
+// Derived audience defaults — Pro audience overrides default variants if
+// caller didn't specify them explicitly.
+const resolvedAuthorBioVariant: AudienceVariant = authorBioVariant ?? audience;
+const resolvedTransparencyVariant: TransparencyVariant =
+  transparencyVariant ?? (audience === 'pro' ? 'pro' : isHealthRelated ? 'consumer-health' : 'none');
+const resolvedAudienceBadge = audienceBadge ?? (audience === 'pro' ? 'pro' : undefined);
+
 const SITE = 'https://accessablecompression.com';
+const articleUrl = `${SITE}${basePath}/${slug}`;
+
+const reviewedByObject: ReviewedBy | undefined = (() => {
+  if (!reviewedBy) return undefined;
+  if (typeof reviewedBy === 'string') return { name: reviewedBy };
+  return reviewedBy;
+})();
 
 const articleSchema = generateArticleSchema({
   headline: title,
   author,
+  slug,
+  basePath,
+  isHealthRelated,
+  reviewedBy: reviewedByObject,
   datePublished,
+  dateModified,
   image: featuredImage ? `${SITE}${featuredImage}` : `${SITE}/images/compression-101.png`,
   description,
+  articleBody,
+  wordCount,
 });
 
-const breadcrumbSchema = generateBreadcrumbSchema([
-  { name: 'Home', url: SITE },
-  { name: 'Learn Hub', url: `${SITE}/learn` },
-  { name: title, url: `${SITE}/learn/${slug}` },
-]);
+const breadcrumbSchema = generateLearnHubBreadcrumb({ title, slug, basePath });
+const faqSchema = faqs.length > 0 ? generateFAQSchema(faqs, articleUrl) : null;
+const howToSchema =
+  howToSections && howToSections.length > 0
+    ? generateHowToSchema({
+        name: title,
+        description,
+        image: featuredImage ? `${SITE}${featuredImage}` : undefined,
+        sections: howToSections,
+      })
+    : null;
 
-const faqSchema = faqs.length > 0 ? generateFAQSchema(faqs, `${SITE}/learn/${slug}`) : null;
-
-// Resolve related articles
+// Resolve related articles via slug. Allow cross-base linking (Pro spoke can
+// link to consumer pillar and vice versa). Each resolved article carries its
+// own basePath if set in the registry; fallback to current basePath.
 const relatedArticles = relatedArticleSlugs
-  .map((s) => articles.find((a) => a.slug === s))
-  .filter(Boolean);
+  .map((s) => {
+    const a = articles.find((entry) => entry.slug === s);
+    if (!a) return null;
+    const targetBasePath = a.basePath ?? '/learn';
+    return { ...a, href: `${targetBasePath}/${a.slug}` };
+  })
+  .filter((a): a is NonNullable<typeof a> => a !== null);
 
 const formattedDate = new Date(datePublished).toLocaleDateString('en-US', {
   year: 'numeric',
   month: 'long',
   day: 'numeric',
 });
+
+const visibleBreadcrumbItems = getLearnHubBreadcrumbItems({ title, slug, basePath });
 ---
 
 <BaseLayout title={`${title} | AccessAble Learn Hub`} description={description}>
   <script slot="schema" type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
   <script slot="schema" type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   {faqSchema && <script slot="schema" type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
+  {howToSchema && <script slot="schema" type="application/ld+json" set:html={JSON.stringify(howToSchema)} />}
 
   <Header slot="header" />
 
-  <!-- Breadcrumbs -->
+  <!-- Breadcrumbs (basePath-aware) -->
   <nav class="container mx-auto px-4 py-4" aria-label="Breadcrumb">
-    <ol class="flex items-center space-x-2 text-sm text-muted-foreground">
-      <li><a href="/" class="hover:text-primary transition-colors">Home</a></li>
-      <li aria-hidden="true">/</li>
-      <li><a href="/learn" class="hover:text-primary transition-colors">Learn Hub</a></li>
-      <li aria-hidden="true">/</li>
-      <li aria-current="page" class="text-foreground line-clamp-1">{title}</li>
+    <ol class="flex flex-wrap items-center gap-x-2 text-sm text-muted-foreground">
+      {visibleBreadcrumbItems.map((item, idx) => (
+        <>
+          {idx > 0 && <li aria-hidden="true">/</li>}
+          <li>
+            {item.isCurrent ? (
+              <span aria-current="page" class="text-foreground line-clamp-1">{item.name}</span>
+            ) : (
+              <a href={item.href} class="hover:text-primary transition-colors">{item.name}</a>
+            )}
+          </li>
+        </>
+      ))}
     </ol>
   </nav>
 
   <!-- Article Header -->
   <article class="container mx-auto px-4 py-8">
     <div class="max-w-3xl mx-auto">
-      <!-- Category Badge -->
-      <span class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold bg-primary/10 text-primary mb-4">
-        {category}
-      </span>
+      <!-- Category + audience badges -->
+      <div class="flex flex-wrap items-center gap-2 mb-4">
+        <span class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold bg-primary/10 text-primary">
+          {category}
+        </span>
+        {resolvedAudienceBadge && <AudienceBadge audience={resolvedAudienceBadge} />}
+        {livedExperienceBadge && <LivedExperienceBadge />}
+      </div>
 
       <h1 class="text-3xl lg:text-4xl font-bold text-primary mb-4">{title}</h1>
       <p class="text-lg text-muted-foreground mb-6">{description}</p>
 
       <!-- Meta -->
-      <div class="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-6 pb-6 border-b">
+      <div class="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-2 pb-2">
         <span>{readTime} read</span>
         <span aria-hidden="true">|</span>
         <time datetime={datePublished}>{formattedDate}</time>
         <span aria-hidden="true">|</span>
         <span>By {author}</span>
       </div>
+      <div class="mb-6 pb-6 border-b">
+        <LastReviewed
+          datePublished={datePublished}
+          lastReviewed={lastReviewed ?? dateModified ?? datePublished}
+          reviewedBy={reviewedByObject?.name ?? 'Cody Coffey, Founder'}
+        />
+      </div>
 
-      {isHealthRelated && <MedicalDisclaimer />}
+      {isHealthRelated && audience === 'pro' && <ProMedicalDisclaimer />}
+      {isHealthRelated && audience !== 'pro' && <MedicalDisclaimer />}
 
-      <!-- Featured Image -->
+      <!-- Author bio block (renders no founder photo per CLAUDE.md constraint) -->
+      <AuthorBio variant={resolvedAuthorBioVariant} />
+
+      <!-- Featured Image — imageAlt is required and never falls back to title -->
       {featuredImage && (
         <div class="aspect-video bg-muted rounded-lg overflow-hidden mb-8">
           <img
             src={featuredImage}
-            alt={title}
+            alt={imageAlt}
             class="w-full h-full object-cover"
             loading="eager"
           />
         </div>
       )}
+
+      <!-- Fold safety callout (Gina Lytle wear-test mitigation) -->
+      {showFoldSafetyCallout && <FoldSafetyCallout />}
 
       <!-- Article Body -->
       <div class="prose prose-lg max-w-none">
@@ -155,6 +296,9 @@ const formattedDate = new Date(datePublished).toLocaleDateString('en-US', {
           </ol>
         </div>
       )}
+
+      <!-- Editorial transparency disclosure -->
+      <TransparencyDisclosure variant={resolvedTransparencyVariant} />
 
       <!-- FAQs -->
       {faqs.length > 0 && (
@@ -185,12 +329,12 @@ const formattedDate = new Date(datePublished).toLocaleDateString('en-US', {
         <div class="max-w-5xl mx-auto">
           <h2 class="text-2xl font-bold mb-8 text-center">Related Guides</h2>
           <div class="grid md:grid-cols-3 gap-6">
-            {relatedArticles.map((article) => article && (
-              <a href={`/learn/${article.slug}`} class="rounded-lg border bg-card shadow-sm overflow-hidden group hover:border-primary/50 transition-colors block">
+            {relatedArticles.map((article) => (
+              <a href={article.href} class="rounded-lg border bg-card shadow-sm overflow-hidden group hover:border-primary/50 transition-colors block">
                 <div class="aspect-video bg-muted overflow-hidden">
                   <img
                     src={article.featuredImage}
-                    alt={article.title}
+                    alt={article.imageAlt}
                     class="w-full h-full object-cover group-hover:scale-105 transition-transform"
                     loading="lazy"
                   />

@@ -23,6 +23,37 @@
   to = "/collections/standard-compression"
   status = 301
 
+# Pro entry-point consolidation: /pro/resources was a "Coming Soon" placeholder.
+# The new canonical Pro hub is /pro/learn. The placeholder file is left on disk
+# for potential future reuse (e.g., downloadable PDFs distinct from articles),
+# but `force = true` makes this redirect fire before the static file resolves —
+# so any inbound link, search-cache hit, or bookmark to /pro/resources lands on
+# /pro/learn instead of the obsolete placeholder. Remove the redirect when the
+# slug is repurposed with real content.
+[[redirects]]
+  from = "/pro/resources"
+  to = "/pro/learn"
+  status = 301
+  force = true
+
+# Learn Hub stub-article replacements — fallback to /learn hub.
+# The /learn/mobility-aids and /learn/travel-tips stubs were deleted in
+# preparation for full-length replacements at richer slugs, but the replacement
+# articles (mobility-aids-and-compression-socks, compression-socks-for-travel)
+# are still `published: false` in the registry and have no .astro pages on disk.
+# These 301s preserve any inbound links (bookmarks, search-cache, external
+# references) by routing legacy URLs to the Learn Hub. When the replacement
+# articles ship, swap each `to` field to the article URL.
+[[redirects]]
+  from = "/learn/mobility-aids"
+  to = "/learn"
+  status = 301
+
+[[redirects]]
+  from = "/learn/travel-tips"
+  to = "/learn"
+  status = 301
+
 [[headers]]
   for = "/_astro/*"
   [headers.values]
