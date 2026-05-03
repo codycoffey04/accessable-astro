@@ -66,7 +66,7 @@ export const articleContent: Record<string, ArticleData> = {
     ],
     sources: [
       { title: 'Compression Stockings', url: 'https://www.mayoclinic.org/diseases-conditions/varicose-veins/expert-answers/compression-stockings/faq-20058172', organization: 'Mayo Clinic' },
-      { title: 'Compression Therapy Basics', url: 'https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4804256/', organization: 'National Center for Biotechnology Information' },
+      { title: 'Graduated Compression Stockings', url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC4081237/', organization: 'NCBI / CMAJ 2014' },
       { title: 'Graduated Compression Stockings', url: 'https://medlineplus.gov/ency/patientinstructions/000600.htm', organization: 'MedlinePlus (National Library of Medicine)' },
       { title: 'Compression Garment Guidelines', url: 'https://www.heart.org/en/health-topics/venous-thromboembolism/prevent-and-treat-blood-clots/compression-stockings', organization: 'American Heart Association' },
     ],
