@@ -8,7 +8,7 @@ const FOUNDER_ID = `${SITE}/about#founder`;
 
 // Entity-readiness gates per docs/learn-hub-article-standards.md §3.
 // Each is a single-line flip when the underlying prerequisite ships.
-const LLC_FORMED = false; // gates Organization legalName + foundingDate
+const LLC_FORMED = true; // AccessAble LLC filed 2026-04-16 (Alabama, DeKalb County, Strong Law Firm PC); EIN in hand 2026-05-04. Activates Organization legalName + foundingDate.
 // Forward-declared for downstream callers (copy-review tooling, future MedicalWebPage swap).
 // Keep as `export` so anything outside this module reads the same source of truth.
 export const MEDICAL_WEBPAGE_ENABLED = false;
