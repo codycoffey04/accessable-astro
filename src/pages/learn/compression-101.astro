@@ -1,48 +1,153 @@
 ---
 import ArticleLayout from '@/layouts/ArticleLayout.astro';
-import { articleContent } from '@/data/articleContent';
 
-const data = articleContent['compression-101'];
+// 7c PLACEHOLDER: featuredImage path inherits from the pre-Phase-1 stub
+// convention (/images/<slug>.png). Hero image asset has not been finalized
+// yet. Cody is handling 7c as a parallel workstream and will swap the path
+// plus imageAlt when the asset lands. Build-time assertion in ArticleLayout
+// requires non-empty imageAlt, so the placeholder below is intentionally
+// descriptive enough to pass that assertion if it accidentally ships.
 ---
 
 <ArticleLayout
-  title={data.title}
-  description={data.description}
+  title="Compression Socks 101: A Buyer's Guide for People Whose Hands Don't Cooperate"
+  description="Compression socks 101 buyer's guide. mmHg levels, fit, donning ease, wash care, HSA/FSA. For people whose hands don't cooperate with the standard sock."
   slug="compression-101"
-  category={data.category}
-  readTime={data.readTime}
-  datePublished={data.datePublished}
-  isHealthRelated={data.isHealthRelated}
-  featuredImage={data.featuredImage}
-  imageAlt="Compression sock package with mmHg level markings visible, illustrating the basics of compression therapy"
+  category="Compression Basics"
+  readTime="10 min"
+  datePublished="2026-05-04"
+  dateModified="2026-05-04"
+  lastReviewed="2026-05-04"
+  author="Cody Coffey, Founder of AccessAble"
   audience="consumer"
   livedExperienceBadge={false}
-  sources={data.sources}
-  faqs={data.faqs}
-  relatedArticleSlugs={data.relatedArticles}
+  isHealthRelated={true}
+  featuredImage="/images/compression-101.png"
+  imageAlt="Title-card placeholder hero: the article title 'Compression Socks 101: A Buyer's Guide for People Whose Hands Don't Cooperate' rendered in white serif on a charcoal background, with a brand-gold accent line and a small 'AccessAble Learn Hub' label below the title"
+  wordCount={2070}
+  sources={[
+    { title: 'Graduated compression stockings', url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC4081237/', organization: 'NCBI / CMAJ 2014' },
+    { title: 'Compression Therapy: Types and Benefits', url: 'https://my.clevelandclinic.org/health/treatments/23449-compression-therapy', organization: 'Cleveland Clinic' },
+    { title: 'Compression stockings', url: 'https://medlineplus.gov/ency/patientinstructions/000597.htm', organization: 'MedlinePlus Medical Encyclopedia' },
+    { title: 'Venous insufficiency', url: 'https://medlineplus.gov/ency/article/000203.htm', organization: 'MedlinePlus Medical Encyclopedia' },
+    { title: 'Mayo Clinic Q and A: Tips for using compression stockings', url: 'https://newsnetwork.mayoclinic.org/discussion/mayo-clinic-q-and-a-tips-for-using-compression-stockings/', organization: 'Mayo Clinic News Network' },
+    { title: 'Varicose veins: Diagnosis and treatment', url: 'https://www.mayoclinic.org/diseases-conditions/varicose-veins/diagnosis-treatment/drc-20350649', organization: 'Mayo Clinic' },
+  ]}
+  faqs={[
+    { question: "What's the difference between compression socks and compression stockings?", answer: "Compression socks and compression stockings usually describe the same general product category. Medical sources often use compression stockings, while shoppers usually use compression socks. Both refer to garments that apply pressure to the lower leg. The more important buyer distinction is whether the product uses graduated compression, which means the sock is firmest near the ankle and gradually less firm higher on the leg. From there, look at the mmHg number, length, sizing instructions, fabric, toe style, cuff, and ease of putting the sock on. The name alone does not tell you whether the product fits your leg, your hands, or your daily routine. A product can have a real compression level and still be wrong for your body. For AccessAble Learn Hub articles, compression socks is the default wording because it matches how most buyers search and shop." },
+    { question: "How do I know which mmHg level to choose?", answer: "Use the mmHg level as a product spec, not as a personal medical instruction. AccessAble uses four buyer labels in this article: 8-15 mmHg (Gentle Wellness), 15-20 mmHg (Everyday Relief), 20-30 mmHg (Medical Support), and 30-40 mmHg (Firm Medical). Below 20 mmHg is generally the everyday buyer side of the shelf. 20-30 mmHg and 30-40 mmHg move into provider-guidance territory, especially if symptoms, surgery instructions, pregnancy, or a known medical condition is part of the decision. For ordinary daily comfort, 15-20 mmHg (Everyday Relief) may help manage minor swelling, leg fatigue, and discomfort from prolonged sitting or standing. Do not choose a higher number because it looks more serious. If a healthcare provider gave you a level, follow that level. If your reason for shopping is medical or symptom-related, consult your healthcare provider." },
+    { question: "Do I need a prescription to buy compression socks?", answer: "You may need a prescription when the compression level is 20 mmHg or higher. Cleveland Clinic draws the conservative line there, grouping compression below 20 mmHg as low, 20-30 mmHg as medium, and above 30 mmHg as high. Mayo Clinic also notes that small amounts of compression can be sold without a prescription, while stronger compression is prescribed with details such as strength and length. The practical buyer rule is to separate everyday shopping from provider-directed shopping. If you are comparing gentle or everyday options for routine comfort, you are in a different category than someone who was told to wear a specific level after an appointment. If you have symptoms, surgery instructions, pregnancy, skin changes, numbness, tingling, or a known medical condition, consult your healthcare provider before choosing." },
+    { question: "How do I take care of compression socks?", answer: "Wash compression socks daily, let them air dry, and plan for rotation. MedlinePlus recommends washing with mild soap and water, rinsing, air drying, keeping a second pair available, and replacing stockings every 3-6 months. The care label on the product still matters, so follow that first when it gives specific instructions. The reason care matters is practical: compression depends on fabric tension. If the sock stretches out, slides down, wrinkles, bunches, or no longer fits the way it did when new, it may be time to replace it. Daily wear with only one pair also creates a laundry problem. If compression socks are part of your regular routine, buying two pairs is often more realistic than trying to wash, dry, and reuse one pair every day." },
+    { question: "What if compression socks are hard to put on?", answer: "If compression socks are hard to put on, treat that as a product-design issue to solve, not a character test. Traditional compression socks often require grip, finger strength, flexibility, balance, and repeated pulling through the tightest part of the sock. That can be a minor annoyance for one buyer and the main reason another buyer gives up. Look for features that make orientation and pulling easier. With DonnEase, the blue dot on toe always faces up, the #3 marker labeled PULL TO ANKLE gives you the first grip point, and the #2 marker labeled PULL TO KNEE gives you the second grip point. Donning aids, caregiver help, and adaptive designs all belong in the buying conversation. The goal is not to suffer through the sock. The goal is to choose one you can use." },
+    { question: "Are compression socks HSA/FSA eligible?", answer: "Check your HSA/FSA administrator or plan documents before assuming reimbursement. Eligibility rules vary by plan. AccessAble does not make a blanket eligibility claim, and this article is not the place to settle that question for your account. The administrator who runs your HSA, FSA, or HRA account is the authoritative source for what is and is not reimbursable under your specific plan. Plan rules can be narrow. Administrators can interpret documentation differently. The same product can be eligible under one plan and not under another. The safest path is to contact your administrator before you buy, not after, so you know what your plan covers and what records they expect you to keep. For reimbursement questions, check your HSA/FSA administrator or plan documents. Eligibility rules vary by plan." },
+    { question: "Can I wear compression socks for travel?", answer: "Yes, many buyers wear compression socks for travel as an everyday comfort choice. The safe buyer framing is prolonged sitting, not a disease claim. For flights, long drives, bus rides, or train trips, compression socks may help manage minor swelling and fatigue from prolonged sitting or standing. The same buying rules still apply: check the mmHg number, choose the right length, measure your leg, avoid wrinkles and bunching, and make sure you can put the socks on without turning the trip into a struggle. Pack them where you can reach them, and try them before travel day so fit problems show up at home. If you have a known medical condition, recent surgery, pregnancy, new swelling, pain, numbness, tingling, or provider instructions, consult your healthcare provider about level, length, and wearing schedule before travel." },
+  ]}
+  relatedArticleSlugs={['how-to-put-on-compression-socks-easily', 'donnease-adaptive-compression-guide', 'caregiver-guide-compression-socks']}
 >
 
-<h2>What is Graduated Compression?</h2>
-<p>Graduated compression technology uses elastic fabric that applies different levels of pressure at different points on your leg. The pressure is strongest at the ankle and gradually decreases up the calf. This pressure gradient is measured in millimeters of mercury (mmHg), the same unit used to measure blood pressure.</p>
+  <p><strong>Quick Summary:</strong></p>
+  <ul>
+    <li>Most compression sock guides explain pressure. Buyers also need to understand fit, friction, grip, and daily use.</li>
+    <li>Compression socks are usually sold by mmHg, which is the pressure number printed on the package.</li>
+    <li>Graduated compression means the sock is firmest near the ankle and gradually less firm higher up the leg.</li>
+    <li>15-20 mmHg and 20-30 mmHg are not interchangeable buyer labels, even when they sit next to each other online.</li>
+    <li>If a healthcare provider gave you a level, follow that guidance instead of treating a buyer guide as instructions.</li>
+    <li>The hard part is often not choosing compression. It is choosing a sock you can actually wear.</li>
+  </ul>
 
-<h2>Understanding mmHg Levels</h2>
-<p>Compression socks are available in different pressure levels. 15-20 mmHg is considered mild compression, often used for everyday comfort during long periods of sitting or standing. 20-30 mmHg is moderate compression, commonly recommended by healthcare providers for post-surgical recovery or specific medical situations. Your healthcare provider can determine which compression level is appropriate for your needs.</p>
+  <p>Compression socks look simple from the outside. A pair of socks, a pressure number, a length, and maybe a few claims on the package. The buying decision is not that simple, especially if your hands, balance, flexibility, swelling, mobility, or daily routine do not match the person the average sock was designed around.</p>
 
-<div class="my-8 aspect-video bg-muted rounded-lg flex items-center justify-center">
-  <div class="text-center p-8">
-    <p class="font-medium mb-2">[Video: Understanding Compression Levels]</p>
-    <p class="text-sm text-muted-foreground">Coming soon</p>
-  </div>
-</div>
+  <h2>What you're actually buying</h2>
 
-<h2>Who Benefits from Compression?</h2>
-<ul>
-  <li>People with mobility challenges</li>
-  <li>Travelers on long flights</li>
-  <li>Service workers who stand all day</li>
-  <li>Post-surgery recovery</li>
-</ul>
+  <p>Compression socks are garments that apply pressure to the lower leg. Medical sources often use the phrase compression stockings. Shoppers usually say compression socks. In this article, I am using compression socks because that is what most people type into the search bar and what most buyers see on packaging.</p>
 
-<p>Healthcare providers may recommend compression socks for various situations, including post-surgical recovery, managing certain medical conditions, or for comfort during extended periods of limited mobility. Some people also choose to wear compression socks during travel or work for all-day comfort. Always consult your healthcare provider before starting compression use, especially if you have any medical conditions or concerns.</p>
+  <p>The core product feature is graduated compression. That means the sock is designed to be firmest near the ankle and gradually less firm higher up the leg. The buyer version of that sentence is simpler: the pressure has a job. It pushes hardest at the ankle, where blood is fighting gravity to head back up your leg, and eases off where the calf can do more of its own work.</p>
+
+  <p>That does not mean every compression sock is the same. The package still matters. The mmHg level matters. The length matters. The opening width matters. The fabric matters. The toe style, heel pocket, cuff, stretch, and grip points all matter. A sock can have a legitimate compression number and still be a bad fit for your body or your routine.</p>
+
+  <p>This is where I think most buyer guides start too late. They jump straight to pressure levels, then act like the central question is whether you want light, medium, or firm compression. That is not how real life works. A sock that is technically correct but miserable to put on will sit in a drawer. A sock that rolls, wrinkles, digs into your skin, or slides down is not doing its job as a product.</p>
+
+  <p>I built AccessAble from lived experience after a C4 incomplete spinal cord injury in December 2023. I am not a clinician. I am a founder who had to solve a practical problem: compression socks were part of my routine, but the standard design assumed hands, balance, and mobility I did not have.</p>
+
+  <h2>The numbers on the package: 15-20 vs 20-30 mmHg</h2>
+
+  <p>mmHg is the pressure measurement printed on compression packaging. It stands for millimeters of mercury. You do not need to turn that into a science project to shop better. Treat it like a product spec, the same way you would treat inseam, shoe width, or battery size. It tells you something important, but it does not make the full decision for you.</p>
+
+  <p>AccessAble uses four plain-language labels for this article:</p>
+  <ul>
+    <li>8-15 mmHg (Gentle Wellness)</li>
+    <li>15-20 mmHg (Everyday Relief)</li>
+    <li>20-30 mmHg (Medical Support)</li>
+    <li>30-40 mmHg (Firm Medical)</li>
+  </ul>
+
+  <p>Those label names are AccessAble's internal buyer language. They are not borrowed from Cleveland Clinic or any other source. The outside-source support is for the numeric structure: below 20 mmHg is commonly grouped as low compression, 20-30 mmHg as medium compression, and above 30 mmHg as high compression. Cleveland Clinic also draws a conservative line that 20 mmHg or higher is prescription territory.</p>
+
+  <p>That is why 15-20 mmHg and 20-30 mmHg should not be treated like neighboring T-shirt sizes. 15-20 mmHg (Everyday Relief) is generally the level shoppers see for everyday comfort, travel, desk work, and standing-heavy routines. A compliant way to say that is: 15-20 mmHg (Everyday Relief) may help manage minor swelling, leg fatigue, and discomfort from prolonged sitting or standing.</p>
+
+  <p>20-30 mmHg (Medical Support) is a different buyer category. The number is higher. The use case is more likely to involve provider guidance, a prescription, or a specific instruction after an appointment. That does not mean the label is scary. It means the decision should not come from a random chart on the internet. If swelling, pain, numbness, tingling, skin changes, surgery instructions, pregnancy, or a known medical condition is part of the reason you are shopping, consult your healthcare provider.</p>
+
+  <p>30-40 mmHg (Firm Medical) is even more provider-directed. Most everyday buyers should not start there because the number looks more serious or because a higher number feels like a better value. Compression is not a contest. More pressure is not automatically better shopping.</p>
+
+  <p>The practical rule is this: if you are choosing for ordinary daily comfort, stay in buyer-guide territory. If a healthcare provider gave you a level, length, or schedule, follow that. If your body is giving you warning signs, consult your healthcare provider before turning a product spec into a self-made plan.</p>
+
+  <h2>Things people forget to consider</h2>
+
+  <p>Fit is not a small detail. Compression socks need enough tension to stay in place, but they also need the right circumference, length, and shape for your leg. Calf size matters. Ankle size matters. Height matters. The top band matters. A sock that is too long can bunch behind the knee. A sock that is too narrow at the opening can be a problem before the compression even starts. Use a real <a href="/pages/size-guide">size guide</a>, measure when your legs are closer to their baseline size, and do not guess from shoe size alone.</p>
+
+  <p>Wrinkles and bunching matter because compression is supposed to be distributed in a controlled way. If the fabric folds, digs, or twists, the product is not sitting correctly. If the sock slides down, the issue may be size, length, fabric fatigue, or the wrong style for your leg shape. Replacing stretched-out socks is part of the buying decision, not an afterthought.</p>
+
+  <p>Putting the sock on is the part most product pages undersell. Traditional compression socks ask you to pinch, pull, balance, and work the fabric over your heel while the tightest part is fighting you at the ankle. For some buyers, that is mildly annoying. For others, it is the entire barrier. A CMAJ review hosted on NCBI reported compression-stocking noncompliance ranging from 30% to 65%, with discomfort and difficulty putting stockings on among the practical barriers (NCBI, 2014).</p>
+
+  <p>That is why donning ease belongs in a buyer's guide, not just in a separate instruction page. Medical sources acknowledge that some people have trouble grasping and pulling compression stockings on, and that stocking donners or donning aids can be useful. AccessAble's <a href="/learn/how-to-put-on-compression-socks-easily">how-to guide for putting on compression socks</a> covers the routine step by step, but the buying point is simpler: if you know your hands, grip, balance, or flexibility are limited, shop for the putting-on experience before you shop for the prettiest package.</p>
+
+  <p>DonnEase™ is AccessAble's adaptive answer to that problem. The <a href="/learn/donnease-adaptive-compression-guide">DonnEase adaptive compression guide</a> explains the design in detail, but the markers are straightforward. The blue dot on toe always faces up. The #3 marker labeled PULL TO ANKLE is the lower cuff and first grip point. The #2 marker labeled PULL TO KNEE is the upper cuff and second grip point. The point is not decoration. The point is giving your hands better instructions and better leverage.</p>
+
+  <p>Erica Fraser, AccessAble wear tester (12+ hour wear, January 2026), described it this way: "I almost forgot my socks were on which made me realize just how amazing these feel and fit. Super easy to get socks on which I feel like I usually need a nap after putting the other compression sock on the market." Erica Fraser received product at no cost in exchange for honest feedback. That quote came from AccessAble's 12-tester wear program (4.6★ average across 28 submissions).</p>
+
+  <p>Wash care is another buying issue because compression is not just fabric. It is tension. MedlinePlus recommends daily washing with mild soap and water, rinsing, air drying, keeping a second pair in rotation, and replacing stockings every 3-6 months. Follow the product care label too. If you are buying one pair and wearing it daily, you are also buying a laundry problem. Plan for rotation.</p>
+
+  <p>For reimbursement questions, check your HSA/FSA administrator or plan documents. Eligibility rules vary by plan.</p>
+
+  <h2>Who actually uses these</h2>
+
+  <p>Compression socks are not only for one kind of person. The better buyer frame is the job you are asking this product to do, and whether that job belongs in everyday shopping or provider-guidance territory.</p>
+
+  <ul>
+    <li>Travel and long car rides: compression socks may help manage minor swelling and fatigue from prolonged sitting or standing.</li>
+    <li>Desk work and long sitting blocks: compression socks may help manage minor swelling, leg fatigue, and discomfort from prolonged sitting or standing.</li>
+    <li>Standing-heavy workdays: compression socks may help manage minor swelling and fatigue from prolonged sitting or standing.</li>
+    <li>Everyday leg comfort: compression socks may help support healthy circulation and manage everyday leg discomfort.</li>
+    <li>Mobility-related routines: compression socks may help ease leg discomfort during prolonged sitting or limited mobility. Caregivers may also need a different buying lens, which is why we keep a separate <a href="/learn/caregiver-guide-compression-socks">caregiver guide to compression socks</a>.</li>
+    <li>Post-surgery comfort or provider instructions: consult your healthcare provider about the level, length, fit, and wearing schedule before choosing a pair.</li>
+  </ul>
+
+  <p>Notice what is missing from that list: disease promises. This article is not trying to turn a sock package into medical advice. If you are shopping because of a known condition, new swelling, pain, skin changes, numbness, tingling, or surgery instructions, the product page is not the authority. Your care team is.</p>
+
+  <h2>What I'd tell a friend</h2>
+
+  <p>Most compression sock buyer guides do their job. They explain mmHg, length, and graduated compression well enough. They are not wrong. They just assume the buyer has the hands, balance, flexibility, and routine that standard compression socks were built around.</p>
+
+  <p>That assumption is where people get blamed. They think they bought the wrong thing because putting it on is exhausting. They think they are failing because the sock fights them at the heel. They think they should just try harder because the package says compression socks are simple.</p>
+
+  <p>I would tell a friend to start with the box, then move past the box.</p>
+
+  <p>Look at the mmHg number. Decide whether you are in everyday buyer territory or provider-guidance territory. Check the length. Measure your leg. Look at the opening width. Think about who is putting the sock on, you or someone helping you. Think about laundry, because one daily-wear pair is rarely enough. Then look at the design and ask the question most brands skip: can I actually use this on a normal day?</p>
+
+  <p>I am not your doctor, and I am not trying to be. My job here is to separate product facts from medical decisions. The product facts are visible: pressure number, length, fabric, opening, toe, cuff, markers, care instructions. The medical decisions belong with your healthcare provider, especially when symptoms, surgery, pregnancy, known conditions, or higher compression levels are involved.</p>
+
+  <p>Compression socks are not supposed to be a daily test of whether you are tough enough. If the product requires more grip, range of motion, or balance than you have, the design is part of the problem. Buy accordingly.</p>
+
+  <p><strong>Key Takeaways:</strong></p>
+  <ul>
+    <li>mmHg is a product spec, not a personal medical instruction.</li>
+    <li>Graduated compression means firmer pressure near the ankle and less pressure higher up the leg.</li>
+    <li>15-20 mmHg (Everyday Relief) and 20-30 mmHg (Medical Support) belong in different buyer categories.</li>
+    <li>Fit includes calf size, length, opening width, wrinkles, slipping, and fabric fatigue.</li>
+    <li>Putting compression socks on is a real buying factor, not a personal failure.</li>
+    <li>For symptoms, post-surgery instructions, known conditions, or higher compression levels, consult your healthcare provider.</li>
+  </ul>
+
+  <p>Start with the <a href="/products">AccessAble catalog</a> if you want adaptive compression options built around the putting-on problem. If someone else helps with your routine, use that same buyer lens before you buy.</p>
 
 </ArticleLayout>

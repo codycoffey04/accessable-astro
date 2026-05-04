@@ -144,19 +144,20 @@ export const articles: LearnArticle[] = [
 
   // ── Compression Basics cluster ───────────────────────────────────────────
   {
-    title: 'Compression 101: A Plain-Language Buyer’s Guide',
+    title: "Compression Socks 101: A Buyer's Guide for People Whose Hands Don't Cooperate",
     slug: 'compression-101',
     category: 'Compression Basics',
     excerpt:
-      'A non-clinical buyer’s guide to compression socks: what graduated compression actually is, how to read mmHg levels on the package, and the things people forget to consider before buying.',
+      "Compression socks 101 buyer's guide. mmHg levels, fit, donning ease, wash care, HSA/FSA. For people whose hands don't cooperate with the standard sock.",
     readTime: '10 min',
     featuredImage: '/images/compression-101.png',
     imageAlt:
-      'Compression sock package with mmHg level markings visible, illustrating the basics of compression therapy',
+      "Title-card placeholder hero: the article title 'Compression Socks 101: A Buyer's Guide for People Whose Hands Don't Cooperate' rendered in white serif on a charcoal background, with a brand-gold accent line and a small 'AccessAble Learn Hub' label below the title",
     audience: 'consumer',
     basePath: '/learn',
     pillar: true,
-    lastReviewed: '2026-04-28',
+    lastReviewed: '2026-05-04',
+    wordCount: 2070,
     published: true,
   },
 

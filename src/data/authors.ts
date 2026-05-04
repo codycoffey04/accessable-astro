@@ -39,7 +39,7 @@ const cody: AuthorBio = {
   avatarAlt: 'AccessAble brand mark',
   body: {
     consumer:
-      "Cody Coffey is the founder of AccessAble. He designs adaptive compression socks based on his own experience after a C4 incomplete spinal cord injury in December 2023 — the moment he realized he couldn't put his own socks on without help. The DonnEase numbered-guide system is the answer he wished existed.",
+      "Cody Coffey is the founder of AccessAble. He designs adaptive compression socks based on his own experience after a C4 incomplete spinal cord injury in December 2023. That was the moment he realized he couldn't put his own socks on without help. The DonnEase numbered-guide system is the answer he wished existed.",
     pro:
       "Cody Coffey is the founder of AccessAble and the designer of the DonnEase numbered-guide system. After a C4 incomplete spinal cord injury, Cody worked with occupational therapists and a 12-tester wear program (28 submissions, 4.6★ average) to develop a compression sock that patients with limited dexterity can put on independently. This guide synthesizes published clinical literature with structured feedback from that program.",
   },
@@ -47,7 +47,7 @@ const cody: AuthorBio = {
     consumer:
       "This guide draws from Cody's lived experience, feedback from a 12-tester wear program (4.6★ average across 28 submissions), and the sources cited at the end. Cody is not a clinician. For medical decisions, work with your healthcare provider.",
     pro:
-      "Written by AccessAble's founder, not a clinician. Clinical decisions remain the responsibility of the licensed practitioner. AccessAble is actively recruiting an OT or PT clinical reviewer to formally validate this content — interested? pro@accessablecompression.com.",
+      "Written by AccessAble's founder, not a clinician. Clinical decisions remain the responsibility of the licensed practitioner. AccessAble is actively recruiting an OT or PT clinical reviewer to formally validate this content. Interested? pro@accessablecompression.com.",
   },
   links: [
     { label: 'About Cody', href: '/about' },

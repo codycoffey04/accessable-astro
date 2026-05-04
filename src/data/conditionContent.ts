@@ -419,7 +419,7 @@ export const relatedArticles: Record<string, RelatedArticle[]> = {
     { title: 'Caregiver\'s Guide to Putting On Compression Socks', slug: 'caregiver-guide-compression-socks', excerpt: 'Seated and bedridden techniques, communication tips, and adaptive tools for family caregivers.', readTime: '14 min' },
   ],
   'diabetes': [
-    { title: 'Compression 101: What You Need to Know', slug: 'compression-101', excerpt: 'Graduated compression, mmHg ratings, and sizing basics for understanding compression socks.', readTime: '5 min' },
+    { title: "Compression Socks 101: A Buyer's Guide for People Whose Hands Don't Cooperate", slug: 'compression-101', excerpt: "Buyer's guide to compression socks. mmHg levels, fit, donning ease, and when to involve your healthcare provider before choosing a level.", readTime: '10 min' },
     { title: 'Caregiver\'s Guide to Putting On Compression Socks', slug: 'caregiver-guide-compression-socks', excerpt: 'Donning techniques for caregivers and family members helping a diabetic loved one with sock application.', readTime: '14 min' },
     { title: 'How to Put On Compression Socks: The Complete Guide', slug: 'how-to-put-on-compression-socks-easily', excerpt: 'Five proven methods including gentle techniques for sensitive feet.', readTime: '12 min' },
   ],
@@ -431,12 +431,12 @@ export const relatedArticles: Record<string, RelatedArticle[]> = {
   'post-surgery': [
     { title: 'Caregiver\'s Guide to Putting On Compression Socks', slug: 'caregiver-guide-compression-socks', excerpt: 'How to put compression socks on someone else. Seated and bedridden techniques for post-surgical recovery.', readTime: '14 min' },
     { title: 'The DonnEase\u2122 Guide: How Adaptive Compression Socks Work', slug: 'donnease-adaptive-compression-guide', excerpt: 'Adaptive compression socks with wide-mouth opening. No separate tools needed during recovery.', readTime: '10 min' },
-    { title: 'Compression 101: What You Need to Know', slug: 'compression-101', excerpt: 'Understanding mmHg levels, graduated compression, and how to choose the right compression for recovery.', readTime: '5 min' },
+    { title: "Compression Socks 101: A Buyer's Guide for People Whose Hands Don't Cooperate", slug: 'compression-101', excerpt: "Buyer's guide to compression socks. After surgery, follow your provider's direction on level and length. This guide explains the mmHg numbers on the package.", readTime: '10 min' },
   ],
   'wheelchair-users': [
     { title: 'Compression Socks for Spinal Cord Injury', slug: 'compression-socks-spinal-cord-injury', excerpt: 'Wheelchair-compatible donning and skin-safety guidance from a C4 SCI wheelchair-user founder.', readTime: '14 min' },
     { title: 'How to Put On Compression Socks: The Complete Guide', slug: 'how-to-put-on-compression-socks-easily', excerpt: 'Seated donning method designed specifically for wheelchair users and balance concerns.', readTime: '12 min' },
-    { title: 'Compression 101: What You Need to Know', slug: 'compression-101', excerpt: 'Understanding compression levels and how graduated compression supports circulation while seated.', readTime: '5 min' },
+    { title: "Compression Socks 101: A Buyer's Guide for People Whose Hands Don't Cooperate", slug: 'compression-101', excerpt: "Buyer's guide to compression socks. mmHg levels, fit, and donning ease. Useful for wheelchair users picking a level outside specific provider guidance.", readTime: '10 min' },
   ],
 };
 
