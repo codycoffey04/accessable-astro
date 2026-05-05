@@ -60,7 +60,7 @@ const stories = customerStories[condition] || [];
                   href={content.educationalContent.sourceCitation.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="text-primary hover:underline"
+                  class="text-primary underline underline-offset-4 hover:text-primary-hover"
                 >
                   {content.educationalContent.sourceCitation.text}
                 </a>
@@ -342,7 +342,7 @@ const stories = customerStories[condition] || [];
                       {article.title}
                     </h3>
                     <p class="text-sm text-muted-foreground mb-4">{article.excerpt}</p>
-                    <a href={`/learn/${article.slug}`} class="text-sm font-medium text-primary hover:underline">
+                    <a href={`/learn/${article.slug}`} class="text-sm font-medium text-primary underline underline-offset-4 hover:text-primary-hover">
                       Read Article
                     </a>
                   </div>
