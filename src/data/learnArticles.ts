@@ -160,6 +160,21 @@ export const articles: LearnArticle[] = [
     wordCount: 2070,
     published: true,
   },
+  {
+    title: 'Compression Socks for Prolonged Sitting: Long Meetings, Drives, and Flights',
+    slug: 'compression-socks-prolonged-sitting',
+    category: 'Compression Basics',
+    excerpt:
+      'How prolonged sitting affects leg comfort, and what compression can offer during long meetings, drives, flights, and sedentary office days. How to pick a compression level for general comfort, and when to ask your healthcare provider.',
+    readTime: '7 min',
+    featuredImage: '/images/compression-socks-prolonged-sitting.png',
+    imageAlt:
+      "Title-card placeholder hero: the article title 'Compression Socks for Prolonged Sitting' rendered in white serif on a dark navy background, with a brand-gold accent line and a small 'AccessAble Learn Hub' label below the title",
+    audience: 'consumer',
+    basePath: '/learn',
+    lastReviewed: '2026-05-05',
+    published: false,
+  },
 
   // ── Condition-Specific cluster ───────────────────────────────────────────
   {
@@ -188,23 +203,6 @@ export const articles: LearnArticle[] = [
     featuredImage: '/images/compression-socks-edema-and-swelling.png',
     imageAlt:
       'A close-up of a foot showing visible swelling around the ankle, alongside a compression sock about to be donned',
-    audience: 'consumer',
-    basePath: '/learn',
-    lastReviewed: '2026-04-28',
-    published: false,
-  },
-
-  // ── Lifestyle & Travel cluster ───────────────────────────────────────────
-  {
-    title: 'Compression Socks for Travel: Long Flights, Road Trips, and Adaptive Travel Tips',
-    slug: 'compression-socks-for-travel',
-    category: 'Lifestyle & Travel',
-    excerpt:
-      'A travel-day compression guide for long flights, road trips, and time changes. Adaptive packing tips, hedged DVT-risk language, and what to do if your hands tire mid-flight.',
-    readTime: '8 min',
-    featuredImage: '/images/travel-tips.png',
-    imageAlt:
-      'A traveler’s carry-on bag with adaptive compression socks visible on top, alongside a passport and water bottle',
     audience: 'consumer',
     basePath: '/learn',
     lastReviewed: '2026-04-28',

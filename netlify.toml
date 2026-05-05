@@ -39,11 +39,13 @@
 # Learn Hub stub-article replacements — fallback to /learn hub.
 # The /learn/mobility-aids and /learn/travel-tips stubs were deleted in
 # preparation for full-length replacements at richer slugs, but the replacement
-# articles (mobility-aids-and-compression-socks, compression-socks-for-travel)
+# articles (mobility-aids-and-compression-socks, compression-socks-prolonged-sitting)
 # are still `published: false` in the registry and have no .astro pages on disk.
+# Note: /learn/travel-tips' replacement was re-scoped 2026-05-03 from a travel
+# article to a prolonged-sitting article per docs/2026-05-01-launch-plan-amendment-article-7-rescope.md;
+# when the replacement ships, swap the `to` field to /learn/compression-socks-prolonged-sitting.
 # These 301s preserve any inbound links (bookmarks, search-cache, external
-# references) by routing legacy URLs to the Learn Hub. When the replacement
-# articles ship, swap each `to` field to the article URL.
+# references) by routing legacy URLs to the Learn Hub.
 [[redirects]]
   from = "/learn/mobility-aids"
   to = "/learn"
