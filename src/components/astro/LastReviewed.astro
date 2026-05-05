@@ -11,8 +11,15 @@ interface Props {
 
 const { datePublished, lastReviewed, reviewedBy = 'Cody Coffey, Founder' } = Astro.props;
 
+// Calendar dates parse as midnight UTC; render with timeZone:'UTC' to keep
+// the calendar day stable across server timezones (UTC on Netlify, local on dev).
 const formatDate = (iso: string) =>
-  new Date(iso).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+  new Date(iso).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    timeZone: 'UTC',
+  });
 
 const publishedFormatted = formatDate(datePublished);
 const reviewedFormatted = lastReviewed ? formatDate(lastReviewed) : null;

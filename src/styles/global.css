@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 /* Tailwind v4: explicitly scan React island + UI files for class names.
    Without this, classes used only in .tsx islands won't be generated. */

@@ -183,10 +183,15 @@ const relatedArticles = relatedArticleSlugs
   })
   .filter((a): a is NonNullable<typeof a> => a !== null);
 
+// Calendar dates in frontmatter are bare ISO strings (e.g. "2026-05-04"), which
+// JS parses as midnight UTC. Format with timeZone:'UTC' so the rendered day
+// matches the authored day regardless of server/build timezone (was rendering
+// as previous day on Netlify's UTC build env without this).
 const formattedDate = new Date(datePublished).toLocaleDateString('en-US', {
   year: 'numeric',
   month: 'long',
   day: 'numeric',
+  timeZone: 'UTC',
 });
 
 const visibleBreadcrumbItems = getLearnHubBreadcrumbItems({ title, slug, basePath });
@@ -286,7 +291,7 @@ const visibleBreadcrumbItems = getLearnHubBreadcrumbItems({ title, slug, basePat
                   href={source.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="text-primary hover:underline"
+                  class="text-primary underline underline-offset-4 hover:text-primary-hover"
                 >
                   {source.title}
                 </a>
