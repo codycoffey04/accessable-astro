@@ -1,5 +1,7 @@
 ---
 import ArticleLayout from '@/layouts/ArticleLayout.astro';
+import QuickSummary from '@/components/astro/QuickSummary.astro';
+import KeyTakeaways from '@/components/astro/KeyTakeaways.astro';
 ---
 
 <ArticleLayout
@@ -38,14 +40,13 @@ import ArticleLayout from '@/layouts/ArticleLayout.astro';
   relatedArticleSlugs={['how-to-put-on-compression-socks-easily', 'compression-socks-spinal-cord-injury', 'compression-101']}
 >
 
-  <p><strong>Quick Summary:</strong></p>
-  <ul>
-    <li>DonnEase adaptive compression socks build the donning solution into the sock itself, using a numbered guide system (#2, #3, blue dot).</li>
-    <li>No external devices needed. The wide-mouth opening is approximately three times wider than standard compression socks.</li>
-    <li>Integrated pull-tabs replace the need for grip strength.</li>
-    <li>The system works for people with limited dexterity, one-handed use, cognitive changes, and caregiver-assisted application.</li>
-    <li>True graduated compression is maintained, unlike zipper socks.</li>
-  </ul>
+  <QuickSummary items={[
+    "DonnEase adaptive compression socks build the donning solution into the sock itself, using a numbered guide system (#2, #3, blue dot).",
+    "No external devices needed. The wide-mouth opening is approximately three times wider than standard compression socks.",
+    "Integrated pull-tabs replace the need for grip strength.",
+    "The system works for people with limited dexterity, one-handed use, cognitive changes, and caregiver-assisted application.",
+    "True graduated compression is maintained, unlike zipper socks.",
+  ]} />
 
   <p>Research suggests that 30 to 65 percent of people prescribed compression socks stop wearing them. The most common reason isn't that compression doesn't work. It's that the socks are too difficult to put on. For people living with arthritis, spinal cord injury, stroke, tremors, or age-related changes in hand strength, standard compression socks can feel like a daily battle. The adaptive compression socks industry has tried to solve this with external tools: metal donning frames, friction slides, zipper modifications. But AccessAble took a different approach. Instead of building a tool to wrestle a poorly designed sock onto your foot, we redesigned the sock. DonnEase was what happened when we stopped asking "how do we make donning easier?" and started asking "why is it hard in the first place?"</p>
 
@@ -137,14 +138,12 @@ import ArticleLayout from '@/layouts/ArticleLayout.astro';
 
   <p>The numbered guide system works the same way regardless of compression level. The adaptive features don't affect the compression profile.</p>
 
-  <h2>Key Takeaways</h2>
-
-  <ul>
-    <li>DonnEase builds the donning solution into the sock itself. No external frames, slides, or devices required.</li>
-    <li>The numbered guide system (blue dot, #3 PULL TO ANKLE, #2 PULL TO KNEE) breaks donning into clear, repeatable steps.</li>
-    <li>The wide-mouth opening is approximately three times wider than standard compression socks.</li>
-    <li>True graduated compression is maintained. Unlike zipper socks, the adaptive features don't compromise the compression profile.</li>
-    <li>If you've stopped wearing compression because it's too hard to put on, DonnEase was designed for exactly that situation. Consult your healthcare provider about the right compression level for you.</li>
-  </ul>
+  <KeyTakeaways items={[
+    "DonnEase builds the donning solution into the sock itself. No external frames, slides, or devices required.",
+    "The numbered guide system (blue dot, #3 PULL TO ANKLE, #2 PULL TO KNEE) breaks donning into clear, repeatable steps.",
+    "The wide-mouth opening is approximately three times wider than standard compression socks.",
+    "True graduated compression is maintained. Unlike zipper socks, the adaptive features don't compromise the compression profile.",
+    "If you've stopped wearing compression because it's too hard to put on, DonnEase was designed for exactly that situation. Consult your healthcare provider about the right compression level for you.",
+  ]} />
 
 </ArticleLayout>

@@ -1,5 +1,7 @@
 ---
 import ArticleLayout from '@/layouts/ArticleLayout.astro';
+import QuickSummary from '@/components/astro/QuickSummary.astro';
+import KeyTakeaways from '@/components/astro/KeyTakeaways.astro';
 ---
 
 <ArticleLayout
@@ -38,14 +40,13 @@ import ArticleLayout from '@/layouts/ArticleLayout.astro';
   relatedArticleSlugs={['donnease-adaptive-compression-guide', 'caregiver-guide-compression-socks', 'compression-101']}
 >
 
-  <p><strong>Quick Summary:</strong></p>
-  <ul>
-    <li>Most compression sock guides assume you can stand, bend, and use both hands. This one doesn't.</li>
-    <li>Five donning methods covered: standard standing, seated, one-handed, low-dexterity, and caregiver-assisted.</li>
-    <li>Rubber dishwashing gloves are the simplest donning aid and cost a few dollars.</li>
-    <li>The DonnEase numbered guide system (#2, #3, blue dot) makes donning clear and repeatable for both independent users and caregivers.</li>
-    <li>If compression socks feel impossible to put on, the problem is the product design, not you.</li>
-  </ul>
+  <QuickSummary items={[
+    "Most compression sock guides assume you can stand, bend, and use both hands. This one doesn't.",
+    "Five donning methods covered: standard standing, seated, one-handed, low-dexterity, and caregiver-assisted.",
+    "Rubber dishwashing gloves are the simplest donning aid and cost a few dollars.",
+    "The DonnEase numbered guide system (#2, #3, blue dot) makes donning clear and repeatable for both independent users and caregivers.",
+    "If compression socks feel impossible to put on, the problem is the product design, not you.",
+  ]} />
 
   <p>Research suggests that 30 to 65 percent of people prescribed compression socks don't wear them consistently. The usual explanation is "patient non-compliance," as if people are choosing not to follow medical advice. But here's what most guides won't tell you: the problem isn't the person. It's the product design. If you've ever struggled to learn how to put on compression socks easily, you're not alone, and you're not doing it wrong. Graduated compression fabric is engineered to resist stretching at the ankle, which is exactly what makes it effective, and exactly what makes it difficult to pull on. For anyone with limited grip strength, reduced flexibility, balance concerns, or the use of only one hand, standard compression socks can feel nearly impossible. This guide covers every scenario, including the ones no other brand talks about.</p>
 
@@ -169,14 +170,12 @@ import ArticleLayout from '@/layouts/ArticleLayout.astro';
 
   <p>You should also consult a provider before starting compression if you have peripheral artery disease, skin infections on your legs, or peripheral neuropathy with reduced sensation. A certified compression fitter can help ensure you have the right size and pressure level. Many occupational therapists and physical therapists can also assess your donning ability and recommend adaptive strategies or products. Check our <a href="/pages/faq">FAQ page</a> for more common questions about compression use.</p>
 
-  <h2>Key Takeaways</h2>
-
-  <ul>
-    <li>There is no single "right" way to put on compression socks. The best method depends on your mobility, hand function, and daily routine.</li>
-    <li>The standard standing method works for full-mobility users, but seated, one-handed, low-dexterity, and caregiver-assisted methods exist for everyone else.</li>
-    <li>Rubber dishwashing gloves are the simplest donning aid: they cost a few dollars and dramatically improve grip on compression fabric.</li>
-    <li>The DonnEase numbered guide system (#2, #3, blue dot) turns confusing compression socks into a clear, repeatable process for both independent users and caregivers.</li>
-    <li>If compression socks feel impossible to put on, the problem is the product design, not you. Consult your healthcare provider about the right compression level and explore adaptive options.</li>
-  </ul>
+  <KeyTakeaways items={[
+    'There is no single "right" way to put on compression socks. The best method depends on your mobility, hand function, and daily routine.',
+    "The standard standing method works for full-mobility users, but seated, one-handed, low-dexterity, and caregiver-assisted methods exist for everyone else.",
+    "Rubber dishwashing gloves are the simplest donning aid: they cost a few dollars and dramatically improve grip on compression fabric.",
+    "The DonnEase numbered guide system (#2, #3, blue dot) turns confusing compression socks into a clear, repeatable process for both independent users and caregivers.",
+    "If compression socks feel impossible to put on, the problem is the product design, not you. Consult your healthcare provider about the right compression level and explore adaptive options.",
+  ]} />
 
 </ArticleLayout>

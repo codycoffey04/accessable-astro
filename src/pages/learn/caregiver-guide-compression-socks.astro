@@ -1,5 +1,7 @@
 ---
 import ArticleLayout from '@/layouts/ArticleLayout.astro';
+import QuickSummary from '@/components/astro/QuickSummary.astro';
+import KeyTakeaways from '@/components/astro/KeyTakeaways.astro';
 ---
 
 <ArticleLayout
@@ -37,14 +39,13 @@ import ArticleLayout from '@/layouts/ArticleLayout.astro';
   relatedArticleSlugs={['how-to-put-on-compression-socks-easily', 'donnease-adaptive-compression-guide', 'compression-socks-spinal-cord-injury']}
 >
 
-  <p><strong>Quick Summary:</strong></p>
-  <ul>
-    <li>Putting compression socks on someone else requires different technique than self-donning.</li>
-    <li>Two methods covered: seated (for people who can sit upright) and bedridden (for people with limited mobility).</li>
-    <li>Communication during donning preserves dignity. Ask before touching, narrate your actions, watch for discomfort.</li>
-    <li>The DonnEase numbered guide system reduces caregiver training time to under a minute.</li>
-    <li>Monitor for skin redness, tingling, sock migration, and color changes after application.</li>
-  </ul>
+  <QuickSummary items={[
+    "Putting compression socks on someone else requires different technique than self-donning.",
+    "Two methods covered: seated (for people who can sit upright) and bedridden (for people with limited mobility).",
+    "Communication during donning preserves dignity. Ask before touching, narrate your actions, watch for discomfort.",
+    "The DonnEase numbered guide system reduces caregiver training time to under a minute.",
+    "Monitor for skin redness, tingling, sock migration, and color changes after application.",
+  ]} />
 
   <p>Most compression sock guides assume one thing: you're putting them on yourself. Every instruction is written from the wearer's perspective. Grip the heel pocket. Slide your toes in. Pull up your calf. But millions of people don't put on their own compression socks. Someone else does it for them. A spouse. An adult child. A home health aide. A friend who shows up at 7 AM because it needs to get done. And the mechanics are completely different when you're working on someone else's leg. The angle is wrong. The leverage is different. You can't feel whether the fabric is bunching or pinching. You're managing another person's comfort while using your own body in positions it wasn't designed for. Nobody teaches this. Until now.</p>
 
@@ -158,16 +159,14 @@ import ArticleLayout from '@/layouts/ArticleLayout.astro';
 
   <p>Caregiver support resources: the Family Caregiver Alliance (caregiver.org) offers free support groups, educational resources, and a caregiver navigator. AARP's caregiving resource center (aarp.org/caregiving) provides practical guides and a caregiver helpline. The National Alliance for Caregiving (caregiving.org) publishes research and connects caregivers with local support.</p>
 
-  <h2>Key Takeaways</h2>
-
-  <ul>
-    <li>Putting compression socks on someone else requires different technique than self-donning. The angle, leverage, and feedback are all different.</li>
-    <li>Two methods covered: seated (for people who can sit upright) and bedridden (for people with limited mobility or post-surgical restrictions).</li>
-    <li>Communication during donning preserves dignity. Ask before touching, narrate your actions, and watch for nonverbal signs of discomfort.</li>
-    <li>The DonnEase numbered guide system reduces caregiver training time to under a minute and provides visual confirmation of correct positioning.</li>
-    <li>Monitor for skin redness, tingling, sock migration, and color changes after application. Consult the healthcare provider if anything seems wrong.</li>
-    <li>Your wellbeing as a caregiver matters. Tools that reduce effort and time are worth investing in.</li>
-  </ul>
+  <KeyTakeaways items={[
+    "Putting compression socks on someone else requires different technique than self-donning. The angle, leverage, and feedback are all different.",
+    "Two methods covered: seated (for people who can sit upright) and bedridden (for people with limited mobility or post-surgical restrictions).",
+    "Communication during donning preserves dignity. Ask before touching, narrate your actions, and watch for nonverbal signs of discomfort.",
+    "The DonnEase numbered guide system reduces caregiver training time to under a minute and provides visual confirmation of correct positioning.",
+    "Monitor for skin redness, tingling, sock migration, and color changes after application. Consult the healthcare provider if anything seems wrong.",
+    "Your wellbeing as a caregiver matters. Tools that reduce effort and time are worth investing in.",
+  ]} />
 
   <p>Ready to make morning compression easier for both of you? <a href="/pages/size-guide">Find the right size</a> or <a href="/pages/faq">check the FAQ</a> for common questions.</p>
 

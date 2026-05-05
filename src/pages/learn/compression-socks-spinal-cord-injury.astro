@@ -1,5 +1,6 @@
 ---
 import ArticleLayout from '@/layouts/ArticleLayout.astro';
+import KeyTakeaways from '@/components/astro/KeyTakeaways.astro';
 ---
 
 <ArticleLayout
@@ -150,16 +151,14 @@ import ArticleLayout from '@/layouts/ArticleLayout.astro';
 
   <p>That is what AccessAble is: compression socks designed for the people the industry forgot. Not as a charity project. Not as an inspiration story. As a product that solves a real problem because the person who designed it has the same problem. <a href="/about">Read more about our story</a>.</p>
 
-  <h2>Key Takeaways</h2>
-
-  <ul>
-    <li>Spinal cord injury creates specific compression challenges: reduced muscle pump function, increased DVT risk, blood pooling, orthostatic hypotension, and the critical issue of reduced sensation below injury level. Compression may help support these concerns as part of a healthcare provider-directed care plan.</li>
-    <li>Traditional compression socks are not designed for SCI. Limited hand function, limited trunk stability, seated donning mechanics, and absent sensation all require different approaches than standard donning guides offer.</li>
-    <li>Adaptive techniques exist for limited hand function: palm-and-heel donning, the fold-and-slide method, armrest bracing, and the DonnEase numbered guide system for visual confirmation of correct positioning.</li>
-    <li>Skin safety is critical for people with reduced sensation. Visual inspection at every sock removal is mandatory. Watch for persistent redness, indentation, blistering, or any skin breakdown.</li>
-    <li>Compression level must be directed by your healthcare provider. This is not optional after SCI. Your physiatrist, rehab team, or vascular specialist should prescribe and monitor your compression protocol.</li>
-    <li>Independence is not an all-or-nothing proposition. Some days you put the socks on yourself. Some days you ask for help. Both are fine. The goal is consistent wear, not a performance.</li>
-  </ul>
+  <KeyTakeaways items={[
+    "Spinal cord injury creates specific compression challenges: reduced muscle pump function, increased DVT risk, blood pooling, orthostatic hypotension, and the critical issue of reduced sensation below injury level. Compression may help support these concerns as part of a healthcare provider-directed care plan.",
+    "Traditional compression socks are not designed for SCI. Limited hand function, limited trunk stability, seated donning mechanics, and absent sensation all require different approaches than standard donning guides offer.",
+    "Adaptive techniques exist for limited hand function: palm-and-heel donning, the fold-and-slide method, armrest bracing, and the DonnEase numbered guide system for visual confirmation of correct positioning.",
+    "Skin safety is critical for people with reduced sensation. Visual inspection at every sock removal is mandatory. Watch for persistent redness, indentation, blistering, or any skin breakdown.",
+    "Compression level must be directed by your healthcare provider. This is not optional after SCI. Your physiatrist, rehab team, or vascular specialist should prescribe and monitor your compression protocol.",
+    "Independence is not an all-or-nothing proposition. Some days you put the socks on yourself. Some days you ask for help. Both are fine. The goal is consistent wear, not a performance.",
+  ]} />
 
   <p>Ready to find compression that works with your body, not against it? <a href="/pages/size-guide">Check the size guide</a> to find your fit, or <a href="/pages/faq">visit the FAQ</a> for answers to common questions. To get notified when AccessAble launches, <a href="https://signup.accessablecompression.com">join the waitlist</a>.</p>
 

@@ -1,5 +1,7 @@
 ---
 import ArticleLayout from '@/layouts/ArticleLayout.astro';
+import QuickSummary from '@/components/astro/QuickSummary.astro';
+import KeyTakeaways from '@/components/astro/KeyTakeaways.astro';
 
 // 7c PLACEHOLDER: featuredImage path inherits from the pre-Phase-1 stub
 // convention (/images/<slug>.png). Hero image asset has not been finalized
@@ -45,15 +47,14 @@ import ArticleLayout from '@/layouts/ArticleLayout.astro';
   relatedArticleSlugs={['how-to-put-on-compression-socks-easily', 'donnease-adaptive-compression-guide', 'caregiver-guide-compression-socks']}
 >
 
-  <p><strong>Quick Summary:</strong></p>
-  <ul>
-    <li>Most compression sock guides explain pressure. Buyers also need to understand fit, friction, grip, and daily use.</li>
-    <li>Compression socks are usually sold by mmHg, which is the pressure number printed on the package.</li>
-    <li>Graduated compression means the sock is firmest near the ankle and gradually less firm higher up the leg.</li>
-    <li>15-20 mmHg and 20-30 mmHg are not interchangeable buyer labels, even when they sit next to each other online.</li>
-    <li>If a healthcare provider gave you a level, follow that guidance instead of treating a buyer guide as instructions.</li>
-    <li>The hard part is often not choosing compression. It is choosing a sock you can actually wear.</li>
-  </ul>
+  <QuickSummary items={[
+    "Most compression sock guides explain pressure. Buyers also need to understand fit, friction, grip, and daily use.",
+    "Compression socks are usually sold by mmHg, which is the pressure number printed on the package.",
+    "Graduated compression means the sock is firmest near the ankle and gradually less firm higher up the leg.",
+    "15-20 mmHg and 20-30 mmHg are not interchangeable buyer labels, even when they sit next to each other online.",
+    "If a healthcare provider gave you a level, follow that guidance instead of treating a buyer guide as instructions.",
+    "The hard part is often not choosing compression. It is choosing a sock you can actually wear.",
+  ]} />
 
   <p>Compression socks look simple from the outside. A pair of socks, a pressure number, a length, and maybe a few claims on the package. The buying decision is not that simple, especially if your hands, balance, flexibility, swelling, mobility, or daily routine do not match the person the average sock was designed around.</p>
 
@@ -138,15 +139,14 @@ import ArticleLayout from '@/layouts/ArticleLayout.astro';
 
   <p>Compression socks are not supposed to be a daily test of whether you are tough enough. If the product requires more grip, range of motion, or balance than you have, the design is part of the problem. Buy accordingly.</p>
 
-  <p><strong>Key Takeaways:</strong></p>
-  <ul>
-    <li>mmHg is a product spec, not a personal medical instruction.</li>
-    <li>Graduated compression means firmer pressure near the ankle and less pressure higher up the leg.</li>
-    <li>15-20 mmHg (Everyday Relief) and 20-30 mmHg (Medical Support) belong in different buyer categories.</li>
-    <li>Fit includes calf size, length, opening width, wrinkles, slipping, and fabric fatigue.</li>
-    <li>Putting compression socks on is a real buying factor, not a personal failure.</li>
-    <li>For symptoms, post-surgery instructions, known conditions, or higher compression levels, consult your healthcare provider.</li>
-  </ul>
+  <KeyTakeaways items={[
+    "mmHg is a product spec, not a personal medical instruction.",
+    "Graduated compression means firmer pressure near the ankle and less pressure higher up the leg.",
+    "15-20 mmHg (Everyday Relief) and 20-30 mmHg (Medical Support) belong in different buyer categories.",
+    "Fit includes calf size, length, opening width, wrinkles, slipping, and fabric fatigue.",
+    "Putting compression socks on is a real buying factor, not a personal failure.",
+    "For symptoms, post-surgery instructions, known conditions, or higher compression levels, consult your healthcare provider.",
+  ]} />
 
   <p>Start with the <a href="/collections/all">AccessAble catalog</a> if you want adaptive compression options built around the putting-on problem. If someone else helps with your routine, use that same buyer lens before you buy.</p>
 
