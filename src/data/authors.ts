@@ -45,7 +45,7 @@ const cody: AuthorBio = {
   },
   disclosure: {
     consumer:
-      "This guide draws from Cody's lived experience, feedback from a 12-tester wear program (4.6★ average across 28 submissions), and the sources cited at the end. Cody is not a clinician. For medical decisions, work with your healthcare provider.",
+      "This guide draws from Cody's lived experience, feedback from the AccessAble wear-test program, and the sources cited at the end. Cody is not a clinician. For medical decisions, work with your healthcare provider.",
     pro:
       "Written by AccessAble's founder, not a clinician. Clinical decisions remain the responsibility of the licensed practitioner. AccessAble is actively recruiting an OT or PT clinical reviewer to formally validate this content. Interested? pro@accessablecompression.com.",
   },
