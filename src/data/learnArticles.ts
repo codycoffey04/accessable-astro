@@ -122,8 +122,9 @@ export const articles: LearnArticle[] = [
     audience: 'consumer',
     basePath: '/learn',
     pillarSlug: 'how-to-put-on-compression-socks-easily',
-    lastReviewed: '2026-04-28',
-    published: false,
+    lastReviewed: '2026-05-08',
+    wordCount: 1765,
+    published: true,
   },
   {
     title: 'How to Put On Compression Socks With One Hand',

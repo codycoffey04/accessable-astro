@@ -34,14 +34,14 @@ const cody: AuthorBio = {
   id: 'cody-coffey',
   name: 'Cody Coffey',
   role: 'Founder, AccessAble',
-  credentials: 'C4 incomplete spinal cord injury, December 2023. Designer of the DonnEase numbered-guide system.',
+  credentials: 'C4 incomplete spinal cord injury, December 2023.',
   avatar: '/images/brand/accessable-author-mark.svg',
   avatarAlt: 'AccessAble brand mark',
   body: {
     consumer:
-      "Cody Coffey is the founder of AccessAble. He designs adaptive compression socks based on his own experience after a C4 incomplete spinal cord injury in December 2023. That was the moment he realized he couldn't put his own socks on without help. The DonnEase numbered-guide system is the answer he wished existed.",
+      "Cody Coffey is the founder of AccessAble. After a C4 incomplete spinal cord injury in December 2023, he couldn't put his own socks on without help. He started AccessAble to bring adaptive compression socks like DonnEase, with its numbered-guide system, to people who face the same problem.",
     pro:
-      "Cody Coffey is the founder of AccessAble and the designer of the DonnEase numbered-guide system. After a C4 incomplete spinal cord injury, Cody worked with occupational therapists and the AccessAble wear-test program to develop a compression sock that patients with limited dexterity can put on independently. This guide synthesizes published clinical literature with structured feedback from that program.",
+      "Cody Coffey is the founder of AccessAble. After a C4 incomplete spinal cord injury in December 2023, he couldn't put his own compression socks on without help. He started AccessAble to bring adaptive socks like DonnEase, with its numbered-guide system, to patients facing the same dexterity barrier. This guide synthesizes published clinical literature with structured feedback from the AccessAble wear-test program.",
   },
   disclosure: {
     consumer:
