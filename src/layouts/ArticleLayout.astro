@@ -238,6 +238,18 @@ const visibleBreadcrumbItems = getLearnHubBreadcrumbItems({ title, slug, basePat
       <h1 class="text-3xl lg:text-4xl font-bold text-primary mb-4">{title}</h1>
       <p class="text-lg text-muted-foreground mb-6">{description}</p>
 
+      <!-- Featured Image — imageAlt is required and never falls back to title -->
+      {featuredImage && (
+        <div class="aspect-video bg-muted rounded-lg overflow-hidden mb-8">
+          <img
+            src={featuredImage}
+            alt={imageAlt}
+            class="w-full h-full object-cover"
+            loading="eager"
+          />
+        </div>
+      )}
+
       <!-- Meta -->
       <div class="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-2 pb-2">
         <span>{readTime} read</span>
@@ -259,18 +271,6 @@ const visibleBreadcrumbItems = getLearnHubBreadcrumbItems({ title, slug, basePat
 
       <!-- Author bio block (renders no founder photo per CLAUDE.md constraint) -->
       <AuthorBio variant={resolvedAuthorBioVariant} />
-
-      <!-- Featured Image — imageAlt is required and never falls back to title -->
-      {featuredImage && (
-        <div class="aspect-video bg-muted rounded-lg overflow-hidden mb-8">
-          <img
-            src={featuredImage}
-            alt={imageAlt}
-            class="w-full h-full object-cover"
-            loading="eager"
-          />
-        </div>
-      )}
 
       <!-- Fold safety callout (Gina Lytle wear-test mitigation) -->
       {showFoldSafetyCallout && <FoldSafetyCallout />}
